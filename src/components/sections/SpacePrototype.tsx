@@ -84,26 +84,28 @@ export function SpacePrototype() {
                 aria-label="Simulated 3D building"
               >
                 <div
-                  className="flex flex-col-reverse gap-[3px]"
-                  style={{ transform: "rotateX(52deg) rotateZ(-38deg)", transformStyle: "preserve-3d" }}
+                  className="relative h-[300px] w-56"
+                  style={{
+                    transform: "rotateX(64deg) rotateZ(-42deg)",
+                    transformStyle: "preserve-3d",
+                  }}
                 >
-                  {floors
-                    .slice()
-                    .reverse()
-                    .map((f) => (
-                      <button
-                        key={f}
-                        onClick={() => setFloor(f)}
-                        className={cn(
-                          "h-6 w-56 border transition-all duration-500",
-                          floor === f
-                            ? "border-primary bg-primary/25 shadow-[0_0_40px_-6px_var(--primary)]"
-                            : "border-border-strong/60 bg-surface-2/60 hover:bg-surface-2",
-                        )}
-                        style={{ transform: floor === f ? "translateZ(26px)" : "none" }}
-                        aria-label={`Floor ${f}`}
-                      />
-                    ))}
+                  {floors.map((f, i) => (
+                    <button
+                      key={f}
+                      onClick={() => setFloor(f)}
+                      className={cn(
+                        "absolute inset-x-0 top-1/2 h-24 w-56 border transition-all duration-500",
+                        floor === f
+                          ? "border-primary bg-primary/25 shadow-[0_0_60px_-6px_var(--primary)]"
+                          : "border-border-strong/70 bg-surface-2/50 hover:bg-surface-2",
+                      )}
+                      style={{
+                        transform: `translateZ(${(floors.length - i) * 22}px) translateY(-50%)`,
+                      }}
+                      aria-label={`Floor ${f}`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
