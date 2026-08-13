@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { Services as ServicesSection } from "@/components/sections/Services";
+import { Approach } from "@/components/sections/Approach";
 import { Technology } from "@/components/sections/Technology";
-import { ConstructionExperience } from "@/components/sections/ConstructionExperience";
 import { Contact } from "@/components/sections/Contact";
 
 const title = "Services — Branding, Marketing, Strategy, Technology | Cravent";
@@ -30,8 +30,8 @@ function ServicesPage() {
         lead="Design. Marketing. Strategy. Technology. Delivered as one system, not four disconnected functions."
       />
       <ServicesSection />
+      <Approach />
       <Technology />
-      <ConstructionExperience />
       <Contact />
     </>
   );

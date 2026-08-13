@@ -4,13 +4,12 @@ import { Btn, XMark } from "./kit";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Industries", to: "/industries" },
   { label: "Work", to: "/work" },
+  { label: "Industries", to: "/industries" },
   { label: "Insights", to: "/insights" },
-  { label: "Contact", to: "/contact" },
+  { label: "Space", to: "/space" },
 ];
 
 export function Nav() {

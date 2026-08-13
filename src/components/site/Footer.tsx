@@ -2,11 +2,12 @@ import { Link } from "@tanstack/react-router";
 import { Btn, XMark } from "./kit";
 
 const nav = [
-  { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Industries", to: "/industries" },
   { label: "Work", to: "/work" },
+  { label: "Industries", to: "/industries" },
   { label: "Insights", to: "/insights" },
+  { label: "Space", to: "/space" },
+  { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];
 

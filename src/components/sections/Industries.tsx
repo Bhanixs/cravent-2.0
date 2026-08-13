@@ -5,8 +5,44 @@ import { cn } from "@/lib/utils";
 import tex1 from "@/assets/tex-1.jpg";
 import tex2 from "@/assets/tex-2.jpg";
 
-export function Industries() {
+export function Industries({ compact = false }: { compact?: boolean }) {
   const [active, setActive] = useState(0);
+
+  if (compact) {
+    return (
+      <Section id="industries" className="border-t border-border">
+        <div className="flex flex-wrap items-end justify-between gap-8">
+          <SectionHeading
+            eyebrow="Industries"
+            index="[ 08 sectors ]"
+            title={<>Sectors we build in.</>}
+          />
+          <Reveal>
+            <Btn to="/industries" variant="outline">
+              View all sectors
+            </Btn>
+          </Reveal>
+        </div>
+        <Reveal delay={0.08}>
+          <div className="mt-12 grid grid-cols-2 gap-px border border-border bg-border sm:grid-cols-4">
+            {industries.map((ind, i) => (
+              <div
+                key={ind.name}
+                className="group bg-background px-5 py-5 transition-colors duration-400 hover:bg-surface"
+              >
+                <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="mt-2 block font-display text-sm font-semibold uppercase leading-tight text-foreground transition-colors duration-400 group-hover:text-primary-bright">
+                  {ind.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </Section>
+    );
+  }
 
   return (
     <Section id="industries" className="border-t border-border">

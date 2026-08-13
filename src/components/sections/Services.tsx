@@ -3,7 +3,7 @@ import { Reveal, Section, SectionHeading } from "@/components/site/kit";
 import { services } from "@/content/cravent";
 import { cn } from "@/lib/utils";
 
-export function Services() {
+export function Services({ compact = false }: { compact?: boolean }) {
   const [active, setActive] = useState<number | null>(0);
 
   return (
@@ -46,16 +46,18 @@ export function Services() {
                 <p className="max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
                   {s.body}
                 </p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {s.points.map((p) => (
-                    <span
-                      key={p}
-                      className="border border-border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground transition-colors group-hover:border-primary/50 group-hover:text-primary-bright"
-                    >
-                      {p}
-                    </span>
-                  ))}
-                </div>
+                {!compact && (
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {s.points.map((p) => (
+                      <span
+                        key={p}
+                        className="border border-border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground transition-colors group-hover:border-primary/50 group-hover:text-primary-bright"
+                      >
+                        {p}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
               <span
                 className={cn(
