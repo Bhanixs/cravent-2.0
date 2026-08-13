@@ -8,8 +8,8 @@ const links = [
   { label: "Services", to: "/services" },
   { label: "Work", to: "/work" },
   { label: "Industries", to: "/industries" },
-  { label: "Insights", to: "/insights" },
   { label: "Space", to: "/space" },
+  { label: "Insights", to: "/insights" },
 ];
 
 export function Nav() {
