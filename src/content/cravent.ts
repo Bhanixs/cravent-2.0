@@ -75,29 +75,21 @@ export const industries = [
     body: "Create trusted brand communication and patient-facing digital systems built for clarity and care.",
   },
   {
-    name: "Technology",
-    body: "Position products with precision and build the marketing and product surfaces that carry them to market.",
-  },
-  {
     name: "Sustainability",
     body: "Translate complex environmental work into clear positioning, credible storytelling, and functional platforms.",
-  },
-  {
-    name: "Community / Social Initiatives",
-    body: "Build movements with identity, reach, and the digital infrastructure to organise and grow participation.",
   },
 ];
 
 export const work = [
-  { name: "Valonk", industry: "Technology", scope: "Brand · Digital" },
-  { name: "Akshara Vidyaashram", industry: "Education", scope: "Brand · Marketing" },
-  { name: "Travellers Tribe", industry: "Travel & Tourism", scope: "Brand · Campaigns" },
   { name: "Erthaloka", industry: "Sustainability", scope: "Brand · Platform" },
-  { name: "SPARC", industry: "Community", scope: "Identity · Communication" },
   { name: "Jeevarasai", industry: "Wellness", scope: "Brand · Digital" },
   { name: "KH International", industry: "Business", scope: "Strategy · Marketing" },
-  { name: "Xplored", industry: "Travel & Lifestyle", scope: "Brand · Growth" },
+  { name: "Valonk", industry: "Technology", scope: "Brand · Digital" },
   { name: "Bhanix", industry: "Business Development", scope: "Positioning · Systems" },
+  { name: "Akshara Vidyaashram", industry: "Education", scope: "Brand · Marketing" },
+  { name: "Travellers Tribe", industry: "Travel & Tourism", scope: "Brand · Campaigns" },
+  { name: "SPARC", industry: "Community", scope: "Identity · Communication" },
+  { name: "Xplored", industry: "Travel & Lifestyle", scope: "Brand · Growth" },
 ];
 
 export const spaceFeatures = [
