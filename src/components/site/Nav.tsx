@@ -102,7 +102,7 @@ export function Nav() {
               key={l.to}
               to={l.to}
               onClick={() => setOpen(false)}
-              className="border-b border-border py-4 font-display text-3xl font-bold uppercase tracking-tight transition-colors hover:text-primary-bright"
+              className="border-b border-border py-4 font-display text-3xl font-bold uppercase tracking-wider transition-colors hover:text-primary-bright"
               style={{ transitionDelay: `${i * 30}ms` }}
             >
               {l.label}

@@ -151,7 +151,7 @@ export function SectionHeading({
 
 export function Tag({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center border border-border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:border-primary hover:text-primary-bright">
+    <span className="inline-flex items-center border border-border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground transition-colors hover:border-primary hover:text-primary-bright">
       {children}
     </span>
   );
@@ -177,7 +177,7 @@ export function Marquee({ items }: { items: string[] }) {
       <div className="animate-marquee flex min-w-max items-center gap-10 whitespace-nowrap">
         {row.map((t, i) => (
           <span key={i} className="flex items-center gap-10">
-            <span className="font-display text-2xl font-semibold uppercase tracking-tight text-foreground/80 md:text-3xl">
+            <span className="font-display text-2xl font-semibold uppercase tracking-wider text-foreground/80 md:text-3xl">
               {t}
             </span>
             <XMark className="h-3 w-3 shrink-0" />

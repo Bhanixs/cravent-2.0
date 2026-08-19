@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..1000;1,9..40,300..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -40,8 +41,8 @@
   --color-border-strong: var(--border-strong);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Libre Bodoni", "Bodoni MT", "Georgia", ui-serif, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
@@ -71,6 +72,10 @@
   --input: oklch(0.28 0.02 252);
   --ring: oklch(0.63 0.23 258);
 
+  --font-display: "Libre Bodoni", "Bodoni MT", "Georgia", ui-serif, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
   --grid-line: color-mix(in oklab, var(--primary) 12%, transparent);
   --glow-blue: 0 0 0 1px color-mix(in oklab, var(--primary) 45%, transparent),
     0 0 40px -8px color-mix(in oklab, var(--primary) 60%, transparent);
@@ -89,13 +94,17 @@
 
   html {
     scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    letter-spacing: 0.015em;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   ::selection {
@@ -108,8 +117,11 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.03em;
-    line-height: 0.94;
+    letter-spacing: 0.05em;
+    line-height: 1.04;
+    font-optical-sizing: auto;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "dlig" 1;
+    text-rendering: optimizeLegibility;
   }
 }
 
@@ -123,13 +135,9 @@
 @utility eyebrow {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--primary-bright);
-}
-
-@utility text-glow {
-  text-shadow: 0 0 32px color-mix(in oklab, var(--primary) 55%, transparent);
 }
 
 @utility clip-angle {

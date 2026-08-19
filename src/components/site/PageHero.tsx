@@ -20,7 +20,7 @@ export function PageHero({
           </div>
         </Reveal>
         <Reveal delay={0.08}>
-          <h1 className="mt-6 max-w-5xl text-[clamp(2.5rem,8vw,7rem)] font-bold uppercase text-glow">
+          <h1 className="mt-6 max-w-5xl text-[clamp(2.5rem,8vw,7rem)] font-bold uppercase">
             {title}
           </h1>
         </Reveal>

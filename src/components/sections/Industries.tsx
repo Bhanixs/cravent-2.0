@@ -70,7 +70,7 @@ export function Industries({ compact = false }: { compact?: boolean }) {
                   </span>
                   <span
                     className={cn(
-                      "font-display text-2xl font-bold uppercase tracking-tight transition-all duration-400 md:text-4xl",
+                      "font-display text-2xl font-bold uppercase tracking-wide transition-all duration-400 md:text-4xl",
                       active === i ? "translate-x-2 text-primary-bright" : "text-foreground",
                     )}
                   >
