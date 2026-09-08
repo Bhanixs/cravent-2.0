@@ -29,10 +29,11 @@ export function Hero() {
           alt="Futuristic architectural structure with an electric blue X motif"
           width={1600}
           height={1200}
-          className="h-full w-full object-cover opacity-70"
+          className="h-full w-full object-cover opacity-50"
           style={{
             transform: `scale(1.08) translate(${pointer.x * -14}px, ${pointer.y * -14}px)`,
             transition: "transform 500ms cubic-bezier(0.16,1,0.3,1)",
+            filter: "invert(1) hue-rotate(180deg)",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/60 to-background" />

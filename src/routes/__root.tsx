@@ -87,6 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Cravent is a growth partner combining branding, marketing, strategy, business development, and technology.",
       },
       { name: "author", content: "Cravent" },
+      { name: "theme-color", content: "#f8f9fc" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

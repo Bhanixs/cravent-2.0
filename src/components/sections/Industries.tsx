@@ -97,7 +97,8 @@ export function Industries({ compact = false }: { compact?: boolean }) {
             loading="lazy"
             width={1200}
             height={900}
-            className="absolute inset-0 h-full w-full object-cover opacity-40 transition-opacity duration-700"
+            className="absolute inset-0 h-full w-full object-cover opacity-30 transition-opacity duration-700"
+            style={{ filter: "invert(1) hue-rotate(180deg)" }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
           <div className="relative flex h-full flex-col justify-end p-8">

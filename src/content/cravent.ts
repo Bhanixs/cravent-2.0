@@ -55,10 +55,6 @@ export const approach = [
 
 export const industries = [
   {
-    name: "Construction & Real Estate",
-    body: "Create brand systems and marketing platforms that improve trust, visibility, enquiries, and project communication.",
-  },
-  {
     name: "Fashion & Lifestyle",
     body: "Build distinctive brand worlds, campaigns, and commerce experiences that create desire and repeat demand.",
   },
