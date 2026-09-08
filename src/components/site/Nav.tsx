@@ -8,7 +8,7 @@ const links = [
   { label: "Services", to: "/services" },
   { label: "Work", to: "/work" },
   { label: "Industries", to: "/industries" },
-  { label: "Space", to: "/space" },
+  /*{ label: "Space", to: "/space" },*/
   { label: "Insights", to: "/insights" },
 ];
 
