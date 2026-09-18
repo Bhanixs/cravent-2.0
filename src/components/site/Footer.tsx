@@ -74,7 +74,10 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/" className="transition-colors hover:text-primary-bright">
+                <a
+                  href="https://wa.me/?text=Hello%20Cravent"
+                  className="transition-colors hover:text-primary-bright"
+                >
                   Connect on WhatsApp
                 </a>
               </li>

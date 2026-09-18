@@ -22,7 +22,7 @@ export function About() {
 
           <div className="mt-12 grid grid-cols-3 gap-px border border-border bg-border">
             {[
-              { n: 5, label: "Disciplines", suffix: "" },
+              { n: 4, label: "Disciplines", suffix: "" },
               { n: 8, label: "Industries", suffix: "" },
               { n: 5, label: "Step approach", suffix: "" },
             ].map((s) => (
@@ -40,12 +40,33 @@ export function About() {
 
         <Reveal delay={0.12}>
           <div className="relative border-l border-border pl-8">
-            {approach.map((a) => (
-              <div key={a.step} className="relative pb-10 last:pb-0">
+            {[
+              {
+                num: "01",
+                title: "One Connected Practice",
+                body: "No silos between brand, marketing, strategy, and technology. Everything is built to reinforce the whole.",
+              },
+              {
+                num: "02",
+                title: "Compounding Systems",
+                body: "We build assets and workflows designed to continue generating leverage long after the initial launch.",
+              },
+              {
+                num: "03",
+                title: "Diagnosis Before Build",
+                body: "We identify the commercial constraint holding back growth before recommending what to engineer.",
+              },
+              {
+                num: "04",
+                title: "Direct Accountability",
+                body: "Senior execution without agency hand-offs, operating as a true extension of leadership.",
+              },
+            ].map((pillar) => (
+              <div key={pillar.num} className="relative pb-10 last:pb-0">
                 <span className="absolute -left-[41px] top-1 h-3 w-3 border border-primary bg-background" />
-                <span className="font-mono text-[11px] text-primary-bright">{a.step}</span>
-                <h3 className="mt-2 text-2xl font-bold uppercase">{a.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{a.body}</p>
+                <span className="font-mono text-[11px] text-primary-bright">{pillar.num}</span>
+                <h3 className="mt-2 text-2xl font-bold uppercase">{pillar.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{pillar.body}</p>
               </div>
             ))}
           </div>

@@ -44,7 +44,7 @@ export function Contact() {
           </Reveal>
           <Reveal delay={0.18}>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Btn href="https://wa.me/" variant="outline">
+              <Btn href="https://wa.me/?text=Hello%20Cravent" variant="outline">
                 Connect on WhatsApp
               </Btn>
               <Btn href="mailto:hello@cravent.in" variant="outline">

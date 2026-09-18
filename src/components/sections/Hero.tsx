@@ -96,7 +96,7 @@ export function Hero() {
             <Btn to="/contact" size="lg">
               Book a Growth Audit
             </Btn>
-            <Btn to="/work" variant="outline" size="lg">
+            <Btn to="/services" variant="outline" size="lg">
               Explore Our Services
             </Btn>
           </motion.div>

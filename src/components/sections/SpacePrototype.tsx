@@ -4,7 +4,13 @@ import { cn } from "@/lib/utils";
 
 const floors = [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 
-type Unit = { id: string; type: string; area: string; price: string; status: "Available" | "Held" | "Sold" };
+type Unit = {
+  id: string;
+  type: string;
+  area: string;
+  price: string;
+  status: "Available" | "Held" | "Sold";
+};
 
 const unitsByFloor = (floor: number): Unit[] => [
   {

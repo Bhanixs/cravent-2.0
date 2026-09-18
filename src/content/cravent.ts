@@ -112,14 +112,7 @@ export const spaceFeatures = [
   "Digital marketing integration",
 ];
 
-export const techStack = [
-  "Brand",
-  "Marketing",
-  "Sales",
-  "CRM",
-  "Technology",
-  "Analytics",
-];
+export const techStack = ["Brand", "Marketing", "Sales", "CRM", "Technology", "Analytics"];
 
 export const capabilities = [
   "Websites",

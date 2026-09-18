@@ -10,18 +10,44 @@ function Sculpture() {
     if (!group.current) return;
     const delta = Math.min(rawDelta, 0.05);
     group.current.rotation.y += delta * 0.09;
-    group.current.rotation.x += (pointer.y * 0.12 - group.current.rotation.x) * (1 - Math.exp(-3 * delta));
-    group.current.rotation.z += (-pointer.x * 0.08 - group.current.rotation.z) * (1 - Math.exp(-3 * delta));
+    group.current.rotation.x +=
+      (pointer.y * 0.12 - group.current.rotation.x) * (1 - Math.exp(-3 * delta));
+    group.current.rotation.z +=
+      (-pointer.x * 0.08 - group.current.rotation.z) * (1 - Math.exp(-3 * delta));
   });
 
   return (
     <group ref={group} rotation={[0.28, -0.5, -0.08]}>
-      <RoundedBox args={[1, 6.4, 1]} radius={0.48} smoothness={8} rotation-z={Math.PI / 4} castShadow>
-        <meshPhysicalMaterial color="#101828" metalness={0.42} roughness={0.2} clearcoat={0.9} clearcoatRoughness={0.25} />
+      <RoundedBox
+        args={[1, 6.4, 1]}
+        radius={0.48}
+        smoothness={8}
+        rotation-z={Math.PI / 4}
+        castShadow
+      >
+        <meshPhysicalMaterial
+          color="#101828"
+          metalness={0.42}
+          roughness={0.2}
+          clearcoat={0.9}
+          clearcoatRoughness={0.25}
+        />
         <Edges color="#3b82f6" threshold={18} opacity={0.65} transparent />
       </RoundedBox>
-      <RoundedBox args={[1, 6.4, 1]} radius={0.48} smoothness={8} rotation-z={-Math.PI / 4} castShadow>
-        <meshPhysicalMaterial color="#e8eef8" metalness={0.22} roughness={0.28} clearcoat={1} clearcoatRoughness={0.18} />
+      <RoundedBox
+        args={[1, 6.4, 1]}
+        radius={0.48}
+        smoothness={8}
+        rotation-z={-Math.PI / 4}
+        castShadow
+      >
+        <meshPhysicalMaterial
+          color="#e8eef8"
+          metalness={0.22}
+          roughness={0.28}
+          clearcoat={1}
+          clearcoatRoughness={0.18}
+        />
         <Edges color="#2563eb" threshold={18} opacity={0.5} transparent />
       </RoundedBox>
       <mesh scale={0.82}>
@@ -46,7 +72,13 @@ export function HeroObject() {
         <pointLight position={[-4, -2, 4]} intensity={18} color="#2563eb" />
         <Environment resolution={64}>
           <Lightformer intensity={2.8} position={[0, 5, 3]} scale={[8, 2, 1]} />
-          <Lightformer intensity={1.6} color="#8db4ff" position={[-5, 0, 1]} rotation-y={Math.PI / 2} scale={[8, 2, 1]} />
+          <Lightformer
+            intensity={1.6}
+            color="#8db4ff"
+            position={[-5, 0, 1]}
+            rotation-y={Math.PI / 2}
+            scale={[8, 2, 1]}
+          />
         </Environment>
         <Sculpture />
       </Canvas>

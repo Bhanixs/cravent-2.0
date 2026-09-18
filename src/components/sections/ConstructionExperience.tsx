@@ -39,7 +39,7 @@ export function ConstructionExperience() {
               <Btn to="/contact" size="lg">
                 See What We Build
               </Btn>
-              <Btn href="#space" variant="outline" size="lg">
+              <Btn to="/space" variant="outline" size="lg">
                 Explore the prototype
               </Btn>
             </div>

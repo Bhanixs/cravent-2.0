@@ -20,9 +20,10 @@ export function Work({ limit }: { limit?: number }) {
       <div className="mt-16 grid items-start gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
         {items.map((p, i) => (
           <Reveal key={p.name} delay={(i % 3) * 0.06} className="bg-background">
-            {/* href intentionally empty — fill in case study URLs when ready */}
-            <a href="" className="block h-full">
-              <article className={`group relative h-full overflow-hidden p-8 transition-all duration-500 hover:-translate-y-2 hover:bg-surface hover:shadow-[0_28px_80px_-56px_var(--foreground)] ${i % 2 === 1 ? "lg:translate-y-10 lg:hover:translate-y-8" : ""}`}>
+            <div className="block h-full">
+              <article
+                className={`group relative h-full overflow-hidden p-8 transition-all duration-500 hover:-translate-y-2 hover:bg-surface hover:shadow-[0_28px_80px_-56px_var(--foreground)] ${i % 2 === 1 ? "lg:translate-y-10 lg:hover:translate-y-8" : ""}`}
+              >
                 <div className="flex items-start justify-between">
                   <span className="font-mono text-[11px] text-muted-foreground">
                     {String(i + 1).padStart(2, "0")}
@@ -42,7 +43,7 @@ export function Work({ limit }: { limit?: number }) {
                   </p>
                 </div>
               </article>
-            </a>
+            </div>
           </Reveal>
         ))}
       </div>

@@ -7,7 +7,11 @@ export function Insights() {
   return (
     <Section id="insights" className="border-t border-border bg-surface/20">
       <div className="flex flex-wrap items-end justify-between gap-8">
-        <SectionHeading eyebrow="Insights" index="[ editorial ]" title={<>Thinking in systems.</>} />
+        <SectionHeading
+          eyebrow="Insights"
+          index="[ editorial ]"
+          title={<>Thinking in systems.</>}
+        />
         <Reveal>
           <Btn to="/insights" variant="outline">
             Read all insights

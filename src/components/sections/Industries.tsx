@@ -60,7 +60,7 @@ export function Industries({ compact = false }: { compact?: boolean }) {
                 onMouseEnter={() => setActive(i)}
                 onFocus={() => setActive(i)}
                 className={cn(
-                    "group flex w-full items-center justify-between gap-6 rounded-xl border-b border-border px-4 py-6 text-left transition-colors duration-400",
+                  "group flex w-full items-center justify-between gap-6 rounded-xl border-b border-border px-4 py-6 text-left transition-colors duration-400",
                   active === i && "bg-surface/50",
                 )}
               >

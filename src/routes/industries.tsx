@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { Industries as IndustriesSection } from "@/components/sections/Industries";
 import { Contact } from "@/components/sections/Contact";
-import { Btn, Reveal, Section } from "@/components/site/kit";
 
 const title = "Industries — Sectors Cravent Builds In";
 const description =

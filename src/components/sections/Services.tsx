@@ -28,7 +28,9 @@ export function Services({ compact = false }: { compact?: boolean }) {
               onMouseEnter={() => setActive(i)}
               className={cn(
                 "group relative grid cursor-default gap-6 rounded-xl border-b border-border px-4 py-10 transition-colors duration-500 md:grid-cols-[auto_1fr_1fr] md:items-start md:gap-12 md:px-6",
-                active === i ? "bg-foreground text-background shadow-[0_24px_80px_-52px_var(--foreground)]" : "hover:bg-surface/30",
+                active === i
+                  ? "bg-foreground text-background shadow-[0_24px_80px_-52px_var(--foreground)]"
+                  : "hover:bg-surface/30",
               )}
             >
               <span
@@ -43,7 +45,12 @@ export function Services({ compact = false }: { compact?: boolean }) {
                 {s.title}
               </h3>
               <div>
-                <p className={cn("max-w-md text-sm leading-relaxed md:text-base", active === i ? "text-background/70" : "text-muted-foreground")}>
+                <p
+                  className={cn(
+                    "max-w-md text-sm leading-relaxed md:text-base",
+                    active === i ? "text-background/70" : "text-muted-foreground",
+                  )}
+                >
                   {s.body}
                 </p>
                 {!compact && (

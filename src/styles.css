@@ -77,7 +77,8 @@
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --grid-line: color-mix(in oklab, var(--primary) 10%, transparent);
-  --glow-blue: 0 0 0 1px color-mix(in oklab, var(--primary) 30%, transparent),
+  --glow-blue:
+    0 0 0 1px color-mix(in oklab, var(--primary) 30%, transparent),
     0 0 32px -6px color-mix(in oklab, var(--primary) 25%, transparent);
   --gradient-blue: linear-gradient(135deg, var(--primary), var(--primary-bright));
   --gradient-fade: linear-gradient(
@@ -114,7 +115,8 @@
   --ring: oklch(0.63 0.23 258);
 
   --grid-line: color-mix(in oklab, var(--primary) 12%, transparent);
-  --glow-blue: 0 0 0 1px color-mix(in oklab, var(--primary) 45%, transparent),
+  --glow-blue:
+    0 0 0 1px color-mix(in oklab, var(--primary) 45%, transparent),
     0 0 40px -8px color-mix(in oklab, var(--primary) 60%, transparent);
   --gradient-blue: linear-gradient(135deg, var(--primary), var(--primary-bright));
   --gradient-fade: linear-gradient(
@@ -162,7 +164,11 @@
     letter-spacing: 0.05em;
     line-height: 1.04;
     font-optical-sizing: auto;
-    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "dlig" 1;
+    font-feature-settings:
+      "kern" 1,
+      "liga" 1,
+      "calt" 1,
+      "dlig" 1;
     text-rendering: optimizeLegibility;
   }
 }
