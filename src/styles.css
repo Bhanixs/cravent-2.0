@@ -1,0 +1,247 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * CRAVENT design system — Futuristic Architectural Technology.
+ * Electric blue on near-black. Geometric, angular, precise.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 3px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 2px);
+  --radius-2xl: calc(var(--radius) + 4px);
+  --radius-3xl: calc(var(--radius) + 8px);
+  --radius-4xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-bright: var(--primary-bright);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-display: "Libre Bodoni", "Bodoni MT", "Georgia", ui-serif, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: light;
+  --radius: 0.875rem;
+  --background: oklch(0.985 0.003 250);
+  --foreground: oklch(0.15 0.02 250);
+  --surface: oklch(0.955 0.006 250);
+  --surface-2: oklch(0.92 0.01 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.02 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.02 250);
+  --primary: oklch(0.48 0.24 258);
+  --primary-bright: oklch(0.44 0.24 258);
+  --primary-foreground: oklch(0.99 0.002 250);
+  --secondary: oklch(0.93 0.008 250);
+  --secondary-foreground: oklch(0.15 0.02 250);
+  --muted: oklch(0.94 0.008 250);
+  --muted-foreground: oklch(0.46 0.025 250);
+  --accent: oklch(0.93 0.02 255);
+  --accent-foreground: oklch(0.44 0.24 258);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.99 0.002 250);
+  --border: oklch(0.88 0.012 250);
+  --border-strong: oklch(0.72 0.03 255);
+  --input: oklch(0.88 0.012 250);
+  --ring: oklch(0.48 0.24 258);
+
+  --font-display: "Libre Bodoni", "Bodoni MT", "Georgia", ui-serif, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --grid-line: color-mix(in oklab, var(--primary) 10%, transparent);
+  --glow-blue: 0 0 0 1px color-mix(in oklab, var(--primary) 30%, transparent),
+    0 0 32px -6px color-mix(in oklab, var(--primary) 25%, transparent);
+  --gradient-blue: linear-gradient(135deg, var(--primary), var(--primary-bright));
+  --gradient-fade: linear-gradient(
+    180deg,
+    transparent,
+    color-mix(in oklab, var(--primary) 6%, transparent)
+  );
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.13 0.014 250);
+  --foreground: oklch(0.98 0.002 250);
+  --surface: oklch(0.17 0.017 250);
+  --surface-2: oklch(0.21 0.021 250);
+  --card: oklch(0.165 0.016 250);
+  --card-foreground: oklch(0.98 0.002 250);
+  --popover: oklch(0.165 0.016 250);
+  --popover-foreground: oklch(0.98 0.002 250);
+  --primary: oklch(0.63 0.23 258);
+  --primary-bright: oklch(0.74 0.19 250);
+  --primary-foreground: oklch(0.13 0.014 250);
+  --secondary: oklch(0.24 0.02 250);
+  --secondary-foreground: oklch(0.98 0.002 250);
+  --muted: oklch(0.22 0.018 250);
+  --muted-foreground: oklch(0.72 0.017 250);
+  --accent: oklch(0.63 0.23 258);
+  --accent-foreground: oklch(0.13 0.014 250);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.98 0.002 250);
+  --border: oklch(0.28 0.02 252);
+  --border-strong: oklch(0.42 0.06 255);
+  --input: oklch(0.28 0.02 252);
+  --ring: oklch(0.63 0.23 258);
+
+  --grid-line: color-mix(in oklab, var(--primary) 12%, transparent);
+  --glow-blue: 0 0 0 1px color-mix(in oklab, var(--primary) 45%, transparent),
+    0 0 40px -8px color-mix(in oklab, var(--primary) 60%, transparent);
+  --gradient-blue: linear-gradient(135deg, var(--primary), var(--primary-bright));
+  --gradient-fade: linear-gradient(
+    180deg,
+    transparent,
+    color-mix(in oklab, var(--primary) 8%, transparent)
+  );
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    letter-spacing: 0.015em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 25%, transparent);
+    color: var(--foreground);
+  }
+
+  select option {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.05em;
+    line-height: 1.04;
+    font-optical-sizing: auto;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "dlig" 1;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@utility grid-bg {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--primary-bright);
+}
+
+@utility clip-angle {
+  border-radius: var(--radius-xl);
+}
+
+@utility clip-corner {
+  border-radius: 999px;
+}
+
+@utility hairline {
+  border-top: 1px solid var(--border);
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulse-line {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee-x 28s linear infinite;
+}
+
+@utility animate-pulse-line {
+  animation: pulse-line 3.2s ease-in-out infinite;
+}
+
+@utility animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
