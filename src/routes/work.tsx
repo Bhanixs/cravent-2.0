@@ -29,7 +29,7 @@ function WorkPage() {
         title="Work that connects ideas to outcomes."
         lead="Brand systems, marketing engines, and digital platforms built for organisations at different stages of growth."
       />
-      {/* All 9 projects — no limit — each card has an empty href for future case study links */}
+      {/* All 12 projects with interactive dark theme and spotlight view */}
       <WorkSection />
       <Contact />
     </>

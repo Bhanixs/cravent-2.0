@@ -14,8 +14,9 @@ export function Industries({ compact = false }: { compact?: boolean }) {
         <div className="flex flex-wrap items-end justify-between gap-8">
           <SectionHeading
             eyebrow="Industries"
-            index="[ 08 sectors ]"
+            index="[ 05 sectors ]"
             title={<>Sectors we build in.</>}
+            lead="Deep focus across high-growth, capital-intensive, and experience-led industries."
           />
           <Reveal>
             <Btn to="/industries" variant="outline">
@@ -24,17 +25,22 @@ export function Industries({ compact = false }: { compact?: boolean }) {
           </Reveal>
         </div>
         <Reveal delay={0.08}>
-          <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-4">
+          <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3 lg:grid-cols-5">
             {industries.map((ind, i) => (
               <div
                 key={ind.name}
-                className="group bg-background px-5 py-5 transition-colors duration-400 hover:bg-surface"
+                className="group flex flex-col justify-between bg-background p-6 transition-all duration-400 hover:bg-surface hover:shadow-lg"
               >
-                <span className="block font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="mt-2 block font-display text-sm font-semibold uppercase leading-tight text-foreground transition-colors duration-400 group-hover:text-primary-bright">
-                  {ind.name}
+                <div>
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-primary-bright">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="mt-4 block font-display text-base font-semibold uppercase leading-tight text-foreground transition-colors duration-400 group-hover:text-primary-bright">
+                    {ind.name}
+                  </span>
+                </div>
+                <span className="mt-6 font-mono text-xs text-muted-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:text-primary">
+                  Explore →
                 </span>
               </div>
             ))}
@@ -48,8 +54,9 @@ export function Industries({ compact = false }: { compact?: boolean }) {
     <Section id="industries" className="border-t border-border">
       <SectionHeading
         eyebrow="Industries"
-        index="[ 08 sectors ]"
+        index="[ 05 sectors ]"
         title={<>Sectors we build in.</>}
+        lead="Tailored brand systems, digital infrastructure, and growth engines built for specific market dynamics."
       />
 
       <div className="mt-16 grid gap-10 lg:grid-cols-[1.3fr_1fr]">

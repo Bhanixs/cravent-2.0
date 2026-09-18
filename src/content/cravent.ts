@@ -1,27 +1,187 @@
+export const servicesHeading = {
+  eyebrow: "What We Do",
+  title: "One partner for your next stage of growth.",
+  lead: "Growth becomes difficult when branding, marketing, sales, and technology operate separately. Cravent connects these areas into one focused growth system.",
+};
+
+export const servicesPositioningStatement =
+  "The integrated service approach reflects Craventʼs current positioning as a partner combining design, marketing, strategy, technology, SEO/AEO, pitch decks, web applications, branding, ecommerce, and influencer marketing.";
+
 export const services = [
   {
     num: "01",
     title: "Branding & Design",
-    body: "Build distinctive brands, identities, visual systems, campaigns, and communication.",
-    points: ["Identity systems", "Visual language", "Campaign design", "Communication"],
+    body: "We create brands that are clear, memorable, consistent, and built for the market they want to lead.",
+    points: [
+      "Brand strategy",
+      "Brand identity",
+      "Logo systems",
+      "Packaging and collateral",
+      "UI/UX design",
+      "Presentation and pitch deck design",
+      "Social media design",
+      "Motion graphics and video content",
+    ],
   },
   {
     num: "02",
     title: "Marketing & Growth",
-    body: "Build digital marketing systems, campaigns, content, acquisition, and growth engines.",
-    points: ["Performance marketing", "Content systems", "Acquisition", "Growth engines"],
+    body: "We help brands attract attention, generate demand, and build meaningful customer relationships.",
+    points: [
+      "Digital marketing",
+      "Social media management",
+      "SEO and AEO",
+      "Paid advertising",
+      "WhatsApp marketing",
+      "Influencer campaigns",
+      "Content strategy",
+      "Lead generation",
+      "Campaign planning",
+      "Offline and local marketing",
+    ],
   },
   {
     num: "03",
     title: "Business Development & Strategy",
-    body: "Clarify positioning, opportunities, partnerships, sales systems, and business direction.",
-    points: ["Positioning", "Partnerships", "Sales systems", "Direction"],
+    body: "We turn ideas and opportunities into practical business plans, partnerships, and growth systems.",
+    points: [
+      "Business development",
+      "Market research",
+      "Competitor analysis",
+      "Go-to-market strategy",
+      "Business plans",
+      "Pitch decks",
+      "Revenue models",
+      "Partnership strategy",
+      "Sales systems",
+      "CRM and pipeline planning",
+    ],
   },
   {
     num: "04",
-    title: "Technology",
-    body: "Build websites, platforms, CRM systems, dashboards, workflow automation, analytics, and digital products.",
-    points: ["Platforms", "CRM", "Automation", "Analytics"],
+    title: "Technology Solutions",
+    body: "We build the digital infrastructure that helps businesses operate, sell, and scale.",
+    points: [
+      "Websites and landing pages",
+      "E-commerce platforms",
+      "Web applications",
+      "Mobile applications",
+      "CRM setup and integration",
+      "WhatsApp automation",
+      "Payment integration",
+      "Internal dashboards",
+      "Workflow automation",
+      "Technology maintenance and support",
+    ],
+  },
+];
+
+export interface ServiceSection {
+  id: string;
+  num: string;
+  discipline: string;
+  heading: string;
+  description: string;
+  items: string[];
+  cta: string;
+}
+
+export const serviceSections: ServiceSection[] = [
+  {
+    id: "branding-design",
+    num: "01",
+    discipline: "Branding & Design",
+    heading: "Build a brand people remember.",
+    description:
+      "Your brand is more than a logo. It is the experience people associate with your business, from the first impression to the final interaction. Cravent develops brand systems that help businesses communicate with clarity and build stronger market recognition.",
+    items: [
+      "Brand discovery and audit",
+      "Brand positioning",
+      "Naming direction",
+      "Logo and identity design",
+      "Colour and typography systems",
+      "Brand guidelines",
+      "Packaging and product design",
+      "Marketing collateral",
+      "Pitch deck visuals",
+      "Social media design",
+      "UI/UX and design systems",
+      "Video, motion, and visual content",
+    ],
+    cta: "Build your brand with purpose",
+  },
+  {
+    id: "marketing-growth",
+    num: "02",
+    discipline: "Marketing & Growth",
+    heading: "Turn attention into action.",
+    description:
+      "Marketing should do more than generate visibility. It should create awareness, enquiries, conversations, customers, and repeat business. Cravent builds channel-specific marketing systems based on the business model, audience, market, and growth stage.",
+    items: [
+      "Marketing strategy",
+      "Social media management",
+      "SEO and AEO",
+      "Paid media",
+      "Google Ads",
+      "Meta Ads",
+      "WhatsApp marketing",
+      "Influencer campaigns",
+      "Content strategy",
+      "Email marketing",
+      "Lead generation",
+      "Local and offline marketing",
+      "Campaign tracking and reporting",
+    ],
+    cta: "Create a marketing system that moves your business forward",
+  },
+  {
+    id: "business-strategy",
+    num: "03",
+    discipline: "Business Development & Strategy",
+    heading: "Give your growth a direction.",
+    description:
+      "Strong businesses need more than ambition. They need market understanding, clear priorities, a workable revenue model, and consistent execution. Cravent helps founders and organisations convert ideas into actionable business and growth plans.",
+    items: [
+      "Business development strategy",
+      "Market and competitor research",
+      "Customer and audience analysis",
+      "Go-to-market planning",
+      "Revenue model development",
+      "Partnership and channel strategy",
+      "Sales pipeline design",
+      "Business proposals",
+      "Investor pitch decks",
+      "Financial planning support",
+      "KPI and reporting systems",
+      "SOP and workflow development",
+      "CRM planning and implementation",
+    ],
+    cta: "Turn your next opportunity into a growth plan",
+  },
+  {
+    id: "technology-solutions",
+    num: "04",
+    discipline: "Technology Solutions",
+    heading: "Build the systems behind growth.",
+    description:
+      "Technology should make your business easier to operate, easier to access, and easier to scale. Cravent works with businesses to plan and build practical digital solutions — from a highconverting landing page to a complete web, CRM, or app ecosystem.",
+    items: [
+      "Website design and development",
+      "Landing pages",
+      "E-commerce websites",
+      "Web applications",
+      "Mobile applications",
+      "CRM setup",
+      "CRM integrations",
+      "WhatsApp Business systems",
+      "Payment gateways",
+      "Customer dashboards",
+      "Internal tools",
+      "Workflow automation",
+      "Analytics and reporting",
+      "Maintenance and improvements",
+    ],
+    cta: "Build the digital foundation for your next stage",
   },
 ];
 
@@ -56,48 +216,106 @@ export const approach = [
 export const industries = [
   {
     name: "Construction & Real Estate",
-    body: "Build trusted brand systems and marketing platforms that improve visibility, enquiries, and project communication.",
+    body: "For construction companies, developers, architects, interior firms, and property businesses, we create brand systems and marketing platforms that improve trust, visibility, enquiries, and project communication.",
   },
   {
     name: "Fashion & Lifestyle",
-    body: "Build distinctive brand worlds, campaigns, and commerce experiences that create desire and repeat demand.",
+    body: "We help fashion, apparel, accessories, wellness, beauty, and lifestyle brands develop distinctive identities, digital storefronts, campaigns, and customer experiences.",
   },
   {
     name: "Hospitality, Travel & Tourism",
-    body: "Design experience-led brands and booking journeys that convert attention into stays, trips, and referrals.",
+    body: "We support resorts, hotels, travel companies, experience providers, and tourism businesses with positioning, content, digital marketing, booking journeys, partnerships, and guestexperience communication.",
   },
   {
     name: "Education",
-    body: "Build institutional identity, admissions marketing, and digital systems that improve enrolment and communication.",
+    body: "We work with schools, educational institutions, training centres, and learning platforms to strengthen their communication, admissions marketing, digital presence, and stakeholder engagement.",
   },
   {
     name: "Healthcare & Wellness",
-    body: "Create trusted brand communication and patient-facing digital systems built for clarity and care.",
-  },
-  {
-    name: "Sustainability",
-    body: "Translate complex environmental work into clear positioning, credible storytelling, and functional platforms.",
-  },
-  {
-    name: "Technology & Deeptech",
-    body: "Turn complex ventures into clear positioning, credible digital products, and practical routes to market.",
-  },
-  {
-    name: "NGOs & Social Impact",
-    body: "Create clear communication, outreach systems, and digital platforms for community-led and purpose-driven work.",
+    body: "We help healthcare, wellness, and socially relevant organisations communicate complex services with clarity, trust, sensitivity, and responsible marketing.",
   },
 ];
 
-export const work = [
-  { name: "Erthaloka", industry: "Sustainability", scope: "Brand · Platform" },
-  { name: "Jeevarasai", industry: "Wellness", scope: "Brand · Digital" },
-  { name: "KH International", industry: "Business", scope: "Strategy · Marketing" },
-  { name: "Valonk", industry: "Fashion & Lifestyle", scope: "Brand identity · Visual direction" },
-  { name: "Bhanix", industry: "Business Development", scope: "Positioning · Systems" },
-  { name: "Akshara Vidyaashram", industry: "Education", scope: "Brand · Marketing" },
-  { name: "Travellers Tribe", industry: "Travel & Tourism", scope: "Brand · Campaigns" },
-  { name: "SPARC", industry: "Community", scope: "Identity · Communication" },
-  { name: "Xplored", industry: "Travel & Lifestyle", scope: "Brand · Growth" },
+export interface WorkItem {
+  name: string;
+  industry: string;
+  focus: string;
+  scope: string;
+}
+
+export const work: WorkItem[] = [
+  {
+    name: "Valonk",
+    industry: "Fashion and Lifestyle",
+    focus: "Brand identity, visual direction, product and marketing communication.",
+    scope: "Brand Identity · Visual Direction · Marketing",
+  },
+  {
+    name: "Akshara Vidyaashram",
+    industry: "Education",
+    focus: "Institutional communication, brand support, digital content, and outreach.",
+    scope: "Institutional Branding · Digital Outreach · Content",
+  },
+  {
+    name: "Travellers Tribe",
+    industry: "Travel and Tourism",
+    focus: "Travel community building, content, campaigns, and digital engagement.",
+    scope: "Community Building · Campaigns · Digital Engagement",
+  },
+  {
+    name: "Erthaloka",
+    industry: "Sustainability and Planetary Technology",
+    focus: "Brand communication, digital presence, strategy, and sustainability-led storytelling.",
+    scope: "Brand Strategy · Planetary Tech · Digital Platform",
+  },
+  {
+    name: "SPARC",
+    industry: "Sustainability and Community Development",
+    focus: "Communication, project support, outreach, and impact-oriented initiatives.",
+    scope: "Communication Design · Outreach · Impact Strategy",
+  },
+  {
+    name: "Jeevarasai",
+    industry: "Organic and Wellness",
+    focus: "Brand communication, marketing, product storytelling, and customer engagement.",
+    scope: "Brand Storytelling · Organic Commerce · Marketing",
+  },
+  {
+    name: "Lycée Français International",
+    industry: "Education",
+    focus: "Communication and institutional project support.",
+    scope: "Institutional Project Support · Global Communication",
+  },
+  {
+    name: "French Councillor Election Campaign",
+    industry: "Political and Community Communication",
+    focus: "Campaign communication, creative assets, outreach, and public engagement.",
+    scope: "Campaign Strategy · Creative Assets · Public Outreach",
+  },
+  {
+    name: "KH International",
+    industry: "Business Strategy & International Trade",
+    focus: "Corporate positioning, market strategy, and executive communication.",
+    scope: "Strategy · International Positioning · Marketing",
+  },
+  {
+    name: "Xplored",
+    industry: "Travel and Lifestyle",
+    focus: "Brand growth, digital media production, and experiential community storytelling.",
+    scope: "Brand · Growth · Media Production",
+  },
+  {
+    name: "Bhanix",
+    industry: "Business Development & Fintech",
+    focus: "Market positioning, go-to-market systems, and digital sales infrastructure.",
+    scope: "Positioning · Systems · Go-To-Market",
+  },
+  {
+    name: "Other Ventures & Initiatives",
+    industry: "Startups, Education, Sustainability & Community",
+    focus: "Strategic advisory, digital platforms, and brand development for emerging initiatives.",
+    scope: "Ecosystem Advisory · Digital Platforms · Ventures",
+  },
 ];
 
 export const spaceFeatures = [

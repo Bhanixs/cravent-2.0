@@ -37,8 +37,8 @@ function Index() {
       <Services compact />
       {/* Compact tag-cloud grid; full interactive panel on /industries */}
       <Industries compact />
-      {/* Teaser — 3 cards; full grid on /work */}
-      <Work limit={3} />
+      {/* Featured portfolio with interactive dark theme */}
+      <Work limit={6} />
       {/* Work CTA */}
       <Section className="border-t border-border bg-surface/20 py-0">
         <Reveal>
@@ -47,7 +47,7 @@ function Index() {
               [ selected projects ]
             </span>
             <Btn to="/work" variant="outline">
-              View all work →
+              View all work
             </Btn>
           </div>
         </Reveal>
