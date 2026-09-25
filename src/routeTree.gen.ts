@@ -19,6 +19,7 @@ import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SpaceRouteImport } from './routes/space'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as WorkRouteImport } from './routes/work'
+import { Route as WorkSlugRouteImport } from './routes/work_.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -70,6 +71,11 @@ const WorkRoute = WorkRouteImport.update({
   path: '/work',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WorkSlugRoute = WorkSlugRouteImport.update({
+  id: '/work_/$slug',
+  path: '/work/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/space': typeof SpaceRoute
   '/terms': typeof TermsRoute
   '/work': typeof WorkRoute
+  '/work/$slug': typeof WorkSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/space': typeof SpaceRoute
   '/terms': typeof TermsRoute
   '/work': typeof WorkRoute
+  '/work/$slug': typeof WorkSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +115,7 @@ export interface FileRoutesById {
   '/space': typeof SpaceRoute
   '/terms': typeof TermsRoute
   '/work': typeof WorkRoute
+  '/work_/$slug': typeof WorkSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
     | '/space'
     | '/terms'
     | '/work'
+    | '/work/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
     | '/space'
     | '/terms'
     | '/work'
+    | '/work/$slug'
   id:
     | '__root__'
     | '/'
@@ -145,6 +156,7 @@ export interface FileRouteTypes {
     | '/space'
     | '/terms'
     | '/work'
+    | '/work_/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,6 +170,7 @@ export interface RootRouteChildren {
   SpaceRoute: typeof SpaceRoute
   TermsRoute: typeof TermsRoute
   WorkRoute: typeof WorkRoute
+  WorkSlugRoute: typeof WorkSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -232,6 +245,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/work_/$slug': {
+      id: '/work_/$slug'
+      path: '/work/$slug'
+      fullPath: '/work/$slug'
+      preLoaderRoute: typeof WorkSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -246,6 +266,7 @@ const rootRouteChildren: RootRouteChildren = {
   SpaceRoute: SpaceRoute,
   TermsRoute: TermsRoute,
   WorkRoute: WorkRoute,
+  WorkSlugRoute: WorkSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

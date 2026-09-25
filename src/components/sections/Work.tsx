@@ -1,6 +1,7 @@
 import { Reveal, Section, SectionHeading, XMark } from "@/components/site/kit";
 import { work } from "@/content/cravent";
 import { cn } from "@/lib/utils";
+import { Link } from "@tanstack/react-router";
 
 export function Work({ limit }: { limit?: number }) {
   const displayedItems = limit ? work.slice(0, limit) : work;
@@ -61,11 +62,28 @@ export function Work({ limit }: { limit?: number }) {
                 </div>
               </div>
 
-              {/* Scope Tag Footer */}
-              <div className="mt-8 border-t border-border pt-4 text-xs transition-colors duration-500 group-hover:border-slate-800">
+              {/* Scope Tag Footer + Read More */}
+              <div className="mt-8 flex items-end justify-between border-t border-border pt-4 transition-colors duration-500 group-hover:border-slate-800">
                 <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground/70 transition-colors duration-500 group-hover:text-slate-400">
                   {p.scope}
                 </span>
+                <Link
+                  to="/work/$slug"
+                  params={{ slug: p.slug }}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-transparent bg-transparent px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground/80 transition-all duration-500 hover:border-primary hover:text-primary-bright group-hover:border-slate-700 group-hover:text-slate-300 group-hover:hover:border-primary group-hover:hover:text-primary-bright"
+                >
+                  <span>Read More</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
               </div>
 
               {/* Glowing accent border on left on hover */}
@@ -77,3 +95,4 @@ export function Work({ limit }: { limit?: number }) {
     </Section>
   );
 }
+
