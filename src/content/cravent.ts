@@ -286,6 +286,16 @@ export const work: WorkItem[] = [
       "Travellers Tribe is a travel community where we built the digital engagement ecosystem — content strategies, social media campaigns, and community-building initiatives designed to inspire and connect passionate travellers.",
   },
   {
+    name: "Honey Pop",
+    slug: "honey-pop",
+    industry: "Wellness and FMCG",
+    focus: "Brand identity, packaging design, product positioning and marketing communication.",
+    scope: "Brand Identity · Packaging · Marketing",
+    description:
+      "Honey Pop is a modern wellness brand built around natural purity and effortless convenience. We crafted a distinctive brand identity and visual direction that positions pure honey as an easy, everyday alternative to processed sugars. The project focused on creating a clean, approachable brand language across packaging and marketing communication while highlighting Honey Pop's mess-free single-serve sachets and on-the-go lifestyle.",
+    pdf: "/assets/portfolio/Honey Pop Portfolio.pdf",
+  },
+  {
     name: "Erthaloka",
     slug: "erthaloka",
     industry: "Sustainability and Planetary Technology",
@@ -303,6 +313,16 @@ export const work: WorkItem[] = [
     scope: "Communication Design · Outreach · Impact Strategy",
     description:
       "SPARC focuses on sustainability and community development. We provided communication design, project support, outreach strategies, and impact-oriented initiative planning to amplify their mission and reach.",
+  },
+  {
+    name: "Arkisan",
+    slug: "arkisan",
+    industry: "Construction and Engineering",
+    focus: "Brand identity, visual direction, corporate communication and marketing.",
+    scope: "Brand Identity · Visual Direction · Marketing",
+    description:
+      "Arkisan is a forward-thinking home construction company built around engineering precision, transparency, and ethical practices. We crafted a professional brand identity and visual direction that reflects Arkisan's commitment to bringing structure and reliability to India's home-building process. The project focused on establishing a trustworthy brand language that communicates professionalism, stability, and confidence while positioning Arkisan as a dependable partner in building the future of every family.",
+    pdf: "/assets/portfolio/Arkisan Portfolio.pdf",
   },
   {
     name: "Jeevarasai",
