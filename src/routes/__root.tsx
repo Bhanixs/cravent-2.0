@@ -4,10 +4,12 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { AnimatePresence, motion } from "motion/react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -124,13 +126,38 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>
       <Nav />
-      <main>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
+      {/* Dynamic top progress pulse on page transitions */}
+      <motion.div
+        key={`nav-line-${pathname}`}
+        initial={{ scaleX: 0, opacity: 1 }}
+        animate={{ scaleX: 1, opacity: [1, 1, 0] }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        style={{ transformOrigin: "0% 50%" }}
+        className="pointer-events-none fixed left-0 right-0 top-0 z-[60] h-[2.5px] bg-gradient-to-r from-primary via-primary-bright to-accent shadow-[0_0_16px_var(--primary)]"
+      />
+      <main className="overflow-x-hidden">
+        {/* Dynamic page transition with AnimatePresence */}
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={pathname}
+            initial={{ opacity: 0, y: 14, filter: "blur(4px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -14, filter: "blur(4px)" }}
+            transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full"
+          >
+            <Outlet />
+          </motion.div>
+        </AnimatePresence>
       </main>
       <Footer />
       <Toaster />

@@ -99,13 +99,24 @@ export function Section({
   children,
   className,
   id,
+  fullScreen = true,
 }: {
   children: ReactNode;
   className?: string;
   id?: string;
+  fullScreen?: boolean;
 }) {
   return (
-    <section id={id} className={cn("relative px-6 py-24 md:px-10 md:py-32", className)}>
+    <section
+      id={id}
+      className={cn(
+        "relative px-4 sm:px-6 md:px-10",
+        fullScreen
+          ? "min-h-[100svh] flex flex-col justify-center py-8 md:py-10 lg:py-12"
+          : "py-10 md:py-14",
+        className,
+      )}
+    >
       <div className="mx-auto w-full max-w-[1400px]">{children}</div>
     </section>
   );
@@ -125,20 +136,22 @@ export function SectionHeading({
   className?: string;
 }) {
   return (
-    <div className={cn("max-w-4xl", className)}>
+    <div className={cn("max-w-3xl", className)}>
       <Reveal>
-        <div className="flex items-center gap-4">
-          <span className="h-px w-10 bg-primary" />
+        <div className="flex items-center gap-3">
+          <span className="h-px w-8 bg-primary" />
           <span className="eyebrow">{eyebrow}</span>
-          {index && <span className="font-mono text-[11px] text-muted-foreground">{index}</span>}
+          {index && <span className="font-mono text-[10px] text-muted-foreground">{index}</span>}
         </div>
       </Reveal>
-      <Reveal delay={0.08}>
-        <h2 className="mt-6 text-4xl font-bold uppercase md:text-6xl lg:text-7xl">{title}</h2>
+      <Reveal delay={0.06}>
+        <h2 className="mt-2.5 text-2xl font-bold uppercase tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
+          {title}
+        </h2>
       </Reveal>
       {lead && (
-        <Reveal delay={0.14}>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+        <Reveal delay={0.1}>
+          <p className="mt-2 max-w-2xl text-xs leading-relaxed text-muted-foreground sm:text-sm md:text-base">
             {lead}
           </p>
         </Reveal>

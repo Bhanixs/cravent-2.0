@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageHero } from "@/components/site/PageHero";
 import { Contact } from "@/components/sections/Contact";
 
 const title = "Contact Cravent | Start Your Growth Journey";
@@ -21,14 +20,5 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
-  return (
-    <>
-      <PageHero
-        eyebrow="Contact"
-        title="Ready to build what comes next?"
-        lead="Tell us what you are building, where you are stuck, and what growth would look like for your business."
-      />
-      <Contact />
-    </>
-  );
+  return <Contact />;
 }

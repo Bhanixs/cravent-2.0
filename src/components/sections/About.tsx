@@ -1,36 +1,46 @@
-import { Counter, Reveal, Section, SectionHeading, XMark } from "@/components/site/kit";
-import { approach } from "@/content/cravent";
+import { Counter, Reveal, Section, SectionHeading } from "@/components/site/kit";
 
 export function About() {
   return (
-    <Section id="about" className="relative overflow-hidden border-t border-border">
-      <XMark className="pointer-events-none absolute -left-32 top-10 h-96 w-96 opacity-[0.06]" />
-      <div className="relative grid gap-16 lg:grid-cols-[1.1fr_1fr]">
-        <div>
-          <SectionHeading
-            eyebrow="About Cravent"
-            index="[ the architect ]"
-            title={
-              <>
-                Built for businesses
-                <br />
-                that want to move forward.
-              </>
-            }
-            lead="Cravent combines branding, marketing, business development, strategy, and technology into one connected practice. We understand where a business is today, identify what is holding it back, and build the creative, strategic, and technical systems needed for the next stage."
-          />
+    <Section id="about-principles" className="border-b border-border" fullScreen>
+      <div className="flex flex-wrap items-end justify-between gap-4 pb-3 md:pb-4">
+        <SectionHeading
+          eyebrow="Operating Architecture"
+          index="[ 04 principles ]"
+          title={<>Compounding Systems.</>}
+          lead="We operate as a high-conviction growth partner, diagnosing commercial friction before engineering the solution."
+        />
+        <span className="font-mono text-[10px] uppercase tracking-widest text-primary-bright">
+          Strategic Model
+        </span>
+      </div>
 
-          <div className="mt-12 grid grid-cols-3 gap-px border border-border bg-border">
+      <div className="mt-4 grid items-stretch gap-4 md:mt-6 md:gap-6 lg:grid-cols-[1.1fr_1.4fr]">
+        {/* Left: Metrics & Overview */}
+        <div className="flex flex-col justify-between rounded-2xl border border-border bg-surface/40 p-4 sm:p-5 md:p-6">
+          <div>
+            <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-primary-bright sm:text-[10px]">
+              [ Scale Architecture ]
+            </span>
+            <h3 className="mt-3 font-display text-xl font-bold uppercase tracking-tight sm:text-2xl">
+              One Unified Practice.
+            </h3>
+            <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+              No agency silos, no fragmented teams. Brand, media, go-to-market strategy, and digital infrastructure built to compound together.
+            </p>
+          </div>
+
+          <div className="mt-4 grid grid-cols-3 gap-px overflow-hidden rounded-xl border border-border bg-border md:mt-6">
             {[
               { n: 4, label: "Disciplines", suffix: "" },
-              { n: 8, label: "Industries", suffix: "" },
-              { n: 5, label: "Step approach", suffix: "" },
+              { n: 5, label: "Sectors", suffix: "" },
+              { n: 5, label: "Step Method", suffix: "" },
             ].map((s) => (
-              <div key={s.label} className="bg-background px-5 py-8">
-                <p className="font-display text-4xl font-bold text-primary-bright md:text-5xl">
+              <div key={s.label} className="bg-background px-3 py-4 text-center sm:px-4 sm:py-5">
+                <p className="font-display text-2xl font-bold text-primary-bright sm:text-3xl">
                   <Counter to={s.n} suffix={s.suffix} />
                 </p>
-                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                <p className="mt-1 font-mono text-[9px] uppercase tracking-wider text-muted-foreground sm:text-[10px]">
                   {s.label}
                 </p>
               </div>
@@ -38,39 +48,46 @@ export function About() {
           </div>
         </div>
 
-        <Reveal delay={0.12}>
-          <div className="relative border-l border-border pl-8">
-            {[
-              {
-                num: "01",
-                title: "One Connected Practice",
-                body: "No silos between brand, marketing, strategy, and technology. Everything is built to reinforce the whole.",
-              },
-              {
-                num: "02",
-                title: "Compounding Systems",
-                body: "We build assets and workflows designed to continue generating leverage long after the initial launch.",
-              },
-              {
-                num: "03",
-                title: "Diagnosis Before Build",
-                body: "We identify the commercial constraint holding back growth before recommending what to engineer.",
-              },
-              {
-                num: "04",
-                title: "Direct Accountability",
-                body: "Senior execution without agency hand-offs, operating as a true extension of leadership.",
-              },
-            ].map((pillar) => (
-              <div key={pillar.num} className="relative pb-10 last:pb-0">
-                <span className="absolute -left-[41px] top-1 h-3 w-3 border border-primary bg-background" />
-                <span className="font-mono text-[11px] text-primary-bright">{pillar.num}</span>
-                <h3 className="mt-2 text-2xl font-bold uppercase">{pillar.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{pillar.body}</p>
+        {/* Right: The 4 Principles Grid */}
+        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3">
+          {[
+            {
+              num: "01",
+              title: "Connected Practice",
+              body: "No silos between brand, marketing, strategy, and technology. Everything reinforces the whole.",
+            },
+            {
+              num: "02",
+              title: "Compounding Assets",
+              body: "We build workflows and platforms designed to generate continuous market leverage long after launch.",
+            },
+            {
+              num: "03",
+              title: "Diagnosis First",
+              body: "We pinpoint the commercial constraint holding back revenue before recommending what to build.",
+            },
+            {
+              num: "04",
+              title: "Senior Execution",
+              body: "Direct accountability without junior hand-offs, operating as a true extension of leadership.",
+            },
+          ].map((pillar) => (
+            <div
+              key={pillar.num}
+              className="group flex flex-col justify-between rounded-xl border border-border/80 bg-background/80 p-3.5 transition-all duration-300 hover:border-primary hover:bg-background hover:shadow-sm sm:p-4"
+            >
+              <div>
+                <span className="font-mono text-[10px] font-bold text-primary-bright">{pillar.num}</span>
+                <h4 className="mt-1.5 font-display text-sm font-bold uppercase tracking-tight text-foreground transition-colors group-hover:text-primary-bright sm:text-base">
+                  {pillar.title}
+                </h4>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                  {pillar.body}
+                </p>
               </div>
-            ))}
-          </div>
-        </Reveal>
+            </div>
+          ))}
+        </div>
       </div>
     </Section>
   );

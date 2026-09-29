@@ -26,9 +26,21 @@ function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About"
+        eyebrow="About Cravent"
+        tag="[ the architect ]"
         title="Built for businesses that want to move forward."
-        lead="Growth should not feel disconnected. We build the creative, strategic, and technical systems required for the next stage."
+        lead="Cravent combines branding, marketing, business development, strategy, and technology into one connected growth practice. We build the creative, strategic, and technical systems needed for the next stage."
+        primaryCta={{
+          label: "Explore Principles ↓",
+          onClick: () => {
+            const el = document.getElementById("about-principles");
+            el?.scrollIntoView({ behavior: "smooth" });
+          },
+        }}
+        secondaryCta={{
+          label: "Book a Growth Audit",
+          to: "/contact",
+        }}
       />
       <AboutSection />
       <Approach />

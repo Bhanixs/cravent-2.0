@@ -54,49 +54,49 @@ export function Hero() {
 
       <motion.div
         style={{ opacity }}
-        className="relative z-[2] mx-auto flex min-h-[100svh] w-full max-w-[1400px] flex-col justify-end px-6 pb-20 pt-40 md:px-10 md:pb-28"
+        className="relative z-[2] mx-auto flex min-h-[100svh] w-full max-w-[1400px] flex-col justify-center px-4 pt-20 pb-12 sm:px-6 sm:pt-24 sm:pb-14 md:px-10 md:pt-28 md:pb-16"
       >
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-4"
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-center gap-3"
         >
-          <span className="h-px w-12 bg-primary" />
-          <span className="eyebrow">Design. Marketing. Strategy. Technology.</span>
+          <span className="h-px w-10 bg-primary" />
+          <span className="eyebrow text-[9px] sm:text-[10px]">Design. Marketing. Strategy. Technology.</span>
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 max-w-[11ch] text-[clamp(3rem,9vw,9rem)] font-bold uppercase"
+          transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-4 max-w-[12ch] text-[clamp(2.4rem,6vw,5.5rem)] font-bold uppercase leading-[1.02] tracking-tight md:mt-6"
         >
           Your business needs
           <br />
           <span className="italic text-primary-bright">more than an agency.</span>
         </motion.h1>
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_auto] lg:items-end">
+        <div className="mt-5 grid gap-6 md:mt-8 md:gap-8 lg:grid-cols-[1.1fr_auto] lg:items-end">
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.9, delay: 0.35 }}
-            className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
+            transition={{ duration: 0.8, delay: 0.25 }}
+            className="max-w-2xl text-xs leading-relaxed text-muted-foreground sm:text-sm md:text-base"
           >
             Cravent is a growth partner for ambitious businesses that want their brand, marketing,
             business development, and technology to work together.
           </motion.p>
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.45 }}
-            className="flex flex-wrap gap-3 lg:translate-y-3"
+            transition={{ duration: 0.7, delay: 0.35 }}
+            className="flex flex-wrap gap-2.5 md:gap-3"
           >
-            <Btn to="/contact" size="lg">
+            <Btn to="/contact" size="md">
               Book a Growth Audit
             </Btn>
-            <Btn to="/services" variant="outline" size="lg">
+            <Btn to="/services" variant="outline" size="md">
               Explore Our Services
             </Btn>
           </motion.div>

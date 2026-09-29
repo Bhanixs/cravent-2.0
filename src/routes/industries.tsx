@@ -5,7 +5,7 @@ import { Contact } from "@/components/sections/Contact";
 
 const title = "Industries — Sectors Cravent Builds In";
 const description =
-  "Construction and real estate, fashion, hospitality, education, healthcare, technology, sustainability, and community initiatives.";
+  "Construction and real estate, fashion, hospitality, education, sustainability and wellness, technology, and community initiatives.";
 
 export const Route = createFileRoute("/industries")({
   head: () => ({
@@ -26,11 +26,24 @@ function IndustriesPage() {
     <>
       <PageHero
         eyebrow="Industries"
+        tag="[ 05 sectors ]"
         title="Sectors we build in."
-        lead="Different markets, one method: understand the business, define the opportunity, build the system."
+        lead="Deep market immersion across high-growth, capital-intensive, and purpose-driven industries. Different markets, one method: understand the business, define the opportunity, build the system."
+        primaryCta={{
+          label: "Explore Sectors ↓",
+          onClick: () => {
+            const el = document.getElementById("sectors-navigator");
+            el?.scrollIntoView({ behavior: "smooth" });
+          },
+        }}
+        secondaryCta={{
+          label: "Start a Conversation",
+          to: "/contact",
+        }}
       />
       <IndustriesSection />
       <Contact />
     </>
   );
 }
+

@@ -25,13 +25,25 @@ function WorkPage() {
   return (
     <>
       <PageHero
-        eyebrow="Work"
+        eyebrow="Selected Portfolio"
+        tag="[ 12 projects ]"
         title="Work that connects ideas to outcomes."
-        lead="Brand systems, marketing engines, and digital platforms built for organisations at different stages of growth."
+        lead="Brand systems, marketing engines, strategic positioning, and digital platforms built for organisations leading their markets."
+        primaryCta={{
+          label: "Explore Projects ↓",
+          onClick: () => {
+            const el = document.getElementById("work-portfolio");
+            el?.scrollIntoView({ behavior: "smooth" });
+          },
+        }}
+        secondaryCta={{
+          label: "Book a Growth Audit",
+          to: "/contact",
+        }}
       />
-      {/* All 12 projects with interactive dark theme and spotlight view */}
       <WorkSection />
       <Contact />
     </>
   );
 }
+

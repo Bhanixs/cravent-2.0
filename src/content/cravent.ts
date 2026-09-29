@@ -231,8 +231,8 @@ export const industries = [
     body: "We work with schools, educational institutions, training centres, and learning platforms to strengthen their communication, admissions marketing, digital presence, and stakeholder engagement.",
   },
   {
-    name: "Healthcare & Wellness",
-    body: "We help healthcare, wellness, and socially relevant organisations communicate complex services with clarity, trust, sensitivity, and responsible marketing.",
+    name: "Sustainability & Wellness",
+    body: "We help sustainability-driven enterprises, clean technologies, circular initiatives, and modern wellness organizations communicate complex impact with clarity, trust, and responsible marketing.",
   },
 ];
 

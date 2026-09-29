@@ -1,8 +1,10 @@
+
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { PageHero } from "@/components/site/PageHero";
 import { Contact } from "@/components/sections/Contact";
-import { Btn, Reveal, Section, XMark } from "@/components/site/kit";
+import { Btn, Reveal, Section, SectionHeading } from "@/components/site/kit";
 import { serviceSections, servicesHeading, servicesPositioningStatement } from "@/content/cravent";
 import { cn } from "@/lib/utils";
 
@@ -24,182 +26,211 @@ export const Route = createFileRoute("/services")({
   component: ServicesPage,
 });
 
+interface GrowthLever {
+  id: string;
+  name: string;
+  discipline: "Branding" | "Marketing" | "Strategy" | "Technology";
+  tag: string;
+}
+
+const growthLevers: GrowthLever[] = [
+  { id: "brand", name: "Brand Identity & Design System", discipline: "Branding", tag: "Identity" },
+  { id: "ads", name: "Performance Media & Paid Ads", discipline: "Marketing", tag: "Acquisition" },
+  { id: "seo", name: "Search & AEO Organic Authority", discipline: "Marketing", tag: "Visibility" },
+  { id: "gtm", name: "Go-To-Market & Revenue Modeling", discipline: "Strategy", tag: "Strategy" },
+  { id: "deck", name: "Investor Pitch Decks & Proposals", discipline: "Strategy", tag: "Capital" },
+  { id: "webapp", name: "Custom Web Application & Platforms", discipline: "Technology", tag: "Product" },
+  { id: "ecom", name: "E-Commerce & Digital Storefront", discipline: "Technology", tag: "Commerce" },
+  { id: "crm", name: "CRM & WhatsApp Sales Automation", discipline: "Technology", tag: "Systems" },
+];
+
 function ServicesPage() {
-  const [activeId, setActiveId] = useState<string>(serviceSections[0]?.id ?? "branding-design");
+  const [activeDisciplineIndex, setActiveDisciplineIndex] = useState(0);
+  const currentDiscipline = serviceSections[activeDisciplineIndex] || serviceSections[0];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
-      for (const section of serviceSections) {
-        const el = document.getElementById(section.id);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveId(section.id);
-            break;
-          }
-        }
-      }
-    };
+  // Interactive Scope Configurator state
+  const [selectedLevers, setSelectedLevers] = useState<string[]>(["brand", "seo", "gtm", "webapp"]);
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+  const toggleLever = (id: string) => {
+    setSelectedLevers((prev) =>
+      prev.includes(id) ? (prev.length > 1 ? prev.filter((item) => item !== id) : prev) : [...prev, id]
+    );
   };
+
+  const activeDisciplinesCount = new Set(
+    growthLevers.filter((l) => selectedLevers.includes(l.id)).map((l) => l.discipline)
+  ).size;
+
+  const synergyScore = Math.min(100, 60 + activeDisciplinesCount * 10);
 
   return (
     <>
-      <PageHero
-        eyebrow={servicesHeading.eyebrow}
-        title={servicesHeading.title}
-        lead={servicesHeading.lead}
-      />
+      {/* Screen 1: Full-Screen PageHero & The Connected Model */}
+      <Section className="border-b border-border" fullScreen>
+        <div className="flex flex-col justify-center py-4">
+          <div>
+            <Reveal>
+              <div className="flex items-center gap-3">
+                <span className="h-px w-8 bg-primary" />
+                <span className="eyebrow">{servicesHeading.eyebrow}</span>
+                <span className="font-mono text-[10px] text-muted-foreground">[ 04 disciplines ]</span>
+              </div>
+            </Reveal>
 
-      {/* Sticky Section Sub-Navigation Bar */}
-      <nav
-        aria-label="Services Navigation"
-        className="sticky top-[64px] z-30 border-y border-border bg-background/90 py-3 backdrop-blur-xl md:top-[72px]"
-      >
-        <div className="mx-auto flex w-full max-w-[1400px] items-center gap-2 overflow-x-auto px-6 no-scrollbar md:px-10">
-          <span className="mr-2 hidden font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground lg:inline-block">
-            Disciplines:
+            <Reveal delay={0.06}>
+              <h1 className="mt-3 max-w-3xl text-[clamp(2rem,5vw,3.8rem)] font-bold uppercase leading-[1.02]">
+                {servicesHeading.title}
+              </h1>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <p className="mt-3 max-w-2xl text-xs leading-relaxed text-muted-foreground sm:text-sm md:text-base">
+                {servicesHeading.lead}
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.14}>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <Btn
+                  onClick={() => {
+                    const el = document.getElementById("discipline-studio");
+                    el?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  size="md"
+                >
+                  Explore Studio ↓
+                </Btn>
+                <Btn to="/contact" variant="outline" size="md">
+                  Book a Growth Audit
+                </Btn>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </Section>
+
+      {/* Screen 2: Interactive Discipline Studio (Full Screen) */}
+      <Section id="discipline-studio" className="border-b border-border" fullScreen>
+        <div className="flex flex-wrap items-end justify-between gap-4 pb-3 md:pb-4">
+          <SectionHeading
+            eyebrow="Interactive Discipline Studio"
+            index={`[ 0${activeDisciplineIndex + 1} / 04 ]`}
+            title={<>Dedicated Capabilities.</>}
+            lead="Toggle between disciplines to inspect core scope, strategic objectives, and modular deliverables."
+          />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-primary-bright">
+            Divided Focus View
           </span>
-          {serviceSections.map((sec) => {
-            const isActive = activeId === sec.id;
+        </div>
+
+        {/* Tab Navigation */}
+        <div className="mt-2.5 flex flex-wrap gap-1.5 md:gap-2">
+          {serviceSections.map((sec, idx) => {
+            const isActive = activeDisciplineIndex === idx;
             return (
               <button
                 key={sec.id}
-                onClick={() => scrollTo(sec.id)}
+                onClick={() => setActiveDisciplineIndex(idx)}
                 className={cn(
-                  "inline-flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] transition-all duration-300",
+                  "relative inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] transition-all duration-300 md:text-[11px]",
                   isActive
-                    ? "border-primary bg-primary/15 text-primary-bright shadow-[0_0_24px_-4px_var(--primary)]"
-                    : "border-border bg-surface/50 text-muted-foreground hover:border-border-strong hover:text-foreground",
+                    ? "border-primary bg-primary text-primary-foreground shadow-[0_0_20px_var(--primary)]"
+                    : "border-border bg-surface/40 text-muted-foreground hover:border-border-strong hover:text-foreground",
                 )}
               >
-                <span className={cn("text-[10px]", isActive ? "text-primary" : "opacity-60")}>
-                  {sec.num}
-                </span>
+                <span>{sec.num}</span>
                 <span>{sec.discipline}</span>
               </button>
             );
           })}
         </div>
-      </nav>
 
-      {/* 4 Dedicated Sections */}
-      <div className="divide-y divide-border">
-        {serviceSections.map((sec, idx) => (
-          <section
-            key={sec.id}
-            id={sec.id}
-            className="relative scroll-mt-28 px-6 py-24 md:px-10 md:py-32"
-          >
-            <div className="mx-auto w-full max-w-[1400px]">
-              <div className="grid gap-14 lg:grid-cols-[1.1fr_1.4fr]">
-                {/* Left Column: Eyebrow, Heading, Description & CTA */}
+        {/* Studio Content with Divided Focus */}
+        <div className="mt-4 grid items-stretch gap-4 md:mt-5 md:gap-6 lg:grid-cols-[1fr_1.3fr]">
+          {/* Left: Discipline Manifesto & Action */}
+          <div className="flex flex-col justify-between rounded-2xl border border-border bg-surface/40 p-4 sm:p-5 md:p-6">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentDiscipline.id}
+                initial={{ opacity: 0, x: -8 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 8 }}
+                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                className="flex h-full flex-col justify-between"
+              >
                 <div>
-                  <Reveal>
-                    <div className="flex items-center gap-4">
-                      <span className="h-px w-10 bg-primary" />
-                      <span className="eyebrow">{sec.discipline}</span>
-                      <span className="font-mono text-[11px] text-muted-foreground">
-                        [ {sec.num} ]
-                      </span>
-                    </div>
-                  </Reveal>
-
-                  <Reveal delay={0.06}>
-                    <h2 className="mt-6 font-display text-4xl font-bold uppercase tracking-tight md:text-5xl lg:text-6xl">
-                      {sec.heading}
-                    </h2>
-                  </Reveal>
-
-                  <Reveal delay={0.12}>
-                    <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                      {sec.description}
-                    </p>
-                  </Reveal>
-
-                  <Reveal delay={0.18}>
-                    <div className="mt-10">
-                      <Btn to="/contact" size="lg">
-                        {sec.cta}
-                      </Btn>
-                    </div>
-                  </Reveal>
-
-                  <XMark className="animate-float-slow mt-16 hidden h-20 w-20 opacity-20 lg:block" />
+                  <div className="flex items-center gap-2.5">
+                    <span className="h-px w-6 bg-primary" />
+                    <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-primary-bright sm:text-[10px]">
+                      Discipline Manifesto
+                    </span>
+                  </div>
+                  <h2 className="mt-3 font-display text-xl font-bold uppercase tracking-tight sm:text-2xl md:text-3xl">
+                    {currentDiscipline.heading}
+                  </h2>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                    {currentDiscipline.description}
+                  </p>
                 </div>
 
-                {/* Right Column: Deliverables Grid */}
-                <Reveal delay={0.1}>
-                  <div className="rounded-3xl border border-border bg-surface/30 p-6 backdrop-blur-sm md:p-10">
-                    <div className="flex items-center justify-between border-b border-border pb-4">
-                      <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary-bright">
-                        [ Core Services & Deliverables ]
-                      </span>
-                      <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                        {sec.items.length} items
-                      </span>
-                    </div>
+                <div className="mt-4 border-t border-border/80 pt-3 md:mt-5 md:pt-4">
+                  <Btn to="/contact" size="md">
+                    {currentDiscipline.cta}
+                  </Btn>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-                    <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                      {sec.items.map((item, itemIdx) => (
-                        <div
-                          key={item}
-                          className="group flex items-start gap-3.5 rounded-xl border border-border/80 bg-background/80 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/60 hover:bg-background hover:shadow-md"
-                        >
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary transition-transform duration-300 group-hover:scale-150" />
-                          <div>
-                            <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground/80">
-                              {String(itemIdx + 1).padStart(2, "0")}
-                            </p>
-                            <h3 className="mt-0.5 text-sm font-medium text-foreground transition-colors group-hover:text-primary-bright">
-                              {item}
-                            </h3>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </Reveal>
+          {/* Right: Interactive Deliverables Matrix */}
+          <div className="flex flex-col justify-between rounded-2xl border border-border bg-surface/40 p-4 sm:p-5 md:p-6">
+            <div>
+              <div className="flex items-center justify-between border-b border-border/80 pb-2.5">
+                <span className="font-mono text-[9px] uppercase tracking-[0.24em] text-primary-bright sm:text-[10px]">
+                  [ Capabilities & Deliverables ]
+                </span>
+                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground sm:text-[10px]">
+                  Core Scope
+                </span>
               </div>
+
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentDiscipline.id}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                  className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2"
+                >
+                  {currentDiscipline.items.slice(0, 6).map((item, i) => (
+                    <div
+                      key={item}
+                      className="group flex items-center gap-2.5 rounded-xl border border-border/80 bg-background/80 p-2.5 transition-all duration-300 hover:border-primary hover:bg-background hover:shadow-sm"
+                    >
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary transition-transform group-hover:scale-150" />
+                      <div className="flex w-full items-center justify-between">
+                        <span className="text-xs font-medium text-foreground transition-colors group-hover:text-primary-bright">
+                          {item}
+                        </span>
+                        <span className="font-mono text-[9px] text-muted-foreground/60">
+                          0{i + 1}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
             </div>
-          </section>
-        ))}
-      </div>
 
-      {/* Integrated Positioning Statement */}
-      <Section className="border-t border-border bg-surface/20 py-20">
-        <Reveal>
-          <div className="rounded-3xl border border-border bg-background p-8 md:p-14">
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-              <div className="max-w-3xl">
-                <span className="eyebrow">The Cravent Model</span>
-                <h3 className="mt-4 font-display text-2xl font-bold uppercase md:text-3xl">
-                  One partner for design, marketing, strategy, and technology.
-                </h3>
-                <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                  "{servicesPositioningStatement}"
-                </p>
-              </div>
-              <Btn to="/contact" size="lg" className="shrink-0">
-                Book a Growth Audit
-              </Btn>
+            <div className="mt-3 flex items-center justify-between border-t border-border/80 pt-2.5 font-mono text-[9px] uppercase tracking-wider text-muted-foreground sm:text-[10px]">
+              <span>Modular & Composable</span>
+              <span>Cravent Integrated Engine</span>
             </div>
           </div>
-        </Reveal>
+        </div>
       </Section>
-
+      {/* Screen 4: Contact & Growth Audit (Full Screen) */}
       <Contact />
     </>
   );
