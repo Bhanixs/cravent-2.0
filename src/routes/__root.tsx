@@ -9,7 +9,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -144,20 +144,8 @@ function RootComponent() {
         style={{ transformOrigin: "0% 50%" }}
         className="pointer-events-none fixed left-0 right-0 top-0 z-[60] h-[2.5px] bg-gradient-to-r from-primary via-primary-bright to-accent shadow-[0_0_16px_var(--primary)]"
       />
-      <main className="overflow-x-hidden">
-        {/* Dynamic page transition with AnimatePresence */}
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={pathname}
-            initial={{ opacity: 0, y: 14, filter: "blur(4px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            exit={{ opacity: 0, y: -14, filter: "blur(4px)" }}
-            transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full"
-          >
+      <main className="relative">
             <Outlet />
-          </motion.div>
-        </AnimatePresence>
       </main>
       <Footer />
       <Toaster />

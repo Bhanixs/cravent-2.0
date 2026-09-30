@@ -24,6 +24,19 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+/** Thin ruled divider with a centred label — adds breathing room between sections. */
+function SectionDivider({ label }: { label: string }) {
+  return (
+    <div className="flex items-center gap-4 px-4 py-14 sm:px-6 md:px-10 md:py-20">
+      <span className="h-px flex-1 bg-border" />
+      <span className="font-mono text-[9px] uppercase tracking-[0.28em] text-muted-foreground/60 sm:text-[10px]">
+        {label}
+      </span>
+      <span className="h-px flex-1 bg-border" />
+    </div>
+  );
+}
+
 function Index() {
   return (
     <>
@@ -31,10 +44,19 @@ function Index() {
       <Marquee
         items={["Branding", "Marketing", "Strategy", "Business Development", "Technology"]}
       />
+
+      <SectionDivider label="Our Disciplines" />
+
       {/* Disciplines Showcase with Divided Focus */}
       <Services compact />
+
+      <SectionDivider label="Our Sectors" />
+
       {/* Sectors Showcase with Divided Focus */}
       <Industries compact />
+
+      <SectionDivider label="Let's Build Together" />
+
       {/* Growth Audit & Conversation */}
       <Contact />
     </>
