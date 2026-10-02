@@ -18,7 +18,7 @@ export function Approach() {
           </span>
         </div>
 
-        <div className="mt-4 grid gap-2 sm:gap-3 md:mt-5 md:grid-cols-5">
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 md:mt-5">
           {approach.map((a, i) => (
             <Reveal key={a.step} delay={i * 0.05} className="h-full">
               <div className="group relative flex h-full flex-col justify-between rounded-xl border border-border/80 bg-background/80 p-3.5 transition-all duration-300 hover:border-primary hover:bg-background hover:shadow-sm sm:p-4">

@@ -200,6 +200,14 @@
   border-top: 1px solid var(--border);
 }
 
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @keyframes marquee-x {
   from {
     transform: translateX(0);

@@ -94,23 +94,23 @@ export function Nav() {
 
       <div
         className={cn(
-          "fixed inset-0 z-40 grid-bg bg-background transition-all duration-500 lg:hidden",
+          "fixed inset-0 z-40 grid-bg bg-background transition-all duration-500 lg:hidden overflow-y-auto",
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
         )}
       >
-        <div className="flex h-full flex-col justify-center px-6 pb-16 pt-24">
+        <div className="flex min-h-full flex-col justify-center px-6 pb-12 pt-24 max-w-lg mx-auto">
           {links.map((l, i) => (
             <Link
               key={l.to}
               to={l.to}
               onClick={() => setOpen(false)}
-              className="border-b border-border py-4 font-display text-3xl font-bold uppercase tracking-wider transition-colors hover:text-primary-bright"
+              className="border-b border-border py-3 sm:py-4 font-display text-2xl sm:text-3xl font-bold uppercase tracking-wider transition-colors hover:text-primary-bright"
               style={{ transitionDelay: `${i * 30}ms` }}
             >
               {l.label}
             </Link>
           ))}
-          <div className="mt-10">
+          <div className="mt-8 sm:mt-10">
             <Btn to="/contact" size="lg" className="w-full">
               Book a Growth Audit
             </Btn>

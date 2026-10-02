@@ -122,24 +122,24 @@ export function PortfolioPdfViewer({ pdfUrl, projectName }: PortfolioPdfViewerPr
       }`}
     >
       {/* Floating Control Toolbar */}
-      <div className="sticky top-20 z-30 mb-8 sm:mb-12 flex items-center justify-between gap-3 rounded-full border border-border/80 bg-background/80 px-4 py-2.5 backdrop-blur-md shadow-lg transition-all">
-        <div className="flex items-center gap-2 sm:gap-3">
-          <FileText className="h-4 w-4 text-primary" />
-          <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.16em] text-foreground font-medium">
+      <div className="sticky top-16 sm:top-20 z-30 mb-6 sm:mb-12 flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-border/80 bg-background/80 px-3 sm:px-4 py-2 sm:py-2.5 backdrop-blur-md shadow-lg transition-all">
+        <div className="flex items-center gap-1.5 sm:gap-3 min-w-0">
+          <FileText className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary shrink-0" />
+          <span className="font-mono text-[9px] sm:text-xs uppercase tracking-[0.16em] text-foreground font-medium truncate max-w-[120px] sm:max-w-xs md:max-w-md">
             {projectName}
           </span>
           {numPages > 0 && (
-            <span className="rounded-full bg-surface px-2.5 py-0.5 font-mono text-[10px] sm:text-[11px] text-muted-foreground">
-              {numPages} {numPages === 1 ? "page" : "pages"}
+            <span className="rounded-full bg-surface px-2 py-0.5 font-mono text-[9px] sm:text-[11px] text-muted-foreground shrink-0 hidden xs:inline sm:inline">
+              {numPages} {numPages === 1 ? "pg" : "pgs"}
             </span>
           )}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <button
             type="button"
             onClick={toggleFullscreen}
-            className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-surface/60 px-3 py-1.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-foreground transition-colors hover:border-primary hover:text-primary-bright cursor-pointer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-surface/60 px-2.5 sm:px-3 py-1 sm:py-1.5 font-mono text-[9px] sm:text-[11px] uppercase tracking-wider text-foreground transition-colors hover:border-primary hover:text-primary-bright cursor-pointer"
             title={isFullscreen ? "Exit Fullscreen" : "Enter Fullscreen"}
           >
             {isFullscreen ? (
@@ -160,7 +160,7 @@ export function PortfolioPdfViewer({ pdfUrl, projectName }: PortfolioPdfViewerPr
             target="_blank"
             rel="noopener noreferrer"
             download
-            className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-surface/60 px-3 py-1.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-muted-foreground transition-colors hover:border-primary hover:text-primary-bright"
+            className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-surface/60 px-2.5 sm:px-3 py-1 sm:py-1.5 font-mono text-[9px] sm:text-[11px] uppercase tracking-wider text-muted-foreground transition-colors hover:border-primary hover:text-primary-bright"
             title="Download PDF"
           >
             <Download className="h-3.5 w-3.5" />

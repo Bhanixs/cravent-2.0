@@ -29,7 +29,7 @@ export function PageHero({
           </Reveal>
 
           <Reveal delay={0.06}>
-            <h1 className="mt-3 max-w-3xl text-[clamp(2rem,5vw,3.8rem)] font-bold uppercase leading-[1.02]">
+            <h1 className="mt-3 max-w-3xl text-[clamp(1.85rem,5vw,3.8rem)] font-bold uppercase leading-[1.04] break-words">
               {title}
             </h1>
           </Reveal>

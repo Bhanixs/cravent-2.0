@@ -101,7 +101,7 @@ function ProjectDetailPage() {
 
           {/* Title */}
           <Reveal delay={0.1}>
-            <h1 className="mt-6 max-w-5xl text-[clamp(2.5rem,8vw,7rem)] font-bold uppercase">
+            <h1 className="mt-4 sm:mt-6 max-w-5xl text-[clamp(2.2rem,7vw,6.5rem)] font-bold uppercase break-words leading-[1.05]">
               {project.name}
             </h1>
           </Reveal>
@@ -177,7 +177,7 @@ function ProjectDetailPage() {
           {/* Right Column: Description */}
           <div className="md:col-span-2">
             <Reveal delay={0.08}>
-              <div className="border-l-2 border-primary pl-8">
+              <div className="border-l-2 border-primary pl-4 sm:pl-6 md:pl-8">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary-bright">
                   About the {project.domain} Scope
                 </p>

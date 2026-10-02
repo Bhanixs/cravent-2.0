@@ -45,6 +45,7 @@ export function Industries({ compact = true, isPage = false }: { compact?: boole
   });
 
   const scrollToCard = (idx: number) => {
+    setActive(idx);
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const containerTop = window.scrollY + rect.top;
@@ -169,7 +170,7 @@ export function Industries({ compact = true, isPage = false }: { compact?: boole
                 </div>
 
                 {/* Step Indicators / Clickable Pills */}
-                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-0.5 max-w-full">
                   {industries.map((ind, i) => {
                     const isActive = active === i;
                     const shortLabel = (ind.name.split("&")[0]?.split(",")[0] ?? ind.name).trim();
@@ -179,7 +180,7 @@ export function Industries({ compact = true, isPage = false }: { compact?: boole
                         type="button"
                         onClick={() => scrollToCard(i)}
                         className={cn(
-                          "group relative flex items-center gap-2 rounded-full border px-3.5 py-1.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-wider transition-all duration-300",
+                          "group relative flex items-center gap-1.5 sm:gap-2 rounded-full border px-3 sm:px-3.5 py-1.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-wider transition-all duration-300 shrink-0",
                           isActive
                             ? "border-primary bg-primary text-primary-foreground shadow-[0_0_20px_var(--primary)] font-bold"
                             : "border-border/80 bg-surface/40 text-muted-foreground hover:border-border hover:text-foreground",
@@ -211,7 +212,7 @@ export function Industries({ compact = true, isPage = false }: { compact?: boole
                     className="overflow-hidden rounded-2xl sm:rounded-3xl border border-blue-500/35 shadow-[0_25px_60px_-15px_rgba(29,78,216,0.38)] grid lg:grid-cols-12 lg:h-[calc(100vh-170px)] max-h-[700px] w-full"
                   >
                     {/* Left/Top: Image with gradient blend */}
-                    <div className="relative lg:col-span-7 h-52 sm:h-64 lg:h-full w-full overflow-hidden bg-black">
+                    <div className="relative lg:col-span-7 h-48 sm:h-64 lg:h-full w-full overflow-hidden bg-black shrink-0">
                       <img
                         src={currentImg}
                         alt={current.name}
@@ -228,7 +229,7 @@ export function Industries({ compact = true, isPage = false }: { compact?: boole
                     </div>
 
                     {/* Right/Bottom: Text container */}
-                    <div className="lg:col-span-5 border-t lg:border-t-0 lg:border-l border-blue-500/30 bg-gradient-to-b from-[#0a1e4a] via-[#050f26] to-[#02050f] p-5 sm:p-7 lg:p-8 xl:p-10 text-white flex flex-col justify-between overflow-y-auto">
+                    <div className="lg:col-span-5 border-t lg:border-t-0 lg:border-l border-blue-500/30 bg-gradient-to-b from-[#0a1e4a] via-[#050f26] to-[#02050f] p-4 sm:p-6 lg:p-8 xl:p-10 text-white flex flex-col justify-between overflow-y-auto">
                       <div>
                         <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-blue-300">
                           Sector 0{active + 1}

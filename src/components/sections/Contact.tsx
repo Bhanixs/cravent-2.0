@@ -4,7 +4,7 @@ import { Btn, Reveal, Section } from "@/components/site/kit";
 import { industries } from "@/content/cravent";
 
 const field =
-  "w-full rounded-xl border border-border bg-surface/40 px-3.5 py-2.5 text-xs text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary focus:bg-surface";
+  "w-full rounded-xl border border-border bg-surface/40 px-3.5 py-2.5 text-sm sm:text-xs text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary focus:bg-surface";
 const label = "font-mono text-[9px] uppercase tracking-[0.18em] text-muted-foreground";
 
 /**

@@ -70,7 +70,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-4 max-w-[12ch] text-[clamp(2.4rem,6vw,5.5rem)] font-bold uppercase leading-[1.02] tracking-tight md:mt-6"
+          className="mt-4 max-w-[12ch] text-[clamp(2.1rem,6vw,5.5rem)] font-bold uppercase leading-[1.02] tracking-tight md:mt-6 break-words"
         >
           Your business needs
           <br />

@@ -33,7 +33,7 @@ export function Work({ limit }: { limit?: number }) {
         />
 
         {/* Domain Filter Switcher - fixed to right like other domains */}
-        <div className="flex flex-wrap items-center justify-end gap-2 shrink-0 ml-auto">
+        <div className="flex flex-wrap items-center justify-start sm:justify-end gap-1.5 sm:gap-2 w-full sm:w-auto shrink-0 mt-2 sm:mt-0 ml-auto">
           {categories.map((cat) => {
             const isActive = filter === cat;
             const count = work.filter((w) => w.domain === cat).length;
@@ -43,7 +43,7 @@ export function Work({ limit }: { limit?: number }) {
                 type="button"
                 onClick={() => setFilter(cat)}
                 className={cn(
-                  "relative flex items-center gap-2 rounded-full border px-3 sm:px-4 py-1.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.16em] transition-all duration-300",
+                  "relative flex items-center gap-1.5 sm:gap-2 rounded-full border px-2.5 sm:px-4 py-1 sm:py-1.5 font-mono text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-[0.16em] transition-all duration-300",
                   isActive
                     ? "border-primary bg-primary text-primary-foreground shadow-[0_0_18px_var(--primary)] font-bold"
                     : "border-border bg-background/80 text-muted-foreground hover:border-border-strong hover:text-foreground",
@@ -138,9 +138,9 @@ export function Work({ limit }: { limit?: number }) {
                     <Link
                       to="/work/$slug"
                       params={{ slug: p.slug }}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-blue-500/40 bg-blue-950/60 px-3.5 py-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-blue-200 backdrop-blur-sm transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-white group-hover:shadow-[0_0_20px_rgba(37,99,235,0.6)] hover:!scale-105"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-blue-500/40 bg-blue-950/60 px-3.5 py-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-blue-200 backdrop-blur-sm transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-white group-hover:shadow-[0_0_20px_rgba(37,99,235,0.6)] hover:!scale-105 shrink-0"
                     >
-                      <span>Open {p.domain}</span>
+                      <span>{p.domain === "Business Development" ? "Open Business Dev" : `Open ${p.domain}`}</span>
                       <span>→</span>
                     </Link>
                   </div>
