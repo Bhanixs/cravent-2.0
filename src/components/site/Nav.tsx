@@ -11,6 +11,7 @@ const links = [
   { label: "Work", to: "/work" },
   /*{ label: "Space", to: "/space" },*/
   { label: "Insights", to: "/insights" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export function Nav() {

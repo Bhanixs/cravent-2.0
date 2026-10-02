@@ -32,7 +32,10 @@ function IndustriesPage() {
         primaryCta={{
           label: "Explore Sectors ↓",
           onClick: () => {
-            const el = document.getElementById("sectors-navigator");
+            const el =
+              document.getElementById("industries-cards") ||
+              document.getElementById("sectors-navigator") ||
+              document.getElementById("industries");
             el?.scrollIntoView({ behavior: "smooth" });
           },
         }}
@@ -41,7 +44,7 @@ function IndustriesPage() {
           to: "/contact",
         }}
       />
-      <IndustriesSection />
+      <IndustriesSection compact isPage />
       <Contact />
     </>
   );

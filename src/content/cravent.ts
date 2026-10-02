@@ -239,164 +239,400 @@ export const industries = [
 export interface WorkItem {
   name: string;
   slug: string;
+  domain: "Branding" | "Marketing" | "Business Development" | "Technology";
   industry: string;
   focus: string;
   scope: string;
   description?: string;
   pdf?: string;
+  highlights?: string[];
 }
 
 export const work: WorkItem[] = [
+  // ================= BRANDING PROJECTS =================
   {
-    name: "Valonk",
-    slug: "valonk",
-    industry: "Fashion and Lifestyle",
-    focus: "Brand identity, visual direction, product and marketing communication.",
+    name: "Arkisan",
+    slug: "arkisan-branding",
+    domain: "Branding",
+    industry: "Construction and Engineering",
+    focus: "Brand identity, visual direction, corporate communication, and market positioning.",
     scope: "Brand Identity · Visual Direction · Marketing",
     description:
-      "Valonk is a fashion and lifestyle brand where we crafted a complete brand identity system — from visual direction and logo design to product photography guidelines and marketing communication. The project focused on building a cohesive brand language that resonates with modern consumers while maintaining timeless elegance.",
-    pdf: "/assets/portfolio/valonk Branding & Visual Identity.pdf",
+      "Arkisan is a forward-thinking home construction company built around engineering precision, transparency, and ethical practices. We crafted a professional brand identity and visual direction that reflects Arkisan's commitment to bringing structure and reliability to India's home-building process.",
+    pdf: "/assets/portfolio/branding/Arkisan Portfolio.pdf",
   },
   {
-    name: "Vivium",
-    slug: "vivium",
-    industry: "Ethical Living & Sustainability",
-    focus: "Brand identity, product design communication, sustainable brand storytelling.",
-    scope: "Brand Identity · Product Design · Sustainability",
+    name: "Divyam",
+    slug: "divyam-branding",
+    domain: "Branding",
+    industry: "Architecture & Luxury Spaces",
+    focus: "Architectural visual identity, brand guidelines, and spatial marketing communication.",
+    scope: "Brand Identity · Visual Direction · Spatial Design",
     description:
-      "Vivum is an Indian based Ethical bridge brand working with the product category of bath accessories and kitchen accessories. Vivium closely works with craft artisans and natural material providers to create natural and sustainable products with a touch of enriched handicraft skills of India, by adding an essence of modern design and aesthetical feel. We also work on personalized products to provide our consumers with utmost satisfaction and uniqueness, with our specialized design team.",
-    pdf: "/assets/portfolio/Vivum brand book.pdf",
-  },
-  {
-    name: "Akshara Vidyaashram",
-    slug: "akshara-vidyaashram",
-    industry: "Education",
-    focus: "Institutional communication, brand support, digital content, and outreach.",
-    scope: "Institutional Branding · Digital Outreach · Content",
-    description:
-      "Akshara Vidyaashram is an educational institution where Cravent provided comprehensive brand support — from institutional communication design to digital content creation and community outreach strategies, helping the school strengthen its identity and engagement.",
-  },
-  {
-    name: "Travellers Tribe",
-    slug: "travellers-tribe",
-    industry: "Travel and Tourism",
-    focus: "Travel community building, content, campaigns, and digital engagement.",
-    scope: "Community Building · Campaigns · Digital Engagement",
-    description:
-      "Travellers Tribe is a travel community where we built the digital engagement ecosystem — content strategies, social media campaigns, and community-building initiatives designed to inspire and connect passionate travellers.",
-  },
-  {
-    name: "Honey Pop",
-    slug: "honey-pop",
-    industry: "Wellness and FMCG",
-    focus: "Brand identity, packaging design, product positioning and marketing communication.",
-    scope: "Brand Identity · Packaging · Marketing",
-    description:
-      "Honey Pop is a modern wellness brand built around natural purity and effortless convenience. We crafted a distinctive brand identity and visual direction that positions pure honey as an easy, everyday alternative to processed sugars. The project focused on creating a clean, approachable brand language across packaging and marketing communication while highlighting Honey Pop's mess-free single-serve sachets and on-the-go lifestyle.",
-    pdf: "/assets/portfolio/Honey Pop Portfolio.pdf",
+      "Divyam represents high-end architectural living and modern craftsmanship. Cravent crafted a refined visual identity and comprehensive brand book that articulates the harmony between modern minimalism and timeless Indian architectural materials.",
+    pdf: "/assets/portfolio/branding/Divyam Portfolio.pdf",
   },
   {
     name: "Erthaloka",
-    slug: "erthaloka",
+    slug: "erthaloka-branding",
+    domain: "Branding",
     industry: "Sustainability and Planetary Technology",
-    focus: "Brand communication, digital presence, strategy, and sustainability-led storytelling.",
-    scope: "Brand Strategy · Planetary Tech · Digital Platform",
+    focus: "Brand communication, visual identity system, and sustainability-led storytelling.",
+    scope: "Brand Identity · Visual Language · Sustainability",
     description:
-      "Erthaloka operates at the intersection of sustainability and planetary technology. Cravent developed the brand communication system, digital platform, and sustainability-led storytelling to position Erthaloka as a thought leader in the responsible technology space.",
-    pdf: "/assets/portfolio/Erthaloka Portfolio.pdf",
+      "Erthaloka operates at the intersection of sustainability and planetary technology. Cravent developed a holistic brand communication system, clean geometric identity, and sustainability-led storytelling framework to establish them as a global visionary.",
+    pdf: "/assets/portfolio/branding/Erthaloka Portfolio.pdf",
   },
   {
-    name: "SPARC",
-    slug: "sparc",
-    industry: "Sustainability and Community Development",
-    focus: "Communication, project support, outreach, and impact-oriented initiatives.",
-    scope: "Communication Design · Outreach · Impact Strategy",
+    name: "Honey Pop",
+    slug: "honey-pop-branding",
+    domain: "Branding",
+    industry: "Wellness and FMCG",
+    focus: "Brand identity, packaging design, product positioning, and consumer communication.",
+    scope: "Brand Identity · Packaging · Visual Direction",
     description:
-      "SPARC focuses on sustainability and community development. We provided communication design, project support, outreach strategies, and impact-oriented initiative planning to amplify their mission and reach.",
-  },
-  {
-    name: "Arkisan",
-    slug: "arkisan",
-    industry: "Construction and Engineering",
-    focus: "Brand identity, visual direction, corporate communication and marketing.",
-    scope: "Brand Identity · Visual Direction · Marketing",
-    description:
-      "Arkisan is a forward-thinking home construction company built around engineering precision, transparency, and ethical practices. We crafted a professional brand identity and visual direction that reflects Arkisan's commitment to bringing structure and reliability to India's home-building process. The project focused on establishing a trustworthy brand language that communicates professionalism, stability, and confidence while positioning Arkisan as a dependable partner in building the future of every family.",
-    pdf: "/assets/portfolio/Arkisan Portfolio.pdf",
-  },
-  {
-    name: "Jeevarasai",
-    slug: "jeevarasai",
-    industry: "Organic and Wellness",
-    focus: "Brand communication, marketing, product storytelling, and customer engagement.",
-    scope: "Brand Storytelling · Organic Commerce · Marketing",
-    description:
-      "Jeevarasai is an organic and wellness brand where we built the brand communication framework, product storytelling approach, and customer engagement systems to connect health-conscious consumers with authentic organic products.",
-  },
-  {
-    name: "Lycée Français International",
-    slug: "lycee-francais",
-    industry: "Education",
-    focus: "Communication and institutional project support.",
-    scope: "Institutional Project Support · Global Communication",
-    description:
-      "Lycée Français International is a prestigious educational institution where Cravent provided communication design and institutional project support, helping bridge cultural narratives through thoughtful design and global communication strategies.",
-    pdf: "/assets/portfolio/Lycee Francais Portfolio.pdf",
-  },
-  {
-    name: "French Councillor Election Campaign",
-    slug: "french-councillor-campaign",
-    industry: "Political and Community Communication",
-    focus: "Campaign communication, creative assets, outreach, and public engagement.",
-    scope: "Campaign Strategy · Creative Assets · Public Outreach",
-    description:
-      "For the French Councillor Election Campaign, Cravent designed and executed a full campaign communication system — creative assets, public outreach strategies, and engagement materials that connected the candidate with their constituency.",
+      "Honey Pop is a modern wellness brand built around natural purity and effortless convenience. We crafted a distinctive brand identity and packaging visual direction that positions pure honey as an everyday lifestyle alternative to processed sugars.",
+    pdf: "/assets/portfolio/branding/Honey Pop Portfolio.pdf",
   },
   {
     name: "KH International",
-    slug: "kh-international",
+    slug: "khinternational-branding",
+    domain: "Branding",
     industry: "Business Strategy & International Trade",
-    focus: "Corporate positioning, market strategy, and executive communication.",
-    scope: "Strategy · International Positioning · Marketing",
+    focus: "Corporate identity, visual brand architecture, and international executive communication.",
+    scope: "Corporate Branding · Visual Identity · Global Positioning",
     description:
-      "KH International operates in international trade and business strategy. We provided corporate positioning, market strategy development, and executive communication design to establish their presence across global markets.",
+      "KH International operates in international trade and business strategy across global borders. Cravent created their authoritative corporate branding guidelines, executive presentation systems, and global identity assets.",
+    pdf: "/assets/portfolio/branding/kh.pdf",
   },
   {
-    name: "Xplored",
-    slug: "xplored",
-    industry: "Travel and Lifestyle",
-    focus: "Brand growth, digital media production, and experiential community storytelling.",
-    scope: "Brand · Growth · Media Production",
+    name: "Lycée Français International",
+    slug: "lycee-francais-branding",
+    domain: "Branding",
+    industry: "Education & Institutional Outreach",
+    focus: "Institutional visual communication, brand design, and global cultural narrative support.",
+    scope: "Institutional Branding · Visual Design · Global Comms",
     description:
-      "Xplored is a travel and lifestyle brand where we drove brand growth through digital media production and experiential community storytelling — building a visual identity that captures the spirit of exploration.",
+      "Lycée Français International is a prestigious international educational institution where Cravent provided communication design and institutional branding support, bridging rich cultural heritage with contemporary clarity.",
+    pdf: "/assets/portfolio/branding/Lycee Francais Portfolio.pdf",
+  },
+  {
+    name: "Travellers Tribe",
+    slug: "travellers-tribe-branding",
+    domain: "Branding",
+    industry: "Travel, Adventure & Tourism",
+    focus: "Community brand identity, experiential campaign assets, and nomadic storytelling.",
+    scope: "Brand Identity · Community Direction · Media Design",
+    description:
+      "Travellers Tribe brings together explorers, wanderers, and cultural curators. We developed an energetic, adventurous visual brand identity with custom iconography and community campaign guidelines.",
+    pdf: "/assets/portfolio/branding/travelers triibe.pdf",
+  },
+  {
+    name: "Valonk",
+    slug: "valonk-branding",
+    domain: "Branding",
+    industry: "Fashion and Lifestyle",
+    focus: "Brand identity system, logo craft, product art direction, and editorial guidelines.",
+    scope: "Brand Identity · Visual Direction · Art Direction",
+    description:
+      "Valonk is a fashion and lifestyle brand where we crafted a complete brand identity system — from visual direction and logo design to product photography guidelines and marketing communication, maintaining timeless elegance.",
+    pdf: "/assets/portfolio/branding/valonk Branding & Visual Identity.pdf",
+  },
+  {
+    name: "Vivium",
+    slug: "vivium-branding",
+    domain: "Branding",
+    industry: "Ethical Living & Sustainability",
+    focus: "Brand identity, product storytelling, craftsmanship narrative, and sustainable aesthetic.",
+    scope: "Brand Identity · Product Design · Sustainability",
+    description:
+      "Vivium is an ethical bridge brand celebrating Indian craft artisans and natural sustainable bath and kitchen accessories. We crafted their complete brand book, sustainable packaging philosophy, and visual identity.",
+    pdf: "/assets/portfolio/branding/Vivum brand book.pdf",
   },
   {
     name: "Cravent",
-    slug: "cravent",
+    slug: "cravent-branding",
+    domain: "Branding",
     industry: "Creative Agency & Growth Partner",
-    focus: "Brand identity, logo system, visual identity, and internal brand language.",
-    scope: "Brand Identity · Logo System · Visual Language",
+    focus: "Brand identity, logo system, geometric visual language, and agency design system.",
+    scope: "Brand Identity · Logo System · Design Language",
     description:
-      "Cravent's own brand identity — a comprehensive logo and visual identity system built to communicate precision, growth, and partnership across every touchpoint of the agency's presence.",
-    pdf: "/assets/portfolio/X - Cravent logo & visual identity...pdf",
+      "Cravent's own brand identity — a comprehensive architectural logo and visual identity system engineered around the electric blue X motif, precision geometry, and high-performance growth engineering.",
+    pdf: "/assets/portfolio/branding/X - Cravent logo & visual identity...pdf",
+  },
+
+  // ================= MARKETING PROJECTS =================
+  {
+    name: "Valonk",
+    slug: "valonk-marketing",
+    domain: "Marketing",
+    industry: "Fashion and Lifestyle",
+    focus: "Full-funnel customer acquisition, Meta & Google performance media, and luxury creator gifting.",
+    scope: "Performance Media · Creator Strategy · Retention Engine",
+    description:
+      "For Valonk's seasonal luxury fashion collections, Cravent engineered a high-converting full-funnel acquisition engine. We combined aspirational Meta Reels, retargeting funnels, and curated fashion influencer partnerships to achieve record return on ad spend (ROAS).",
+    highlights: [
+      "Targeted Meta & Google Ads performance campaigns with 3.8x ROAS",
+      "Curated editorial influencer gifting across top-tier lifestyle creators",
+      "Automated VIP email lifecycle sequences for higher cart checkout conversion",
+    ],
   },
   {
-    name: "Bhanix",
-    slug: "bhanix",
-    industry: "Business Development & Fintech",
-    focus: "Market positioning, go-to-market systems, and digital sales infrastructure.",
-    scope: "Positioning · Systems · Go-To-Market",
+    name: "Arkisan",
+    slug: "arkisan-marketing",
+    domain: "Marketing",
+    industry: "Construction and Engineering",
+    focus: "High-intent inbound lead generation, hyper-local search marketing, and automated WhatsApp qualification.",
+    scope: "Inbound Lead Gen · Search Ads · WhatsApp Ingestion",
     description:
-      "Bhanix operates in the fintech and business development space. Cravent built the market positioning strategy, go-to-market systems, and digital sales infrastructure to accelerate their entry and growth in a competitive landscape.",
+      "Cravent designed a high-intent commercial lead engine for Arkisan. By targeting landowners and prospective homeowners through localized Google Search and Meta video walk-throughs, we generated qualified inquiries directly routed into automated CRM workflows.",
+    highlights: [
+      "Over 120+ qualified luxury home-building consultations per quarter",
+      "Interactive WhatsApp Business intake system qualifying client budgets",
+      "Geo-targeted local SEO positioning Arkisan as top-rated builder",
+    ],
   },
   {
-    name: "Other Ventures & Initiatives",
-    slug: "other-ventures",
-    industry: "Startups, Education, Sustainability & Community",
-    focus: "Strategic advisory, digital platforms, and brand development for emerging initiatives.",
-    scope: "Ecosystem Advisory · Digital Platforms · Ventures",
+    name: "Travellers Tribe",
+    slug: "travellers-tribe-marketing",
+    domain: "Marketing",
+    industry: "Travel, Adventure & Tourism",
+    focus: "Viral organic social engine, expedition influencer drops, and automated traveler community loops.",
+    scope: "Organic Content · Expedition Drops · Community Retention",
     description:
-      "A collection of emerging ventures and initiatives across startups, education, sustainability, and community development — where Cravent provides strategic advisory, digital platform development, and brand building for early-stage projects.",
+      "Engineered an organic social momentum flywheel for Travellers Tribe, turning curated backcountry expeditions into viral short-form video stories that sold out seasonal tours within 48 hours of drop announcements.",
+    highlights: [
+      "Multi-platform short-form video framework generating 4.2M+ organic views",
+      "Early-access WhatsApp & email drops driving instant booking sellouts",
+      "User-generated content (UGC) community ambassador incentive program",
+    ],
+  },
+  {
+    name: "Honey Pop",
+    slug: "honey-pop-marketing",
+    domain: "Marketing",
+    industry: "Wellness and FMCG",
+    focus: "D2C omnichannel retail launch, wellness creator seeding, and Amazon brand store conversion.",
+    scope: "D2C Growth · Creator Seeding · Omnichannel Ads",
+    description:
+      "Spearheaded the nationwide go-to-market rollout for Honey Pop across direct-to-consumer and retail channels. Leveraged nutrition-led TikTok and Instagram creator seeding paired with retargeting ads to establish everyday consumer pantry adoption.",
+    highlights: [
+      "350+ health & fitness micro-creators activated across organic social",
+      "Direct-to-consumer conversion rate boosted from 1.4% to 3.6%",
+      "Targeted Amazon PPC advertising dominating organic search keywords",
+    ],
+  },
+  {
+    name: "Divyam",
+    slug: "divyam-marketing",
+    domain: "Marketing",
+    industry: "Architecture & Luxury Spaces",
+    focus: "High-net-worth client outreach, architectural editorial press, and private showcase campaigns.",
+    scope: "Editorial PR · High-Ticket Outreach · Video Campaigns",
+    description:
+      "Devised an exclusive marketing and private relationship strategy for Divyam to reach prospective ultra-luxury villa clients. Leveraged cinematic architectural walk-through films, bespoke editorial placement, and confidential private previews.",
+    highlights: [
+      "Cinematic spatial cinematography viewed by 150k+ luxury home enthusiasts",
+      "Feature placements in leading architectural and interior design periodicals",
+      "Direct private consultation bookings with premium land developers",
+    ],
+  },
+  {
+    name: "Jeevarasai",
+    slug: "jeevarasai-marketing",
+    domain: "Marketing",
+    industry: "Organic Commerce & Wellness",
+    focus: "Subscription retention funnels, Google Shopping performance, and lifecycle email marketing.",
+    scope: "E-Commerce Growth · Lifecycle Email · Search Ads",
+    description:
+      "Engineered automated customer lifecycle retention flows and repeat purchase incentives for Jeevarasai, elevating customer lifetime value (LTV) and scaling organic wellness subscriptions across nationwide consumers.",
+    highlights: [
+      "42% increase in 90-day repeat replenishment purchase rates",
+      "Optimized Google Performance Max campaigns for high-converting SKU lines",
+      "Automated personalized email win-back and replenishment triggers",
+    ],
+  },
+
+  // ================= BUSINESS DEVELOPMENT PROJECTS =================
+  {
+    name: "KH International",
+    slug: "khinternational-bizdev",
+    domain: "Business Development",
+    industry: "Business Strategy & International Trade",
+    focus: "Cross-border market entry, global distributor framework, and institutional trade negotiations.",
+    scope: "GTM Expansion · Trade Strategy · Partnership Pipeline",
+    description:
+      "Structured KH International's multi-territory business development strategy, formulating international distributor frameworks, institutional negotiation decks, and verified supply chain expansion blueprints across three continents.",
+    highlights: [
+      "Cross-border partner acquisition pipeline spanning GCC and Southeast Asia",
+      "Institutional commodity trade presentation decks for sovereign buyers",
+      "Risk-adjusted pricing schedules and international contract playbooks",
+    ],
+  },
+  {
+    name: "Erthaloka",
+    slug: "erthaloka-bizdev",
+    domain: "Business Development",
+    industry: "Sustainability and Planetary Technology",
+    focus: "Institutional climate funding proposals, climate venture pitch decks, and carbon credit commercial models.",
+    scope: "Venture Strategy · Investor Pitch Decks · Revenue Modeling",
+    description:
+      "Developed comprehensive institutional investor decks and public-private partnership models for Erthaloka, translating complex ecological telemetry tech into investable enterprise commercial frameworks.",
+    highlights: [
+      "Complete seed and Series A investor data room and financial pro-forma models",
+      "Public-private consortium partnership templates for municipal deployments",
+      "Enterprise carbon credit monetization and verifiable offset roadmap",
+    ],
+  },
+  {
+    name: "Vivium",
+    slug: "vivium-bizdev",
+    domain: "Business Development",
+    industry: "Ethical Living & Sustainability",
+    focus: "Artisan supplier network SOPs, B2B wholesale distribution strategy, and institutional hospitality procurement.",
+    scope: "B2B Wholesale · Channel Strategy · Supply Chain SOPs",
+    description:
+      "Architected Vivium's commercial distribution roadmap, securing B2B procurement contracts with boutique luxury hotels and streamlining ethical artisan craft sourcing with scalable operational SOPs.",
+    highlights: [
+      "Procurement agreements established with 18+ luxury eco-resorts",
+      "Standardized fair-wage artisan supplier agreements and quality audit SOPs",
+      "Tiered corporate gifting catalogs and institutional pricing models",
+    ],
+  },
+  {
+    name: "SPARC",
+    slug: "sparc-bizdev",
+    domain: "Business Development",
+    industry: "Sustainability and Community Development",
+    focus: "Corporate CSR funding frameworks, municipal grant proposals, and community partnership channels.",
+    scope: "CSR Partnership · Grant Strategy · Stakeholder Alignment",
+    description:
+      "Crafted corporate partnership roadmaps and impact audit reports for SPARC, unlocking long-term CSR endowments and municipal collaborative agreements for sustainable grass-roots initiatives.",
+    highlights: [
+      "Structured multi-year CSR sponsorship pitch kits for listed enterprises",
+      "Municipal government alignment framework for public urban forestry",
+      "Transparent social return on investment (SROI) reporting templates",
+    ],
+  },
+  {
+    name: "Vedashrama",
+    slug: "vedashrama-bizdev",
+    domain: "Business Development",
+    industry: "Wellness, Heritage & Retreats",
+    focus: "High-yield hospitality revenue models, seasonal corporate retreat packages, and wellness alliance channels.",
+    scope: "Revenue Optimization · Corporate Packages · Strategic Alliances",
+    description:
+      "Revamped Vedashrama's commercial offerings with high-ticket executive retreat programs, tiered corporate wellness packages, and international travel curator booking partnerships.",
+    highlights: [
+      "Turnkey executive leadership retreat packages tailored for tech founders",
+      "Direct B2B referral partnerships with European luxury wellness curators",
+      "Occupancy forecasting models improving off-peak seasonal revenue by 34%",
+    ],
+  },
+  {
+    name: "XplorED",
+    slug: "xplored-bizdev",
+    domain: "Business Development",
+    industry: "Education, Travel & EdTech",
+    focus: "Institutional school board partnerships, B2B university pipelines, and scalable group sales funnels.",
+    scope: "Institutional B2B · School Board Alliances · Sales Funnels",
+    description:
+      "Built the institutional business development pipeline for XplorED, designing institutional sales proposals and contract templates that accelerated onboarding across leading international school networks.",
+    highlights: [
+      "Standardized institutional tender documents and risk-mitigation briefs",
+      "Onboarding agreement pipeline signed across 24+ private international schools",
+      "Comprehensive parent orientation deck and student safety assurance blueprint",
+    ],
+  },
+
+  // ================= TECHNOLOGY PROJECTS =================
+  {
+    name: "Erthaloka",
+    slug: "erthaloka-tech",
+    domain: "Technology",
+    industry: "Sustainability and Planetary Technology",
+    focus: "Digital web platform, ecological monitoring showcase, and responsive web systems.",
+    scope: "Web Platform · Digital Architecture · Interactive UX",
+    description:
+      "For Erthaloka's planetary technology initiatives, Cravent designed and engineered the digital platform architecture, featuring responsive technical frameworks, interactive data modules, and intuitive user experiences.",
+    pdf: "/assets/portfolio/tech/Erthaloka Web.pdf",
+  },
+  {
+    name: "Jeevarasai",
+    slug: "jeevarasai-tech",
+    domain: "Technology",
+    industry: "Organic Commerce & Wellness",
+    focus: "Digital web storefront, product catalog architecture, and organic commerce ecosystem.",
+    scope: "E-Commerce Platform · Web Architecture · Systems",
+    description:
+      "Jeevarasai is an authentic organic wellness provider. Cravent engineered their digital web experience, product catalog architecture, and high-performance e-commerce storefront for seamless customer ordering.",
+    pdf: "/assets/portfolio/tech/Jeevarasai Web.pdf",
+  },
+  {
+    name: "KH International",
+    slug: "khinternational-tech",
+    domain: "Technology",
+    industry: "Business Strategy & International Trade",
+    focus: "Corporate digital portal, cross-border business showcase, and trade platform UX.",
+    scope: "Corporate Web Platform · Digital Portal · Responsive UX",
+    description:
+      "To power KH International's cross-border business operations, Cravent architected a modern, lightning-fast web portal that presents their global commodities and strategic trade capabilities with executive polish.",
+    pdf: "/assets/portfolio/tech/KH Web.pdf",
+  },
+  {
+    name: "SPARC",
+    slug: "sparc-tech",
+    domain: "Technology",
+    industry: "Sustainability and Community Development",
+    focus: "Community impact platform, web portal, outreach tools, and digital initiative systems.",
+    scope: "Web Platform · Impact Portal · Digital Systems",
+    description:
+      "SPARC drives grass-roots sustainability and community upliftment. We developed a mission-critical web platform equipped with initiative portals, dynamic community impact trackers, and donor outreach touchpoints.",
+    pdf: "/assets/portfolio/tech/SPARC Web.pdf",
+  },
+  {
+    name: "Travellers Tribe",
+    slug: "travellers-tribe-tech",
+    domain: "Technology",
+    industry: "Travel, Adventure & Tourism",
+    focus: "Travel community web platform, member discovery interface, and digital booking touchpoints.",
+    scope: "Community Web App · Digital Experience · UX/UI",
+    description:
+      "Cravent built the digital web platform for Travellers Tribe, allowing explorers to browse curated itineraries, connect with fellow community members, and interact with engaging travel content seamlessly.",
+    pdf: "/assets/portfolio/tech/Travellers Triibe Web.pdf",
+  },
+  {
+    name: "Vedashrama",
+    slug: "vedashrama-tech",
+    domain: "Technology",
+    industry: "Wellness, Heritage & Retreats",
+    focus: "Holistic retreat digital experience, booking flow, and responsive web platform.",
+    scope: "Digital Experience · Booking Architecture · Web Platform",
+    description:
+      "Vedashrama provides sanctuary-grade Ayurvedic and wellness retreats. Cravent engineered an immersive, serene web portal with integrated retreat scheduling, program discovery, and tranquil digital interactions.",
+    pdf: "/assets/portfolio/tech/Vedashrama Web.pdf",
+  },
+  {
+    name: "Vivium",
+    slug: "vivium-tech",
+    domain: "Technology",
+    industry: "Ethical Living & E-Commerce",
+    focus: "Sustainable product e-commerce storefront, catalog management, and seamless checkout platform.",
+    scope: "E-Commerce Platform · Web Design · Digital Store",
+    description:
+      "For Vivium's ethical product lines, Cravent architected an exquisite digital storefront that pairs sustainable artisanal product storytelling with a modern, high-conversion shopping and checkout experience.",
+    pdf: "/assets/portfolio/tech/Vivium Web.pdf",
+  },
+  {
+    name: "XplorED",
+    slug: "xplored-tech",
+    domain: "Technology",
+    industry: "Education, Travel & EdTech",
+    focus: "Experiential learning web platform, student portal, and interactive educational portal.",
+    scope: "EdTech Platform · Web Portal · Interactive UX",
+    description:
+      "XplorED pioneers experiential learning and global student expeditions. We built their interactive digital web platform, enabling institutions and students to navigate curriculum-aligned travel programs easily.",
+    pdf: "/assets/portfolio/tech/XplorED Web.pdf",
   },
 ];
 

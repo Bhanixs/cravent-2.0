@@ -32,9 +32,6 @@ export function Footer() {
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               A growth partner for businesses building what comes next.
             </p>
-            <div className="mt-8">
-              <Btn to="/contact">Book a Growth Audit</Btn>
-            </div>
           </div>
 
           <div>

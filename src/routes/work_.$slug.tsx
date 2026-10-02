@@ -6,9 +6,11 @@ import { PortfolioPdfViewer } from "@/components/sections/PortfolioPdfViewer";
 
 export const Route = createFileRoute("/work_/$slug")({
   head: ({ params }) => {
-    const project = work.find((p) => p.slug === params.slug);
+    const project =
+      work.find((p) => p.slug === params.slug) ||
+      work.find((p) => p.slug.startsWith(params.slug.replace(/-branding|-tech/, "")));
     const title = project
-      ? `${project.name} | Cravent Portfolio`
+      ? `${project.name} (${project.domain}) | Cravent Portfolio`
       : "Project | Cravent Portfolio";
     const description = project?.description ?? project?.focus ?? "";
     return {
@@ -27,7 +29,9 @@ export const Route = createFileRoute("/work_/$slug")({
 
 function ProjectDetailPage() {
   const { slug } = Route.useParams();
-  const project = work.find((p) => p.slug === slug);
+  const project =
+    work.find((p) => p.slug === slug) ||
+    work.find((p) => p.slug.startsWith(slug.replace(/-branding|-tech/, "")));
 
   if (!project) {
     return (
@@ -49,6 +53,9 @@ function ProjectDetailPage() {
   }
 
   const projectIndex = work.indexOf(project);
+  const otherDomainVersions = work.filter(
+    (p) => p.name.toLowerCase() === project.name.toLowerCase() && p.slug !== project.slug
+  );
 
   return (
     <>
@@ -56,24 +63,30 @@ function ProjectDetailPage() {
       <Section className="relative overflow-hidden pt-40 md:pt-52">
         <div className="pointer-events-none absolute inset-0 grid-bg opacity-40" />
         <div className="relative">
-          {/* Back Link */}
+          {/* Back Link & Domain Badge */}
           <Reveal>
-            <Link
-              to="/work"
-              className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-primary-bright"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-3.5 w-3.5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <Link
+                to="/work"
+                className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-primary-bright"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to work
-            </Link>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-3.5 w-3.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+                Back to {project.domain} Showcase
+              </Link>
+
+              <span className="rounded-full border border-primary/40 bg-primary/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-primary-bright">
+                {project.domain} Track
+              </span>
+            </div>
           </Reveal>
 
           {/* Eyebrow */}
@@ -81,7 +94,7 @@ function ProjectDetailPage() {
             <div className="mt-8 flex items-center gap-4">
               <span className="h-px w-10 bg-primary" />
               <span className="eyebrow">
-                Project {String(projectIndex + 1).padStart(2, "0")}
+                Project {String(projectIndex + 1).padStart(2, "0")} / {project.domain}
               </span>
             </div>
           </Reveal>
@@ -93,11 +106,29 @@ function ProjectDetailPage() {
             </h1>
           </Reveal>
 
-          {/* Industry Tag */}
+          {/* Industry Tag & Cross-Domain Switcher */}
           <Reveal delay={0.15}>
-            <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-primary-bright">
-              {project.industry}
-            </p>
+            <div className="mt-4 flex flex-wrap items-center gap-4">
+              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-primary-bright">
+                {project.industry}
+              </p>
+
+              {otherDomainVersions.length > 0 && (
+                <div className="flex flex-wrap items-center gap-2 rounded-full border border-border bg-surface/40 px-3 py-1 text-[11px]">
+                  <span className="text-muted-foreground">Also available:</span>
+                  {otherDomainVersions.map((other) => (
+                    <Link
+                      key={other.slug}
+                      to="/work/$slug"
+                      params={{ slug: other.slug }}
+                      className="font-mono uppercase tracking-wider text-primary-bright hover:underline"
+                    >
+                      {other.domain} →
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </Reveal>
         </div>
       </Section>
@@ -110,12 +141,22 @@ function ProjectDetailPage() {
             <Reveal>
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                  Domain
+                </p>
+                <p className="mt-2 text-sm font-semibold leading-relaxed text-foreground">
+                  {project.domain}
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                   Focus
                 </p>
                 <p className="mt-2 text-sm leading-relaxed">{project.focus}</p>
               </div>
             </Reveal>
-            <Reveal delay={0.05}>
+            <Reveal delay={0.08}>
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                   Scope
@@ -138,30 +179,116 @@ function ProjectDetailPage() {
             <Reveal delay={0.08}>
               <div className="border-l-2 border-primary pl-8">
                 <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary-bright">
-                  About the Project
+                  About the {project.domain} Scope
                 </p>
                 <p className="mt-4 text-base leading-[1.8] text-muted-foreground md:text-lg">
                   {project.description ?? project.focus}
                 </p>
+
+                {/* Highlights if available */}
+                {project.highlights && project.highlights.length > 0 && (
+                  <div className="mt-8 space-y-3">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-primary-bright">
+                      Key Strategic Highlights
+                    </p>
+                    <ul className="grid gap-2.5 sm:grid-cols-1">
+                      {project.highlights.map((h, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-3 rounded-lg border border-border/60 bg-surface/30 p-3 text-xs leading-relaxed text-foreground sm:text-sm"
+                        >
+                          <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {otherDomainVersions.length > 0 && (
+                  <div className="mt-8 rounded-lg border border-border/80 bg-surface/30 p-4">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                      Multi-Discipline Project
+                    </p>
+                    <p className="mt-1 text-sm text-foreground">
+                      Cravent also orchestrated solutions across other disciplines for {project.name}.
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-3">
+                      {otherDomainVersions.map((other) => (
+                        <Link
+                          key={other.slug}
+                          to="/work/$slug"
+                          params={{ slug: other.slug }}
+                          className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-primary-bright hover:underline"
+                        >
+                          <span>View {other.domain} Track</span>
+                          <span>→</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </Reveal>
           </div>
         </div>
       </Section>
 
-      {/* PDF Portfolio Section */}
-      {project.pdf && (
+      {/* PDF Portfolio Section or Case Study Deep Dive */}
+      {project.pdf ? (
         <section className="relative w-full border-t border-border bg-surface/20 py-20 md:py-28 overflow-hidden">
           <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 md:px-10 mb-10 md:mb-14">
             <Reveal>
-              <div className="flex items-center gap-4">
-                <span className="h-px w-10 bg-primary" />
-                <span className="eyebrow">Portfolio Showcase</span>
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-4">
+                  <span className="h-px w-10 bg-primary" />
+                  <span className="eyebrow">{project.domain} Portfolio Showcase</span>
+                </div>
+                {otherDomainVersions.length > 0 && (
+                  <div className="flex items-center gap-2">
+                    {otherDomainVersions.map((other) => (
+                      <Link
+                        key={other.slug}
+                        to="/work/$slug"
+                        params={{ slug: other.slug }}
+                        className="inline-flex items-center gap-1.5 rounded-full border border-border px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:border-primary hover:text-primary-bright"
+                      >
+                        <span>{other.domain} Case</span>
+                        <span>→</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             </Reveal>
           </div>
           <div className="w-full px-2 sm:px-4 md:px-8 lg:px-12">
-            <PortfolioPdfViewer pdfUrl={project.pdf} projectName={project.name} />
+            <PortfolioPdfViewer
+              pdfUrl={encodeURI(project.pdf)}
+              projectName={`${project.name} (${project.domain})`}
+            />
+          </div>
+        </section>
+      ) : (
+        <section className="relative w-full border-t border-border bg-surface/10 py-16 md:py-24">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+            <Reveal>
+              <span className="eyebrow">{project.domain} Strategic Engagement</span>
+              <h2 className="mt-4 text-2xl font-bold uppercase sm:text-3xl">
+                Ready to build a similar {project.domain.toLowerCase()} system?
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+                Discover how Cravent architects bespoke {project.domain.toLowerCase()} strategies tailored to your exact industry and operational velocity.
+              </p>
+              <div className="mt-8 flex justify-center gap-4">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-6 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-primary-foreground transition-all hover:shadow-[0_0_20px_var(--primary)]"
+                >
+                  Start a Conversation →
+                </Link>
+              </div>
+            </Reveal>
           </div>
         </section>
       )}

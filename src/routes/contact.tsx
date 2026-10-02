@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Contact } from "@/components/sections/Contact";
+import { ContactForm } from "@/components/sections/Contact";
 
 const title = "Contact Cravent | Start Your Growth Journey";
 const description =
@@ -20,5 +20,5 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
-  return <Contact />;
+  return <ContactForm />;
 }
