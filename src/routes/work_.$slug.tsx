@@ -6,9 +6,10 @@ import { PortfolioPdfViewer } from "@/components/sections/PortfolioPdfViewer";
 
 export const Route = createFileRoute("/work_/$slug")({
   head: ({ params }) => {
+    const cleanSlug = params.slug.replace(/-bizdev/, "-business-dev");
     const project =
-      work.find((p) => p.slug === params.slug) ||
-      work.find((p) => p.slug.startsWith(params.slug.replace(/-branding|-tech/, "")));
+      work.find((p) => p.slug === cleanSlug) ||
+      work.find((p) => p.slug.startsWith(cleanSlug.replace(/-branding|-tech|-business-dev|-marketing/, "")));
     const title = project
       ? `${project.name} (${project.domain}) | Cravent Portfolio`
       : "Project | Cravent Portfolio";
@@ -29,9 +30,10 @@ export const Route = createFileRoute("/work_/$slug")({
 
 function ProjectDetailPage() {
   const { slug } = Route.useParams();
+  const cleanSlug = slug.replace(/-bizdev/, "-business-dev");
   const project =
-    work.find((p) => p.slug === slug) ||
-    work.find((p) => p.slug.startsWith(slug.replace(/-branding|-tech/, "")));
+    work.find((p) => p.slug === cleanSlug) ||
+    work.find((p) => p.slug.startsWith(cleanSlug.replace(/-branding|-tech|-business-dev|-marketing/, "")));
 
   if (!project) {
     return (

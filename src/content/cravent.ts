@@ -259,7 +259,7 @@ export const work: WorkItem[] = [
     scope: "Brand Identity · Visual Direction · Marketing",
     description:
       "Arkisan is a forward-thinking home construction company built around engineering precision, transparency, and ethical practices. We crafted a professional brand identity and visual direction that reflects Arkisan's commitment to bringing structure and reliability to India's home-building process.",
-    pdf: "/assets/portfolio/branding/Arkisan Portfolio.pdf",
+    pdf: "/assets/portfolio/branding/Arkisan Portfolio2.pdf",
   },
   {
     name: "Divyam",
@@ -456,7 +456,7 @@ export const work: WorkItem[] = [
   // ================= BUSINESS DEVELOPMENT PROJECTS =================
   {
     name: "KH International",
-    slug: "khinternational-bizdev",
+    slug: "khinternational-business-dev",
     domain: "Business Development",
     industry: "Business Strategy & International Trade",
     focus: "Cross-border market entry, global distributor framework, and institutional trade negotiations.",
@@ -471,7 +471,7 @@ export const work: WorkItem[] = [
   },
   {
     name: "Erthaloka",
-    slug: "erthaloka-bizdev",
+    slug: "erthaloka-business-dev",
     domain: "Business Development",
     industry: "Sustainability and Planetary Technology",
     focus: "Institutional climate funding proposals, climate venture pitch decks, and carbon credit commercial models.",
@@ -486,7 +486,7 @@ export const work: WorkItem[] = [
   },
   {
     name: "Vivium",
-    slug: "vivium-bizdev",
+    slug: "vivium-business-dev",
     domain: "Business Development",
     industry: "Ethical Living & Sustainability",
     focus: "Artisan supplier network SOPs, B2B wholesale distribution strategy, and institutional hospitality procurement.",
@@ -501,7 +501,7 @@ export const work: WorkItem[] = [
   },
   {
     name: "SPARC",
-    slug: "sparc-bizdev",
+    slug: "sparc-business-dev",
     domain: "Business Development",
     industry: "Sustainability and Community Development",
     focus: "Corporate CSR funding frameworks, municipal grant proposals, and community partnership channels.",
@@ -516,7 +516,7 @@ export const work: WorkItem[] = [
   },
   {
     name: "Vedashrama",
-    slug: "vedashrama-bizdev",
+    slug: "vedashrama-business-dev",
     domain: "Business Development",
     industry: "Wellness, Heritage & Retreats",
     focus: "High-yield hospitality revenue models, seasonal corporate retreat packages, and wellness alliance channels.",
@@ -531,7 +531,7 @@ export const work: WorkItem[] = [
   },
   {
     name: "XplorED",
-    slug: "xplored-bizdev",
+    slug: "xplored-business-dev",
     domain: "Business Development",
     industry: "Education, Travel & EdTech",
     focus: "Institutional school board partnerships, B2B university pipelines, and scalable group sales funnels.",

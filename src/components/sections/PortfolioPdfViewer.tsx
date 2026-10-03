@@ -255,33 +255,30 @@ function PdfPageCard({
         delay: Math.min(index * 0.05, 0.3),
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="group/page relative w-full"
+      className="group/page relative w-full flex justify-center py-2 lg:py-4"
     >
       {/* Subtle ambient lighting effect behind card */}
       <div className="absolute inset-0 translate-y-3 rounded-2xl sm:rounded-3xl bg-primary/5 blur-2xl transition-all duration-500 group-hover/page:translate-y-5 group-hover/page:blur-3xl group-hover/page:bg-primary/10 pointer-events-none" />
 
-      {/* The full-width PDF page card */}
-      <div className="relative w-full overflow-hidden rounded-xl sm:rounded-2xl lg:rounded-3xl border border-border bg-white shadow-xl transition-all duration-500 hover:border-primary/40 hover:shadow-[0_24px_60px_-12px_rgba(37,99,235,0.18)]">
+      {/* The full-width PDF page card (constrained to screen height on large screens) */}
+      <div className="relative w-full lg:w-fit lg:max-h-[calc(100vh-140px)] mx-auto overflow-hidden rounded-xl sm:rounded-2xl lg:rounded-3xl border border-border bg-white shadow-xl transition-all duration-500 hover:border-primary/40 hover:shadow-[0_24px_60px_-12px_rgba(37,99,235,0.18)] flex items-center justify-center">
         {/* Floating page number badge */}
         <div className="absolute right-3 top-3 sm:right-6 sm:top-6 z-10 rounded-full bg-background/90 px-3 py-1 sm:px-4 sm:py-1.5 font-mono text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-foreground backdrop-blur-md shadow-md border border-border/60">
           {String(pageNumber).padStart(2, "0")}{" "}
           <span className="text-muted-foreground font-normal">/ {String(totalPages).padStart(2, "0")}</span>
         </div>
 
-        {/* Responsive, crisp full-width PDF canvas */}
-        <div className="w-full flex justify-center bg-white overflow-hidden">
+        {/* Responsive, crisp full-width PDF canvas (fitted to screen on big screens) */}
+        <div className="w-full lg:w-auto lg:max-h-[calc(100vh-140px)] flex justify-center items-center bg-white overflow-hidden">
           <Page
             pageNumber={pageNumber}
             width={pageWidth}
             renderAnnotationLayer={false}
             renderTextLayer={false}
-            className="w-full flex justify-center [&_.react-pdf__Page__canvas]:!w-full [&_.react-pdf__Page__canvas]:!h-auto [&_.react-pdf__Page__canvas]:block"
+            className="w-full flex justify-center items-center lg:w-auto lg:max-h-[calc(100vh-140px)] [&_.react-pdf__Page__canvas]:!w-full [&_.react-pdf__Page__canvas]:!h-auto lg:[&_.react-pdf__Page__canvas]:!w-auto lg:[&_.react-pdf__Page__canvas]:!max-h-[calc(100vh-140px)] lg:[&_.react-pdf__Page__canvas]:object-contain [&_.react-pdf__Page__canvas]:block [&_.react-pdf__Page]:w-full lg:[&_.react-pdf__Page]:!w-auto lg:[&_.react-pdf__Page]:!max-h-[calc(100vh-140px)]"
             loading={
               <div
-                className="flex items-center justify-center bg-surface/20 w-full"
-                style={{
-                  height: `${Math.max(Math.round(pageWidth * 0.6), 280)}px`,
-                }}
+                className="flex items-center justify-center bg-surface/20 w-full lg:w-[min(650px,80vw)] h-[min(60vh,550px)]"
               >
                 <div className="flex flex-col items-center gap-3">
                   <div className="h-7 w-7 animate-spin rounded-full border-2 border-primary border-t-transparent" />
