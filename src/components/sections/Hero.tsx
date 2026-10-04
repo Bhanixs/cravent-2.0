@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { Btn, XMark } from "@/components/site/kit";
+import { Btn } from "@/components/site/kit";
 import { HeroObject } from "./HeroObject";
 import heroImg from "@/assets/hero-structure.jpg";
 
@@ -45,7 +45,7 @@ export function Hero() {
         initial={{ opacity: 0, scale: 0.94 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.4, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-        className="pointer-events-auto absolute -right-[34%] top-[15%] z-[1] h-[30vh] min-h-[220px] w-[72vw] opacity-50 sm:-right-[18%] sm:h-[36vh] sm:w-[66vw] md:right-[1%] md:top-[12%] md:h-[58vh] md:min-h-[320px] md:w-[54vw] md:opacity-80 lg:right-[3%] lg:w-[48vw]"
+        className="pointer-events-auto absolute -right-[24%] top-[14%] z-[1] h-[35vh] min-h-[260px] w-[75vw] sm:-right-[10%] sm:h-[44vh] sm:w-[68vw] md:right-[2%] md:top-[10%] md:h-[64vh] md:min-h-[400px] md:w-[52vw] lg:right-[3%] lg:w-[48vw]"
       >
         <HeroObject />
       </motion.div>
@@ -102,8 +102,6 @@ export function Hero() {
           </motion.div>
         </div>
       </motion.div>
-
-      <XMark className="animate-float-slow pointer-events-none absolute right-8 top-1/3 hidden h-24 w-24 opacity-30 xl:block" />
     </div>
   );
 }
