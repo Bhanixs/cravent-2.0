@@ -52,10 +52,13 @@ export function Services({
 
     return (
       <>
-        {/* Full-Page Intro Section */}
+        {/* Intro / Navigator Section */}
         <section
-          id="services"
-          className="relative min-h-[100svh] w-full border-b border-border flex flex-col justify-center px-4 py-20 sm:px-6 md:px-10 bg-background"
+          id="disciplines-navigator"
+          className={cn(
+            "relative w-full border-b border-border flex flex-col justify-center px-4 sm:px-6 md:px-10 bg-background",
+            isPage ? "py-14 sm:py-20" : "min-h-[100svh] py-20",
+          )}
         >
           <div className="pointer-events-none absolute inset-0 grid-bg opacity-30" />
           <div className="relative mx-auto w-full max-w-[1400px]">
@@ -65,7 +68,7 @@ export function Services({
                 <Reveal>
                   <div className="flex items-center gap-3">
                     <span className="h-px w-8 bg-primary" />
-                    <span className="eyebrow">{servicesHeading.eyebrow}</span>
+                    <span className="eyebrow">{isPage ? "Discipline Navigator" : servicesHeading.eyebrow}</span>
                     <span className="font-mono text-[10px] text-muted-foreground">
                       [ 04 disciplines ]
                     </span>
@@ -73,12 +76,14 @@ export function Services({
                 </Reveal>
                 <Reveal delay={0.06}>
                   <h2 className="mt-4 text-3xl font-bold uppercase tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-                    {servicesHeading.title}
+                    {isPage ? "Connected Growth Disciplines." : servicesHeading.title}
                   </h2>
                 </Reveal>
                 <Reveal delay={0.1}>
                   <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg">
-                    Four connected capabilities, orchestrated as a single growth engine.
+                    {isPage
+                      ? "Select a discipline to jump directly to its detailed scope, deliverables, and execution systems."
+                      : "Four connected capabilities, orchestrated as a single growth engine."}
                   </p>
                 </Reveal>
               </div>
@@ -93,7 +98,7 @@ export function Services({
                   <span>Scroll to cycle cards ↓</span>
                 </button>
                 <Btn to={isPage ? "/contact" : "/services"} variant="primary" size="md">
-                  {isPage ? "Book a Growth Audit →" : "Full Scope →"}
+                  {isPage ? "Book a Growth Audit" : "Full Scope"}
                 </Btn>
               </div>
             </div>

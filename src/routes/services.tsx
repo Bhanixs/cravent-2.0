@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Services } from "@/components/sections/Services";
+import { PageHero } from "@/components/site/PageHero";
+import { Services as ServicesSection } from "@/components/sections/Services";
 import { Contact } from "@/components/sections/Contact";
+import { servicesHeading, services } from "@/content/cravent";
 
 const title = "Services — Branding, Marketing, Strategy, Technology | Cravent";
 const description =
@@ -23,7 +25,27 @@ export const Route = createFileRoute("/services")({
 function ServicesPage() {
   return (
     <>
-      <Services compact isPage />
+      <PageHero
+        eyebrow="Services"
+        tag={`[ 0${services.length} disciplines ]`}
+        title={servicesHeading.title}
+        lead={servicesHeading.lead}
+        primaryCta={{
+          label: "Explore Disciplines ↓",
+          onClick: () => {
+            const el =
+              document.getElementById("services-cards") ||
+              document.getElementById("disciplines-navigator") ||
+              document.getElementById("services");
+            el?.scrollIntoView({ behavior: "smooth" });
+          },
+        }}
+        secondaryCta={{
+          label: "Book a Growth Audit",
+          to: "/contact",
+        }}
+      />
+      <ServicesSection compact isPage />
       <Contact />
     </>
   );

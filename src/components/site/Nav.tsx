@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Btn, XMark } from "./kit";
+import { Btn } from "./kit";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -44,7 +44,11 @@ export function Nav() {
       >
         <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-6 md:px-10">
           <Link to="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
-            <XMark className="h-4 w-4 transition-transform duration-500 group-hover:rotate-90" />
+            <img
+              src="/cravent-logo.png"
+              alt="Cravent"
+              className="h-6 w-6 object-contain transition-transform duration-300 group-hover:scale-105"
+            />
             <span className="font-display text-lg font-bold uppercase tracking-[0.28em]">
               Cravent
             </span>

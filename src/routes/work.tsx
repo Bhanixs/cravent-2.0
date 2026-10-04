@@ -31,7 +31,7 @@ function WorkPage() {
         title="Work that connects ideas to outcomes."
         lead="Brand systems, performance marketing engines, business development strategies, and robust digital platforms built for organisations leading their markets."
         primaryCta={{
-          label: "Explore Showcases ↓",
+          label: "Explore Showcases",
           onClick: () => {
             const el = document.getElementById("work-portfolio");
             el?.scrollIntoView({ behavior: "smooth" });

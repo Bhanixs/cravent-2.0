@@ -44,18 +44,12 @@ export function Contact() {
             <Btn to="/contact" size="lg" className="shadow-[0_0_30px_rgba(37,99,235,0.4)]">
               Start a Conversation
             </Btn>
-            <Btn href="https://wa.me/?text=Hello%20Cravent" variant="outline" size="lg">
-              WhatsApp Us
-            </Btn>
-            <Btn href="mailto:hello@cravent.in" variant="outline" size="lg">
-              Email Us
-            </Btn>
           </div>
         </Reveal>
 
         <Reveal delay={0.18}>
           <div className="mt-10 border-t border-border/80 pt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-            <p>Puducherry, India · hello@cravent.in · www.cravent.in</p>
+            <p>Puducherry, India · info@cravent.in · +91 87783 45901</p>
           </div>
         </Reveal>
       </div>
@@ -115,19 +109,29 @@ export function ContactForm() {
                 <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary-bright">
                   Direct Inquiries
                 </span>
-                <p className="mt-1 font-mono text-sm text-foreground">cravent@gmail.com</p>
+                <p className="mt-1 font-mono text-sm text-foreground">
+                  <a href="mailto:info@cravent.in" className="hover:text-primary transition-colors">
+                    info@cravent.in
+                  </a>
+                </p>
               </div>
 
               <div>
                 <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary-bright">
-                  Instant Channel
+                  Direct Phone / WhatsApp
                 </span>
-                <div className="mt-1">
+                <div className="mt-1 flex flex-col gap-1">
                   <a
-                    href="https://wa.me/?text=Hello%20Cravent"
+                    href="tel:8778345901"
+                    className="font-mono text-sm text-foreground hover:text-primary transition-colors"
+                  >
+                    +91 87783 45901
+                  </a>
+                  <a
+                    href="https://wa.me/918778345901?text=Hello%20Cravent"
                     target="_blank"
                     rel="noreferrer"
-                    className="font-mono text-sm text-foreground underline underline-offset-4 hover:text-primary transition-colors"
+                    className="font-mono text-xs text-muted-foreground underline underline-offset-4 hover:text-primary transition-colors"
                   >
                     Connect on WhatsApp →
                   </a>
@@ -200,7 +204,12 @@ export function ContactForm() {
                 <label className={label} htmlFor="phone">
                   Phone / WhatsApp
                 </label>
-                <input id="phone" className={`${field} mt-1`} placeholder="+91" />
+                <input
+                  id="phone"
+                  type="tel"
+                  className={`${field} mt-1`}
+                  placeholder="e.g. +91 87783 45901"
+                />
               </div>
               <div>
                 <label className={label} htmlFor="industry">

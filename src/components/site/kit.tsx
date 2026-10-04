@@ -112,7 +112,7 @@ export function Section({
       className={cn(
         "relative px-4 sm:px-6 md:px-10",
         fullScreen
-          ? "min-h-[100svh] flex flex-col justify-center py-8 md:py-10 lg:py-12"
+          ? "min-h-screen min-h-[100svh] flex flex-col justify-center py-8 md:py-10 lg:py-12"
           : "py-10 md:py-14",
         className,
       )}

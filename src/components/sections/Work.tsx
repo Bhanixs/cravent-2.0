@@ -177,7 +177,7 @@ export function Work({ limit }: { limit?: number }) {
                       {p.scope.split("·")[0]?.trim() || p.scope}
                     </span>
                     <div className="inline-flex items-center gap-1 font-mono text-[8px] sm:text-[8.5px] uppercase tracking-wider font-semibold text-primary transition-all duration-300 group-hover:text-white group-hover:translate-x-1 shrink-0">
-                      <span>{p.domain === "Business Development" ? "Open BizDev" : `Open ${p.domain}`}</span>
+                      <span>{p.domain === "Business Development" ? "Open Business Dev" : `Open ${p.domain}`}</span>
                       <span>→</span>
                     </div>
                   </div>

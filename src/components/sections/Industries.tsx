@@ -107,7 +107,7 @@ export function Industries({ compact = true, isPage = false }: { compact?: boole
                   <span>Scroll to cycle cards ↓</span>
                 </button>
                 <Btn to={isPage ? "/contact" : "/industries"} variant="primary" size="md">
-                  {isPage ? "Start a Conversation →" : "Explore All Sectors →"}
+                  {isPage ? "Start a Conversation" : "Explore All Sectors"}
                 </Btn>
               </div>
             </div>

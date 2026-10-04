@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { Btn, XMark } from "./kit";
 
 const nav = [
   { label: "Services", to: "/services" },
@@ -15,13 +14,17 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-border bg-surface/30">
       <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 opacity-10">
-        <XMark className="h-full w-full" />
+        <img src="/cravent-logo.png" alt="" className="h-full w-full object-contain" />
       </div>
       <div className="mx-auto w-full max-w-[1400px] px-6 py-20 md:px-10">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <XMark className="h-5 w-5" />
+              <img
+                src="/cravent-logo.png"
+                alt="Cravent"
+                className="h-7 w-7 object-contain"
+              />
               <span className="font-display text-2xl font-bold uppercase tracking-[0.3em]">
                 Cravent
               </span>
@@ -56,23 +59,25 @@ export function Footer() {
               <li>Puducherry, India</li>
               <li>
                 <a
-                  href="https://www.cravent.in"
-                  className="transition-colors hover:text-primary-bright"
+                  href="tel:8778345901"
+                  className="transition-colors hover:text-primary-bright font-mono text-xs"
                 >
-                  www.cravent.in
+                  +91 87783 45901
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:hello@cravent.in"
-                  className="transition-colors hover:text-primary-bright"
+                  href="mailto:info@cravent.in"
+                  className="transition-colors hover:text-primary-bright font-mono text-xs"
                 >
-                  Email Us
+                  info@cravent.in
                 </a>
               </li>
               <li>
                 <a
-                  href="https://wa.me/?text=Hello%20Cravent"
+                  href="https://wa.me/918778345901?text=Hello%20Cravent"
+                  target="_blank"
+                  rel="noreferrer"
                   className="transition-colors hover:text-primary-bright"
                 >
                   Connect on WhatsApp

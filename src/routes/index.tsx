@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import { Industries } from "@/components/sections/Industries";
-import { Insights } from "@/components/sections/Insights";
 import { Contact } from "@/components/sections/Contact";
 import { Marquee } from "@/components/site/kit";
 
