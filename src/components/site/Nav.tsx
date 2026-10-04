@@ -43,15 +43,12 @@ export function Nav() {
         )}
       >
         <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-6 md:px-10">
-          <Link to="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
+          <Link to="/" className="group flex items-center" onClick={() => setOpen(false)}>
             <img
               src="/cravent-logo.png"
               alt="Cravent"
-              className="h-6 w-6 object-contain transition-transform duration-300 group-hover:scale-105"
+              className="h-7 sm:h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
             />
-            <span className="font-display text-lg font-bold uppercase tracking-[0.28em]">
-              Cravent
-            </span>
           </Link>
 
           <nav className="hidden items-center gap-6 lg:flex">

@@ -13,22 +13,19 @@ const nav = [
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-border bg-surface/30">
-      <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 opacity-10">
-        <img src="/cravent-logo.png" alt="" className="h-full w-full object-contain" />
+      <div className="pointer-events-none absolute -right-16 -top-12 w-80 md:w-96 opacity-10">
+        <img src="/cravent-logo.png" alt="" className="w-full h-auto object-contain" />
       </div>
       <div className="mx-auto w-full max-w-[1400px] px-6 py-20 md:px-10">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-3">
+            <Link to="/" className="inline-block">
               <img
                 src="/cravent-logo.png"
                 alt="Cravent"
-                className="h-7 w-7 object-contain"
+                className="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 hover:scale-[1.03]"
               />
-              <span className="font-display text-2xl font-bold uppercase tracking-[0.3em]">
-                Cravent
-              </span>
-            </div>
+            </Link>
             <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.2em] text-primary-bright">
               Design. Marketing. Strategy. Technology.
             </p>
