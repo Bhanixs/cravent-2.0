@@ -1,12 +1,11 @@
 import { Link } from "@tanstack/react-router";
 
 const nav = [
-  { label: "Services", to: "/services" },
-  { label: "Work", to: "/work" },
-  { label: "Industries", to: "/industries" },
-  { label: "Insights", to: "/insights" },
-  { label: "Space", to: "/space" },
   { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
+  { label: "Industries", to: "/industries" },
+  { label: "Work", to: "/work" },
+  { label: "Insights", to: "/insights" },
   { label: "Contact", to: "/contact" },
 ];
 

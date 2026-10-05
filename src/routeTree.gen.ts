@@ -16,7 +16,6 @@ import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ServicesRouteImport } from './routes/services'
-import { Route as SpaceRouteImport } from './routes/space'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as WorkSlugRouteImport } from './routes/work_.$slug'
@@ -56,11 +55,6 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SpaceRoute = SpaceRouteImport.update({
-  id: '/space',
-  path: '/space',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
@@ -85,7 +79,6 @@ export interface FileRoutesByFullPath {
   '/insights': typeof InsightsRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
-  '/space': typeof SpaceRoute
   '/terms': typeof TermsRoute
   '/work': typeof WorkRoute
   '/work/$slug': typeof WorkSlugRoute
@@ -98,7 +91,6 @@ export interface FileRoutesByTo {
   '/insights': typeof InsightsRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
-  '/space': typeof SpaceRoute
   '/terms': typeof TermsRoute
   '/work': typeof WorkRoute
   '/work/$slug': typeof WorkSlugRoute
@@ -112,7 +104,6 @@ export interface FileRoutesById {
   '/insights': typeof InsightsRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
-  '/space': typeof SpaceRoute
   '/terms': typeof TermsRoute
   '/work': typeof WorkRoute
   '/work_/$slug': typeof WorkSlugRoute
@@ -127,7 +118,6 @@ export interface FileRouteTypes {
     | '/insights'
     | '/privacy'
     | '/services'
-    | '/space'
     | '/terms'
     | '/work'
     | '/work/$slug'
@@ -140,7 +130,6 @@ export interface FileRouteTypes {
     | '/insights'
     | '/privacy'
     | '/services'
-    | '/space'
     | '/terms'
     | '/work'
     | '/work/$slug'
@@ -153,7 +142,6 @@ export interface FileRouteTypes {
     | '/insights'
     | '/privacy'
     | '/services'
-    | '/space'
     | '/terms'
     | '/work'
     | '/work_/$slug'
@@ -167,7 +155,6 @@ export interface RootRouteChildren {
   InsightsRoute: typeof InsightsRoute
   PrivacyRoute: typeof PrivacyRoute
   ServicesRoute: typeof ServicesRoute
-  SpaceRoute: typeof SpaceRoute
   TermsRoute: typeof TermsRoute
   WorkRoute: typeof WorkRoute
   WorkSlugRoute: typeof WorkSlugRoute
@@ -224,13 +211,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/space': {
-      id: '/space'
-      path: '/space'
-      fullPath: '/space'
-      preLoaderRoute: typeof SpaceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/terms': {
       id: '/terms'
       path: '/terms'
@@ -263,7 +243,6 @@ const rootRouteChildren: RootRouteChildren = {
   InsightsRoute: InsightsRoute,
   PrivacyRoute: PrivacyRoute,
   ServicesRoute: ServicesRoute,
-  SpaceRoute: SpaceRoute,
   TermsRoute: TermsRoute,
   WorkRoute: WorkRoute,
   WorkSlugRoute: WorkSlugRoute,
