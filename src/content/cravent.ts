@@ -299,7 +299,8 @@ export const work: WorkItem[] = [
     slug: "khinternational-branding",
     domain: "Branding",
     industry: "Business Strategy & International Trade",
-    focus: "Corporate identity, visual brand architecture, and international executive communication.",
+    focus:
+      "Corporate identity, visual brand architecture, and international executive communication.",
     scope: "Corporate Branding · Visual Identity · Global Positioning",
     description:
       "KH International operates in international trade and business strategy across global borders. Cravent created their authoritative corporate branding guidelines, executive presentation systems, and global identity assets.",
@@ -310,7 +311,8 @@ export const work: WorkItem[] = [
     slug: "lycee-francais-branding",
     domain: "Branding",
     industry: "Education & Institutional Outreach",
-    focus: "Institutional visual communication, brand design, and global cultural narrative support.",
+    focus:
+      "Institutional visual communication, brand design, and global cultural narrative support.",
     scope: "Institutional Branding · Visual Design · Global Comms",
     description:
       "Lycée Français International is a prestigious international educational institution where Cravent provided communication design and institutional branding support, bridging rich cultural heritage with contemporary clarity.",
@@ -343,12 +345,39 @@ export const work: WorkItem[] = [
     slug: "vivium-branding",
     domain: "Branding",
     industry: "Ethical Living & Sustainability",
-    focus: "Brand identity, product storytelling, craftsmanship narrative, and sustainable aesthetic.",
+    focus:
+      "Brand identity, product storytelling, craftsmanship narrative, and sustainable aesthetic.",
     scope: "Brand Identity · Product Design · Sustainability",
     description:
       "Vivium is an ethical bridge brand celebrating Indian craft artisans and natural sustainable bath and kitchen accessories. We crafted their complete brand book, sustainable packaging philosophy, and visual identity.",
     pdf: "/assets/portfolio/branding/Vivum brand book.pdf",
   },
+  {
+    name: "XplorED",
+    slug: "xplored-branding",
+    domain: "Branding",
+    industry: "Education, Experiential Learning & Educational Travel",
+    focus:
+      "Educational brand identity, experiential learning communication, and exploration-driven visual storytelling.",
+    scope: "Brand Identity · Logo Design · Visual Direction · Brand Collateral",
+    description:
+      "XplorED bridges classroom learning with real-world experiences through educational journeys, hands-on activities, cultural interactions, and workshops. We developed a modern, adventurous brand identity that reflects curiosity, discovery, and personal growth, combining distinctive typography, a nature-inspired visual direction, and a memorable logo to communicate the brand's mission of helping students explore, experiment, and evolve.",
+    pdf: "/assets/portfolio/branding/xplored.pdf",
+  },
+
+  {
+    name: "MOFRA",
+    slug: "mofra-branding",
+    domain: "Branding",
+    industry: "Natural Wellness, Herbal Skincare & Nutrition",
+    focus:
+      "Nature-inspired brand identity, product packaging, and wellness-focused visual communication.",
+    scope: "Brand Identity · Packaging Design · Typography · Color System · Brand Collateral",
+    description:
+      "MOFRA is a nature-inspired wellness brand offering handmade herbal soaps and nutritious health-mix powders. We developed a cohesive visual identity rooted in natural ingredients, purity, and traditional wellness, combining an organic logo system, earthy color palette, refined typography, and premium packaging designs to create a clean, authentic, and contemporary brand experience.",
+    pdf: "/assets/portfolio/branding/mofra.pdf",
+  },
+
   {
     name: "Cravent",
     slug: "cravent-branding",
@@ -367,7 +396,8 @@ export const work: WorkItem[] = [
     slug: "valonk-marketing",
     domain: "Marketing",
     industry: "Fashion and Lifestyle",
-    focus: "Full-funnel customer acquisition, Meta & Google performance media, and luxury creator gifting.",
+    focus:
+      "Full-funnel customer acquisition, Meta & Google performance media, and luxury creator gifting.",
     scope: "Performance Media · Creator Strategy · Retention Engine",
     description:
       "For Valonk's seasonal luxury fashion collections, Cravent engineered a high-converting full-funnel acquisition engine. We combined aspirational Meta Reels, retargeting funnels, and curated fashion influencer partnerships to achieve record return on ad spend (ROAS).",
@@ -382,7 +412,8 @@ export const work: WorkItem[] = [
     slug: "arkisan-marketing",
     domain: "Marketing",
     industry: "Construction and Engineering",
-    focus: "High-intent inbound lead generation, hyper-local search marketing, and automated WhatsApp qualification.",
+    focus:
+      "High-intent inbound lead generation, hyper-local search marketing, and automated WhatsApp qualification.",
     scope: "Inbound Lead Gen · Search Ads · WhatsApp Ingestion",
     description:
       "Cravent designed a high-intent commercial lead engine for Arkisan. By targeting landowners and prospective homeowners through localized Google Search and Meta video walk-throughs, we generated qualified inquiries directly routed into automated CRM workflows.",
@@ -397,7 +428,8 @@ export const work: WorkItem[] = [
     slug: "travellers-tribe-marketing",
     domain: "Marketing",
     industry: "Travel, Adventure & Tourism",
-    focus: "Viral organic social engine, expedition influencer drops, and automated traveler community loops.",
+    focus:
+      "Viral organic social engine, expedition influencer drops, and automated traveler community loops.",
     scope: "Organic Content · Expedition Drops · Community Retention",
     description:
       "Engineered an organic social momentum flywheel for Travellers Tribe, turning curated backcountry expeditions into viral short-form video stories that sold out seasonal tours within 48 hours of drop announcements.",
@@ -412,7 +444,8 @@ export const work: WorkItem[] = [
     slug: "honey-pop-marketing",
     domain: "Marketing",
     industry: "Wellness and FMCG",
-    focus: "D2C omnichannel retail launch, wellness creator seeding, and Amazon brand store conversion.",
+    focus:
+      "D2C omnichannel retail launch, wellness creator seeding, and Amazon brand store conversion.",
     scope: "D2C Growth · Creator Seeding · Omnichannel Ads",
     description:
       "Spearheaded the nationwide go-to-market rollout for Honey Pop across direct-to-consumer and retail channels. Leveraged nutrition-led TikTok and Instagram creator seeding paired with retargeting ads to establish everyday consumer pantry adoption.",
@@ -427,7 +460,8 @@ export const work: WorkItem[] = [
     slug: "divyam-marketing",
     domain: "Marketing",
     industry: "Architecture & Luxury Spaces",
-    focus: "High-net-worth client outreach, architectural editorial press, and private showcase campaigns.",
+    focus:
+      "High-net-worth client outreach, architectural editorial press, and private showcase campaigns.",
     scope: "Editorial PR · High-Ticket Outreach · Video Campaigns",
     description:
       "Devised an exclusive marketing and private relationship strategy for Divyam to reach prospective ultra-luxury villa clients. Leveraged cinematic architectural walk-through films, bespoke editorial placement, and confidential private previews.",
@@ -442,7 +476,8 @@ export const work: WorkItem[] = [
     slug: "jeevarasai-marketing",
     domain: "Marketing",
     industry: "Organic Commerce & Wellness",
-    focus: "Subscription retention funnels, Google Shopping performance, and lifecycle email marketing.",
+    focus:
+      "Subscription retention funnels, Google Shopping performance, and lifecycle email marketing.",
     scope: "E-Commerce Growth · Lifecycle Email · Search Ads",
     description:
       "Engineered automated customer lifecycle retention flows and repeat purchase incentives for Jeevarasai, elevating customer lifetime value (LTV) and scaling organic wellness subscriptions across nationwide consumers.",
@@ -459,7 +494,8 @@ export const work: WorkItem[] = [
     slug: "khinternational-business-dev",
     domain: "Business Development",
     industry: "Business Strategy & International Trade",
-    focus: "Cross-border market entry, global distributor framework, and institutional trade negotiations.",
+    focus:
+      "Cross-border market entry, global distributor framework, and institutional trade negotiations.",
     scope: "GTM Expansion · Trade Strategy · Partnership Pipeline",
     description:
       "Structured KH International's multi-territory business development strategy, formulating international distributor frameworks, institutional negotiation decks, and verified supply chain expansion blueprints across three continents.",
@@ -474,7 +510,8 @@ export const work: WorkItem[] = [
     slug: "erthaloka-business-dev",
     domain: "Business Development",
     industry: "Sustainability and Planetary Technology",
-    focus: "Institutional climate funding proposals, climate venture pitch decks, and carbon credit commercial models.",
+    focus:
+      "Institutional climate funding proposals, climate venture pitch decks, and carbon credit commercial models.",
     scope: "Venture Strategy · Investor Pitch Decks · Revenue Modeling",
     description:
       "Developed comprehensive institutional investor decks and public-private partnership models for Erthaloka, translating complex ecological telemetry tech into investable enterprise commercial frameworks.",
@@ -489,7 +526,8 @@ export const work: WorkItem[] = [
     slug: "vivium-business-dev",
     domain: "Business Development",
     industry: "Ethical Living & Sustainability",
-    focus: "Artisan supplier network SOPs, B2B wholesale distribution strategy, and institutional hospitality procurement.",
+    focus:
+      "Artisan supplier network SOPs, B2B wholesale distribution strategy, and institutional hospitality procurement.",
     scope: "B2B Wholesale · Channel Strategy · Supply Chain SOPs",
     description:
       "Architected Vivium's commercial distribution roadmap, securing B2B procurement contracts with boutique luxury hotels and streamlining ethical artisan craft sourcing with scalable operational SOPs.",
@@ -504,7 +542,8 @@ export const work: WorkItem[] = [
     slug: "sparc-business-dev",
     domain: "Business Development",
     industry: "Sustainability and Community Development",
-    focus: "Corporate CSR funding frameworks, municipal grant proposals, and community partnership channels.",
+    focus:
+      "Corporate CSR funding frameworks, municipal grant proposals, and community partnership channels.",
     scope: "CSR Partnership · Grant Strategy · Stakeholder Alignment",
     description:
       "Crafted corporate partnership roadmaps and impact audit reports for SPARC, unlocking long-term CSR endowments and municipal collaborative agreements for sustainable grass-roots initiatives.",
@@ -519,7 +558,8 @@ export const work: WorkItem[] = [
     slug: "vedashrama-business-dev",
     domain: "Business Development",
     industry: "Wellness, Heritage & Retreats",
-    focus: "High-yield hospitality revenue models, seasonal corporate retreat packages, and wellness alliance channels.",
+    focus:
+      "High-yield hospitality revenue models, seasonal corporate retreat packages, and wellness alliance channels.",
     scope: "Revenue Optimization · Corporate Packages · Strategic Alliances",
     description:
       "Revamped Vedashrama's commercial offerings with high-ticket executive retreat programs, tiered corporate wellness packages, and international travel curator booking partnerships.",
@@ -534,7 +574,8 @@ export const work: WorkItem[] = [
     slug: "xplored-business-dev",
     domain: "Business Development",
     industry: "Education, Travel & EdTech",
-    focus: "Institutional school board partnerships, B2B university pipelines, and scalable group sales funnels.",
+    focus:
+      "Institutional school board partnerships, B2B university pipelines, and scalable group sales funnels.",
     scope: "Institutional B2B · School Board Alliances · Sales Funnels",
     description:
       "Built the institutional business development pipeline for XplorED, designing institutional sales proposals and contract templates that accelerated onboarding across leading international school networks.",
@@ -595,7 +636,8 @@ export const work: WorkItem[] = [
     slug: "travellers-tribe-tech",
     domain: "Technology",
     industry: "Travel, Adventure & Tourism",
-    focus: "Travel community web platform, member discovery interface, and digital booking touchpoints.",
+    focus:
+      "Travel community web platform, member discovery interface, and digital booking touchpoints.",
     scope: "Community Web App · Digital Experience · UX/UI",
     description:
       "Cravent built the digital web platform for Travellers Tribe, allowing explorers to browse curated itineraries, connect with fellow community members, and interact with engaging travel content seamlessly.",
@@ -617,7 +659,8 @@ export const work: WorkItem[] = [
     slug: "vivium-tech",
     domain: "Technology",
     industry: "Ethical Living & E-Commerce",
-    focus: "Sustainable product e-commerce storefront, catalog management, and seamless checkout platform.",
+    focus:
+      "Sustainable product e-commerce storefront, catalog management, and seamless checkout platform.",
     scope: "E-Commerce Platform · Web Design · Digital Store",
     description:
       "For Vivium's ethical product lines, Cravent architected an exquisite digital storefront that pairs sustainable artisanal product storytelling with a modern, high-conversion shopping and checkout experience.",
@@ -628,7 +671,8 @@ export const work: WorkItem[] = [
     slug: "xplored-tech",
     domain: "Technology",
     industry: "Education, Travel & EdTech",
-    focus: "Experiential learning web platform, student portal, and interactive educational portal.",
+    focus:
+      "Experiential learning web platform, student portal, and interactive educational portal.",
     scope: "EdTech Platform · Web Portal · Interactive UX",
     description:
       "XplorED pioneers experiential learning and global student expeditions. We built their interactive digital web platform, enabling institutions and students to navigate curriculum-aligned travel programs easily.",

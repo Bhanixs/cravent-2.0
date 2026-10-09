@@ -11,7 +11,7 @@ const nav = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-border bg-surface/30">
+    <footer className="relative overflow-hidden border-t border-border bg-primary">
       <div className="pointer-events-none absolute -right-16 -top-12 w-80 md:w-96 opacity-10">
         <img src="/cravent-logo.png" alt="" className="w-full h-auto object-contain" />
       </div>
@@ -20,27 +20,27 @@ export function Footer() {
           <div>
             <Link to="/" className="inline-block">
               <img
-                src="/cravent-logo.png"
+                src="/cravent-logo-2.png"
                 alt="Cravent"
                 className="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 hover:scale-[1.03]"
               />
             </Link>
-            <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.2em] text-primary-bright">
+            <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.2em] text-primary-foreground">
               Design. Marketing. Strategy. Technology.
             </p>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-links">
               A growth partner for businesses building what comes next.
             </p>
           </div>
 
           <div>
-            <p className="eyebrow">Navigate</p>
+            <p className="eyebrow text-primary-foreground">Navigate</p>
             <ul className="mt-6 space-y-3">
               {nav.map((n) => (
                 <li key={n.to}>
                   <Link
                     to={n.to}
-                    className="text-sm text-muted-foreground transition-colors hover:text-primary-bright"
+                    className="text-sm text-muted transition-colors hover:text-muted-links"
                   >
                     {n.label}
                   </Link>
@@ -50,13 +50,13 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="eyebrow">Contact</p>
-            <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+            <p className="eyebrow text-primary-foreground">Contact</p>
+            <ul className="mt-6 space-y-3 text-sm text-muted">
               <li>Puducherry, India</li>
               <li>
                 <a
                   href="tel:8778345901"
-                  className="transition-colors hover:text-primary-bright font-mono text-xs"
+                  className="transition-colors hover:text-muted-links font-mono text-xs"
                 >
                   +91 87783 45901
                 </a>
@@ -64,7 +64,7 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:info@cravent.in"
-                  className="transition-colors hover:text-primary-bright font-mono text-xs"
+                  className="transition-colors hover:text-muted-links font-mono text-xs"
                 >
                   info@cravent.in
                 </a>
@@ -74,7 +74,7 @@ export function Footer() {
                   href="https://wa.me/918778345901?text=Hello%20Cravent"
                   target="_blank"
                   rel="noreferrer"
-                  className="transition-colors hover:text-primary-bright"
+                  className="transition-colors hover:text-muted-links"
                 >
                   Connect on WhatsApp
                 </a>

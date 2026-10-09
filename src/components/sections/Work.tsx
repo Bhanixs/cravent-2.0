@@ -28,6 +28,7 @@ const projectLogoMap: Record<string, string> = {
   vedashrama: "/assets/logos/vedhasramam.png",
   xplored: "/assets/logos/xplored.png",
   "akshara vidyaashram": "/assets/logos/akshara_vidyaashram.png",
+  mofra: "/assets/logos/mofra.png",
 };
 
 function getProjectLogo(projectName: string): string | undefined {

@@ -36,16 +36,16 @@ export function Nav() {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+          "fixed inset-x-0 top-0 z-50 transition-all duration-500 bg-primary",
           scrolled
-            ? "border-b border-border bg-background/85 py-3 backdrop-blur-xl"
+            ? "border-b border-border bg-primary/85 py-3 backdrop-blur-xl"
             : "border-b border-transparent py-6",
         )}
       >
-        <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-6 md:px-10">
+        <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-6 md:px-10 text-white">
           <Link to="/" className="group flex items-center" onClick={() => setOpen(false)}>
             <img
-              src="/cravent-logo.png"
+              src="/cravent-logo-2.png"
               alt="Cravent"
               className="h-7 sm:h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
             />
@@ -56,7 +56,7 @@ export function Nav() {
               <Link
                 key={l.to}
                 to={l.to}
-                className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-primary-bright"
+                className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary-foreground transition-colors hover:text-muted-links"
                 activeProps={{ className: "text-foreground" }}
                 activeOptions={{ exact: l.to === "/" }}
               >
@@ -67,18 +67,18 @@ export function Nav() {
 
           <div className="flex items-center gap-3">
             <div className="hidden md:block">
-              <Btn to="/contact" size="md">
+              <Btn to="/contact" size="md" className="bg-white text-primary hover:bg-muted hover:shadow-[0_0_18px_-6px_var(--muted-foreground)]">
                 Book a Growth Audit
               </Btn>
             </div>
             <button
               onClick={() => setOpen((v) => !v)}
               aria-label="Toggle menu"
-              className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-lg border border-border transition-colors hover:border-primary lg:hidden"
+              className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-lg border border-border transition-colors hover:border-background lg:hidden"
             >
               <span
                 className={cn(
-                  "h-px w-5 bg-foreground transition-transform",
+                  "h-px w-5 bg-background transition-transform",
                   open && "translate-y-[3.5px] rotate-45",
                 )}
               />

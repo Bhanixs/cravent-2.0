@@ -1,8 +1,14 @@
+import { lazy, Suspense } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { work } from "@/content/cravent";
 import { Section, Reveal } from "@/components/site/kit";
 import { Contact } from "@/components/sections/Contact";
-import { PortfolioPdfViewer } from "@/components/sections/PortfolioPdfViewer";
+
+const PortfolioPdfViewer = lazy(() =>
+  import("@/components/sections/PortfolioPdfViewer").then((m) => ({
+    default: m.PortfolioPdfViewer,
+  }))
+);
 
 export const Route = createFileRoute("/work_/$slug")({
   head: ({ params }) => {
@@ -264,11 +270,22 @@ function ProjectDetailPage() {
               </div>
             </Reveal>
           </div>
-          <div className="w-full px-2 sm:px-4 md:px-8 lg:px-12">
-            <PortfolioPdfViewer
-              pdfUrl={encodeURI(project.pdf)}
-              projectName={`${project.name} (${project.domain})`}
-            />
+          <div className="mx-auto w-full max-w-[1400px] px-2 sm:px-4 md:px-8 lg:px-12">
+            <Suspense
+              fallback={
+                <div className="flex flex-col items-center justify-center py-24 gap-4 w-full">
+                  <div className="h-10 w-10 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+                  <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                    Loading portfolio showcase...
+                  </p>
+                </div>
+              }
+            >
+              <PortfolioPdfViewer
+                pdfUrl={encodeURI(project.pdf)}
+                projectName={`${project.name} (${project.domain})`}
+              />
+            </Suspense>
           </div>
         </section>
       ) : (

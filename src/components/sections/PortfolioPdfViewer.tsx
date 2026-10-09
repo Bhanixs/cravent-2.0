@@ -5,8 +5,10 @@ import { Maximize2, Minimize2, Download, FileText } from "lucide-react";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 
-// Configure PDF.js worker
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+// Configure PDF.js worker to use self-hosted static worker for lightning-fast edge delivery
+if (typeof window !== "undefined") {
+  pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
+}
 
 interface PortfolioPdfViewerProps {
   pdfUrl: string;
@@ -231,7 +233,8 @@ function PdfPageCard({
   index: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const isInView = useInView(ref, { once: true, margin: "600px 0px" });
+  const shouldRender = pageNumber <= 2 || isInView;
 
   return (
     <motion.div
@@ -260,35 +263,54 @@ function PdfPageCard({
       {/* Subtle ambient lighting effect behind card */}
       <div className="absolute inset-0 translate-y-3 rounded-2xl sm:rounded-3xl bg-primary/5 blur-2xl transition-all duration-500 group-hover/page:translate-y-5 group-hover/page:blur-3xl group-hover/page:bg-primary/10 pointer-events-none" />
 
-      {/* The full-width PDF page card (constrained to screen height on large screens) */}
-      <div className="relative w-full lg:w-fit lg:max-h-[calc(100vh-140px)] mx-auto overflow-hidden rounded-xl sm:rounded-2xl lg:rounded-3xl border border-border bg-white shadow-xl transition-all duration-500 hover:border-primary/40 hover:shadow-[0_24px_60px_-12px_rgba(37,99,235,0.18)] flex items-center justify-center">
+      {/* The full-width PDF page card */}
+      <div className="relative w-full overflow-hidden rounded-xl sm:rounded-2xl lg:rounded-3xl border border-border bg-white shadow-xl transition-all duration-500 hover:border-primary/40 hover:shadow-[0_24px_60px_-12px_rgba(37,99,235,0.18)]">
         {/* Floating page number badge */}
         <div className="absolute right-3 top-3 sm:right-6 sm:top-6 z-10 rounded-full bg-background/90 px-3 py-1 sm:px-4 sm:py-1.5 font-mono text-[10px] sm:text-xs font-semibold uppercase tracking-[0.18em] text-foreground backdrop-blur-md shadow-md border border-border/60">
           {String(pageNumber).padStart(2, "0")}{" "}
           <span className="text-muted-foreground font-normal">/ {String(totalPages).padStart(2, "0")}</span>
         </div>
 
-        {/* Responsive, crisp full-width PDF canvas (fitted to screen on big screens) */}
-        <div className="w-full lg:w-auto lg:max-h-[calc(100vh-140px)] flex justify-center items-center bg-white overflow-hidden">
-          <Page
-            pageNumber={pageNumber}
-            width={pageWidth}
-            renderAnnotationLayer={false}
-            renderTextLayer={false}
-            className="w-full flex justify-center items-center lg:w-auto lg:max-h-[calc(100vh-140px)] [&_.react-pdf__Page__canvas]:!w-full [&_.react-pdf__Page__canvas]:!h-auto lg:[&_.react-pdf__Page__canvas]:!w-auto lg:[&_.react-pdf__Page__canvas]:!max-h-[calc(100vh-140px)] lg:[&_.react-pdf__Page__canvas]:object-contain [&_.react-pdf__Page__canvas]:block [&_.react-pdf__Page]:w-full lg:[&_.react-pdf__Page]:!w-auto lg:[&_.react-pdf__Page]:!max-h-[calc(100vh-140px)]"
-            loading={
-              <div
-                className="flex items-center justify-center bg-surface/20 w-full lg:w-[min(650px,80vw)] h-[min(60vh,550px)]"
-              >
-                <div className="flex flex-col items-center gap-3">
-                  <div className="h-7 w-7 animate-spin rounded-full border-2 border-primary border-t-transparent" />
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                    Page {pageNumber}
-                  </span>
+        {/* Responsive, uncropped full-page PDF canvas */}
+        <div className="w-full flex justify-center bg-white">
+          {shouldRender ? (
+            <Page
+              pageNumber={pageNumber}
+              width={pageWidth}
+              renderAnnotationLayer={false}
+              renderTextLayer={false}
+              className="w-full flex justify-center [&_.react-pdf__Page]:!w-full [&_.react-pdf__Page]:!min-w-0 [&_.react-pdf__Page]:!max-w-full [&_.react-pdf__Page]:!h-auto [&_.react-pdf__Page]:!min-h-0 [&_.react-pdf__Page__canvas]:!w-full [&_.react-pdf__Page__canvas]:!h-auto [&_.react-pdf__Page__canvas]:!max-w-full [&_.react-pdf__Page__canvas]:block"
+              loading={
+                <div
+                  className="flex items-center justify-center bg-surface/20 w-full"
+                  style={{
+                    height: `${Math.max(Math.round(pageWidth * 0.6), 280)}px`,
+                  }}
+                >
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="h-7 w-7 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                      Page {pageNumber}
+                    </span>
+                  </div>
                 </div>
+              }
+            />
+          ) : (
+            <div
+              className="flex items-center justify-center bg-surface/20 w-full"
+              style={{
+                height: `${Math.max(Math.round(pageWidth * 0.6), 280)}px`,
+              }}
+            >
+              <div className="flex flex-col items-center gap-3">
+                <div className="h-7 w-7 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  Page {pageNumber}
+                </span>
               </div>
-            }
-          />
+            </div>
+          )}
         </div>
       </div>
     </motion.div>
