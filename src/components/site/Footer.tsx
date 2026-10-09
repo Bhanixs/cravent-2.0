@@ -83,7 +83,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-border pt-8 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-4 border-t border-border pt-8 font-mono text-[11px] uppercase tracking-[0.16em] text-muted md:flex-row md:items-center md:justify-between">
           <span>© {new Date().getFullYear()} Cravent</span>
           <div className="flex gap-6">
             <Link to="/privacy" className="transition-colors hover:text-primary-bright">
