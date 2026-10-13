@@ -413,7 +413,7 @@ function FashionBrandingPage() {
                 Looking for a clothing branding company near you?
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-                Cravent works from Puducherry. Start a conversation by call or WhatsApp. Senior
+                Cravent works from Puducherry. Start a conversation by call or WhatsApp. Our Senior
                 people handle the work from first brief to launch.
               </p>
             </div>
