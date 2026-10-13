@@ -351,7 +351,7 @@ function ConstructionBrandingPage() {
           <Reveal delay={0.05}>
             <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border bg-surface/40 p-6 sm:p-8 transition-all duration-300 hover:border-primary hover:shadow-[0_0_32px_-6px_var(--primary)]">
               <div>
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-4 md:flex-row md:items-center">
                   <div className="flex items-center gap-3">
                     <img
                       src={logoArkisan}
@@ -367,7 +367,8 @@ function ConstructionBrandingPage() {
                       </p>
                     </div>
                   </div>
-                  <span className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 font-mono text-[10px] uppercase text-primary-bright">
+
+                  <span className="self-start rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 font-mono text-[10px] uppercase text-primary-bright md:ml-auto md:self-center">
                     Branding
                   </span>
                 </div>
@@ -397,7 +398,7 @@ function ConstructionBrandingPage() {
           <Reveal delay={0.1}>
             <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border bg-surface/40 p-6 sm:p-8 transition-all duration-300 hover:border-primary hover:shadow-[0_0_32px_-6px_var(--primary)]">
               <div>
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-4 md:flex-row md:items-center">
                   <div className="flex items-center gap-3">
                     <img
                       src={logoDivyam}
@@ -413,7 +414,7 @@ function ConstructionBrandingPage() {
                       </p>
                     </div>
                   </div>
-                  <span className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 font-mono text-[10px] uppercase text-primary-bright">
+                  <span className="self-start rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 font-mono text-[10px] uppercase text-primary-bright md:ml-auto md:self-center">
                     Branding & PR
                   </span>
                 </div>
@@ -422,8 +423,8 @@ function ConstructionBrandingPage() {
 
                 <p className="mt-6 text-sm leading-relaxed text-muted-foreground sm:text-base">
                   Divyam represents high-end architectural living and modern craftsmanship. Cravent
-                  crafted a refined visual identity and comprehensive brand book that articulates the
-                  harmony between modern minimalism and timeless Indian architectural materials.
+                  crafted a refined visual identity and comprehensive brand book that articulates
+                  the harmony between modern minimalism and timeless Indian architectural materials.
                 </p>
               </div>
 

@@ -451,7 +451,7 @@ function StartupsBrandingPage() {
           </Btn>
         </div>
 
-        <div className="mt-8 flex items-center mx-auto w-[50%] max-w-3xl">
+        <div className="mt-8 flex items-center mx-auto w-[90%] max-w-xl">
           <Reveal delay={0.05}>
             <div className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-surface/40 p-6 sm:p-8 transition-all duration-300 hover:border-primary hover:shadow-[0_0_32px_-6px_var(--primary)]">
               <div>

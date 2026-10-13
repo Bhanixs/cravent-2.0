@@ -352,19 +352,20 @@ function FashionBrandingPage() {
           </Btn>
         </div>
 
-        <div className="mt-8 flex items-center mx-auto w-[50%] max-w-3xl">
+        <div className="mt-8 flex items-center mx-auto w-[90%] max-w-xl">
           {/* Valonk Card */}
           <Reveal delay={0.05}>
             <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border bg-surface/40 p-6 sm:p-8 transition-all duration-300 hover:border-primary hover:shadow-[0_0_32px_-6px_var(--primary)]">
               <div>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-wrap items-center justify-between gap-4">
                     <img
                       src={logoValonk}
                       alt="Valonk Logo"
                       className="h-10 w-auto object-contain brightness-95"
                     />
-                    <div>
+
+                    <div className="flex-1">
                       <h3 className="font-display text-xl font-bold uppercase tracking-tight text-foreground">
                         Valonk
                       </h3>
@@ -372,10 +373,11 @@ function FashionBrandingPage() {
                         Fashion & Lifestyle
                       </p>
                     </div>
+
+                    <span className="m-0 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 font-mono text-[10px] uppercase text-primary-bright">
+                      Branding & Media
+                    </span>
                   </div>
-                  <span className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 font-mono text-[10px] uppercase text-primary-bright">
-                    Branding & Media
-                  </span>
                 </div>
 
                 <div className="mt-6 h-px w-full bg-border" />
