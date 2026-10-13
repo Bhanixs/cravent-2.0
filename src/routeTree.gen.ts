@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as BrandingAgencyForStartupsRouteImport } from './routes/branding-agency-for-startups'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as InsightsRouteImport } from './routes/insights'
@@ -18,6 +19,9 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as WorkRouteImport } from './routes/work'
+import { Route as IndustriesConstructionBrandingAgencyRouteImport } from './routes/industries_.construction-branding-agency'
+import { Route as IndustriesFashionBrandingAgencyRouteImport } from './routes/industries_.fashion-branding-agency'
+import { Route as IndustriesHospitalityBrandingAgencyRouteImport } from './routes/industries_.hospitality-branding-agency'
 import { Route as WorkSlugRouteImport } from './routes/work_.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -30,6 +34,12 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BrandingAgencyForStartupsRoute =
+  BrandingAgencyForStartupsRouteImport.update({
+    id: '/branding-agency-for-startups',
+    path: '/branding-agency-for-startups',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -65,6 +75,24 @@ const WorkRoute = WorkRouteImport.update({
   path: '/work',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndustriesConstructionBrandingAgencyRoute =
+  IndustriesConstructionBrandingAgencyRouteImport.update({
+    id: '/industries_/construction-branding-agency',
+    path: '/industries/construction-branding-agency',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const IndustriesFashionBrandingAgencyRoute =
+  IndustriesFashionBrandingAgencyRouteImport.update({
+    id: '/industries_/fashion-branding-agency',
+    path: '/industries/fashion-branding-agency',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const IndustriesHospitalityBrandingAgencyRoute =
+  IndustriesHospitalityBrandingAgencyRouteImport.update({
+    id: '/industries_/hospitality-branding-agency',
+    path: '/industries/hospitality-branding-agency',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const WorkSlugRoute = WorkSlugRouteImport.update({
   id: '/work_/$slug',
   path: '/work/$slug',
@@ -74,6 +102,7 @@ const WorkSlugRoute = WorkSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/branding-agency-for-startups': typeof BrandingAgencyForStartupsRoute
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/insights': typeof InsightsRoute
@@ -81,11 +110,15 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRoute
   '/terms': typeof TermsRoute
   '/work': typeof WorkRoute
+  '/industries/construction-branding-agency': typeof IndustriesConstructionBrandingAgencyRoute
+  '/industries/fashion-branding-agency': typeof IndustriesFashionBrandingAgencyRoute
+  '/industries/hospitality-branding-agency': typeof IndustriesHospitalityBrandingAgencyRoute
   '/work/$slug': typeof WorkSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/branding-agency-for-startups': typeof BrandingAgencyForStartupsRoute
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/insights': typeof InsightsRoute
@@ -93,12 +126,16 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRoute
   '/terms': typeof TermsRoute
   '/work': typeof WorkRoute
+  '/industries/construction-branding-agency': typeof IndustriesConstructionBrandingAgencyRoute
+  '/industries/fashion-branding-agency': typeof IndustriesFashionBrandingAgencyRoute
+  '/industries/hospitality-branding-agency': typeof IndustriesHospitalityBrandingAgencyRoute
   '/work/$slug': typeof WorkSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/branding-agency-for-startups': typeof BrandingAgencyForStartupsRoute
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/insights': typeof InsightsRoute
@@ -106,6 +143,9 @@ export interface FileRoutesById {
   '/services': typeof ServicesRoute
   '/terms': typeof TermsRoute
   '/work': typeof WorkRoute
+  '/industries_/construction-branding-agency': typeof IndustriesConstructionBrandingAgencyRoute
+  '/industries_/fashion-branding-agency': typeof IndustriesFashionBrandingAgencyRoute
+  '/industries_/hospitality-branding-agency': typeof IndustriesHospitalityBrandingAgencyRoute
   '/work_/$slug': typeof WorkSlugRoute
 }
 export interface FileRouteTypes {
@@ -113,6 +153,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/branding-agency-for-startups'
     | '/contact'
     | '/industries'
     | '/insights'
@@ -120,11 +161,15 @@ export interface FileRouteTypes {
     | '/services'
     | '/terms'
     | '/work'
+    | '/industries/construction-branding-agency'
+    | '/industries/fashion-branding-agency'
+    | '/industries/hospitality-branding-agency'
     | '/work/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/branding-agency-for-startups'
     | '/contact'
     | '/industries'
     | '/insights'
@@ -132,11 +177,15 @@ export interface FileRouteTypes {
     | '/services'
     | '/terms'
     | '/work'
+    | '/industries/construction-branding-agency'
+    | '/industries/fashion-branding-agency'
+    | '/industries/hospitality-branding-agency'
     | '/work/$slug'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/branding-agency-for-startups'
     | '/contact'
     | '/industries'
     | '/insights'
@@ -144,12 +193,16 @@ export interface FileRouteTypes {
     | '/services'
     | '/terms'
     | '/work'
+    | '/industries_/construction-branding-agency'
+    | '/industries_/fashion-branding-agency'
+    | '/industries_/hospitality-branding-agency'
     | '/work_/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BrandingAgencyForStartupsRoute: typeof BrandingAgencyForStartupsRoute
   ContactRoute: typeof ContactRoute
   IndustriesRoute: typeof IndustriesRoute
   InsightsRoute: typeof InsightsRoute
@@ -157,6 +210,9 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRoute
   TermsRoute: typeof TermsRoute
   WorkRoute: typeof WorkRoute
+  IndustriesConstructionBrandingAgencyRoute: typeof IndustriesConstructionBrandingAgencyRoute
+  IndustriesFashionBrandingAgencyRoute: typeof IndustriesFashionBrandingAgencyRoute
+  IndustriesHospitalityBrandingAgencyRoute: typeof IndustriesHospitalityBrandingAgencyRoute
   WorkSlugRoute: typeof WorkSlugRoute
 }
 
@@ -174,6 +230,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/branding-agency-for-startups': {
+      id: '/branding-agency-for-startups'
+      path: '/branding-agency-for-startups'
+      fullPath: '/branding-agency-for-startups'
+      preLoaderRoute: typeof BrandingAgencyForStartupsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -225,6 +288,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WorkRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industries_/construction-branding-agency': {
+      id: '/industries_/construction-branding-agency'
+      path: '/industries/construction-branding-agency'
+      fullPath: '/industries/construction-branding-agency'
+      preLoaderRoute: typeof IndustriesConstructionBrandingAgencyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries_/fashion-branding-agency': {
+      id: '/industries_/fashion-branding-agency'
+      path: '/industries/fashion-branding-agency'
+      fullPath: '/industries/fashion-branding-agency'
+      preLoaderRoute: typeof IndustriesFashionBrandingAgencyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries_/hospitality-branding-agency': {
+      id: '/industries_/hospitality-branding-agency'
+      path: '/industries/hospitality-branding-agency'
+      fullPath: '/industries/hospitality-branding-agency'
+      preLoaderRoute: typeof IndustriesHospitalityBrandingAgencyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/work_/$slug': {
       id: '/work_/$slug'
       path: '/work/$slug'
@@ -238,6 +322,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BrandingAgencyForStartupsRoute: BrandingAgencyForStartupsRoute,
   ContactRoute: ContactRoute,
   IndustriesRoute: IndustriesRoute,
   InsightsRoute: InsightsRoute,
@@ -245,6 +330,11 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRoute,
   TermsRoute: TermsRoute,
   WorkRoute: WorkRoute,
+  IndustriesConstructionBrandingAgencyRoute:
+    IndustriesConstructionBrandingAgencyRoute,
+  IndustriesFashionBrandingAgencyRoute: IndustriesFashionBrandingAgencyRoute,
+  IndustriesHospitalityBrandingAgencyRoute:
+    IndustriesHospitalityBrandingAgencyRoute,
   WorkSlugRoute: WorkSlugRoute,
 }
 export const routeTree = rootRouteImport

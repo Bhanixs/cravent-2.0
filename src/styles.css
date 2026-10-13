@@ -136,6 +136,7 @@
   html {
     scroll-behavior: smooth;
     text-rendering: optimizeLegibility;
+    scrollbar-width: thin;
   }
 
   body {
@@ -146,16 +147,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-  }
-
-  ::selection {
-    background: color-mix(in oklab, var(--primary) 25%, transparent);
-    color: var(--foreground);
-  }
-
-  select option {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    scrollbar-width: thin;
   }
 
   h1,
@@ -200,14 +192,6 @@
 
 @utility hairline {
   border-top: 1px solid var(--border);
-}
-
-@utility no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 @keyframes marquee-x {
