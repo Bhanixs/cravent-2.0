@@ -78,20 +78,19 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  
-scripts: () => [
-  {
-    src: 'https://www.googletagmanager.com/gtag/js?id=G-YHPGG2NR9R',
-  },
-  {
-    children: `
+  scripts: () => [
+    {
+      src: "https://www.googletagmanager.com/gtag/js?id=G-YHPGG2NR9R",
+    },
+    {
+      children: `
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-YHPGG2NR9R');
     `,
-  },
-],
+    },
+  ],
 
   head: () => ({
     meta: [
@@ -160,7 +159,7 @@ function RootComponent() {
         className="pointer-events-none fixed left-0 right-0 top-0 z-[60] h-[2.5px] bg-gradient-to-r from-primary via-primary-bright to-accent shadow-[0_0_16px_var(--primary)]"
       />
       <main className="relative">
-            <Outlet />
+        <Outlet />
       </main>
       <Footer />
       <Toaster />
