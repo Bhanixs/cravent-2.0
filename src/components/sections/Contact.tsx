@@ -300,10 +300,10 @@ export function ContactForm() {
       <Dialog open={sent} onOpenChange={setSent}>
         <DialogContent className="z-[70] w-[calc(100%-2rem)] max-w-md rounded-2xl border-border bg-background/95 p-6 text-center shadow-2xl backdrop-blur-md sm:p-8">
           <DialogHeader className="space-y-3 text-center">
-            <DialogTitle className="font-display text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl">
+            <DialogTitle className="text-center font-display text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl">
               Thank you for reaching out
             </DialogTitle>
-            <DialogDescription className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+            <DialogDescription className="text-center text-sm leading-relaxed text-muted-foreground sm:text-base">
               We&apos;ve received your enquiry and appreciate you connecting with Cravent. Our team
               will review the details and get back to you shortly.
             </DialogDescription>
