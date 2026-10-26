@@ -1,6 +1,13 @@
 import { useState, type FormEvent } from "react";
-import { toast } from "sonner";
 import { Btn, Reveal, Section } from "@/components/site/kit";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { industries } from "@/content/cravent";
 
 const field =
@@ -66,15 +73,12 @@ export function ContactForm() {
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     setSent(true);
-    toast.success("Message received", {
-      description: "Thank you for reaching out. A founder will connect with you within 24 hours.",
-    });
   };
 
   return (
     <Section
       id="contact-form"
-      className="relative overflow-hidden border-t border-border"
+      className="relative overflow-hidden border-t border-border pt-24 md:pt-24 lg:pt-24"
       fullScreen
     >
       <div className="pointer-events-none absolute inset-0 grid-bg opacity-30" />
@@ -288,15 +292,27 @@ export function ContactForm() {
               <Btn type="submit" size="lg">
                 Submit Inquiry →
               </Btn>
-              {sent && (
-                <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary-bright font-bold">
-                  ✓ Inquiry Received — We will contact you soon
-                </span>
-              )}
             </div>
           </form>
         </Reveal>
       </div>
+
+      <Dialog open={sent} onOpenChange={setSent}>
+        <DialogContent className="z-[70] w-[calc(100%-2rem)] max-w-md rounded-2xl border-border bg-background/95 p-6 text-center shadow-2xl backdrop-blur-md sm:p-8">
+          <DialogHeader className="space-y-3 text-center">
+            <DialogTitle className="font-display text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl">
+              Thank you for reaching out
+            </DialogTitle>
+            <DialogDescription className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+              We&apos;ve received your enquiry and appreciate you connecting with Cravent. Our team
+              will review the details and get back to you shortly.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogClose className="mx-auto mt-2 inline-flex items-center justify-center rounded-full bg-primary px-7 py-4 font-mono text-xs uppercase tracking-[0.18em] text-primary-foreground transition-all duration-300 hover:bg-primary-bright hover:shadow-[0_0_36px_-6px_var(--primary)]">
+            Close
+          </DialogClose>
+        </DialogContent>
+      </Dialog>
     </Section>
   );
 }
