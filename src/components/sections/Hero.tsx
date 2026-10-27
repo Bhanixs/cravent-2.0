@@ -1,38 +1,58 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Btn } from "@/components/site/kit";
-import { HeroObject } from "./HeroObject";
+const HeroObject = lazy(() => import("./HeroObject").then((m) => ({ default: m.HeroObject })));
 import heroImg from "@/assets/hero-structure.jpg";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
-  const [pointer, setPointer] = useState({ x: 0, y: 0 });
+  const imgRef = useRef<HTMLImageElement>(null);
+  const [show3D, setShow3D] = useState(false);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 160]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
+  // Defer the three.js bundle until the main thread is idle, and skip it on small screens.
   useEffect(() => {
+    if (window.matchMedia("(max-width: 767px)").matches) return;
+    const id = window.setTimeout(() => setShow3D(true), 1200);
+    return () => clearTimeout(id);
+  }, []);
+
+  // Pointer parallax is written straight to the DOM (no re-render per mousemove), desktop only.
+  useEffect(() => {
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    let raf = 0;
     const onMove = (e: MouseEvent) => {
-      setPointer({
-        x: (e.clientX / window.innerWidth - 0.5) * 2,
-        y: (e.clientY / window.innerHeight - 0.5) * 2,
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 2;
+        const y = (e.clientY / window.innerHeight - 0.5) * 2;
+        if (imgRef.current)
+          imgRef.current.style.transform = `scale(1.08) translate(${x * -14}px, ${y * -14}px)`;
       });
     };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("mousemove", onMove);
+    };
   }, []);
 
   return (
     <div ref={ref} className="relative min-h-[100svh] overflow-hidden bg-background">
       <motion.div style={{ y }} className="absolute inset-0">
         <img
+          ref={imgRef}
+          fetchPriority="high"
+          decoding="async"
           src={heroImg}
           alt="Futuristic architectural structure with an electric blue X motif"
           width={1600}
           height={1200}
           className="h-full w-full object-cover opacity-35"
           style={{
-            transform: `scale(1.08) translate(${pointer.x * -14}px, ${pointer.y * -14}px)`,
+            transform: "scale(1.08)",
             transition: "transform 500ms cubic-bezier(0.16,1,0.3,1)",
             filter: "invert(1) hue-rotate(180deg)",
           }}
@@ -47,7 +67,11 @@ export function Hero() {
         transition={{ duration: 1.4, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
         className="pointer-events-auto absolute -right-[24%] top-[14%] z-[1] h-[35vh] min-h-[260px] w-[75vw] sm:-right-[10%] sm:h-[44vh] sm:w-[68vw] md:right-[2%] md:top-[10%] md:h-[64vh] md:min-h-[400px] md:w-[52vw] lg:right-[3%] lg:w-[48vw]"
       >
-        <HeroObject />
+        {show3D && (
+          <Suspense fallback={null}>
+            <HeroObject />
+          </Suspense>
+        )}
       </motion.div>
 
       <div className="pointer-events-none absolute right-0 top-0 z-[1] hidden h-full w-[36%] bg-foreground/[0.025] lg:block" />

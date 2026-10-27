@@ -217,7 +217,8 @@ export function Industries({ compact = true, isPage = false }: { compact?: boole
                         src={currentImg}
                         alt={current.name}
                         className="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-105"
-                        loading="eager"
+                        loading="lazy"
+                        decoding="async"
                       />
                       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#0a1e4a]/90 via-transparent to-transparent" />
                       <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex items-center gap-2 rounded-full border border-blue-400/40 bg-black/75 px-3 py-1 backdrop-blur-md">

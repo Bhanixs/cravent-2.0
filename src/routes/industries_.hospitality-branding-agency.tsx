@@ -155,6 +155,7 @@ const structuredData = [
 
 export const Route = createFileRoute("/industries_/hospitality-branding-agency")({
   head: () => ({
+    links: [canonicalLink("/industries/hospitality-branding-agency")],
     meta: [
       { title },
       { name: "description", content: description },

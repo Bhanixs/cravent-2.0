@@ -7,6 +7,7 @@ const description = "Terms governing the use of the Cravent website.";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
+    links: [canonicalLink("/terms")],
     meta: [
       { title },
       { name: "description", content: description },

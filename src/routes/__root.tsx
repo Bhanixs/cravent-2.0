@@ -81,6 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   scripts: () => [
     {
       src: "https://www.googletagmanager.com/gtag/js?id=G-YHPGG2NR9R",
+      async: true,
     },
     {
       children: `
@@ -109,10 +110,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
 
     links: [
-      {
-        rel: "canonical",
-        href: "https://www.cravent.in/",
-      },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },

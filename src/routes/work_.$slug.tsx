@@ -21,6 +21,7 @@ export const Route = createFileRoute("/work_/$slug")({
       : "Project | Cravent Portfolio";
     const description = project?.description ?? project?.focus ?? "";
     return {
+      links: [canonicalLink(`/work/${params.slug}`)],
       meta: [
         { title },
         { name: "description", content: description },

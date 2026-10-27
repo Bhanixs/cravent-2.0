@@ -9,6 +9,7 @@ const description =
 
 export const Route = createFileRoute("/industries")({
   head: () => ({
+    links: [canonicalLink("/industries")],
     meta: [
       { title },
       { name: "description", content: description },

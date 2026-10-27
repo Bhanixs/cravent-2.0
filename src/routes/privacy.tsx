@@ -7,6 +7,7 @@ const description = "How Cravent handles information shared through this website
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
+    links: [canonicalLink("/privacy")],
     meta: [
       { title },
       { name: "description", content: description },

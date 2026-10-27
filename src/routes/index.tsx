@@ -11,6 +11,7 @@ const description =
 
 export const Route = createFileRoute("/")({
   head: () => ({
+    links: [canonicalLink("/")],
     meta: [
       { title },
       { name: "description", content: description },
