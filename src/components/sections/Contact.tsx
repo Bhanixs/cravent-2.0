@@ -1,14 +1,8 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
+import { useNavigate } from "@tanstack/react-router";
 import { Btn, Reveal, Section } from "@/components/site/kit";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { industries } from "@/content/cravent";
+import { LEAD_SENT_KEY, captureAttribution, submitLead } from "@/lib/leads";
 
 const field =
   "w-full rounded-xl border border-border bg-surface/40 px-3.5 py-2.5 text-sm sm:text-xs text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary focus:bg-surface";
@@ -68,11 +62,47 @@ export function Contact() {
  * Dedicated Contact Form Section used on the /contact page.
  */
 export function ContactForm() {
-  const [sent, setSent] = useState(false);
+  const navigate = useNavigate();
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  const onSubmit = (e: FormEvent) => {
+  useEffect(() => captureAttribution(), []);
+
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
+    if (submitting) return;
+    const form = e.currentTarget;
+    const value = (id: string) =>
+      (form.elements.namedItem(id) as HTMLInputElement | HTMLSelectElement | null)?.value ?? "";
+    // Honeypot: bots fill the hidden field, people never see it. Pretend success and drop it.
+    if (value("website")) {
+      void navigate({ to: "/thank-you" });
+      return;
+    }
+    setSubmitting(true);
+    setError("");
+    try {
+      await submitLead({
+        name: value("name"),
+        company: value("company"),
+        email: value("email"),
+        phone: value("phone"),
+        industry: value("industry"),
+        focus: value("need"),
+        timeline: value("timeline"),
+        budget: value("budget"),
+        message: value("message"),
+      });
+      try {
+        sessionStorage.setItem(LEAD_SENT_KEY, "1");
+      } catch {
+        /* storage unavailable: the page still loads, the conversion just is not fired */
+      }
+      await navigate({ to: "/thank-you" });
+    } catch {
+      setError("Something went wrong sending your enquiry. Please try again, or email info@cravent.in.");
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -170,6 +200,14 @@ export function ContactForm() {
             </div>
 
             <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
+              <input
+                id="website"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute left-[-9999px] h-0 w-0 opacity-0"
+              />
               <div>
                 <label className={label} htmlFor="name">
                   Name *
@@ -290,29 +328,17 @@ export function ContactForm() {
 
             <div className="mt-5 flex flex-wrap items-center justify-between gap-4 border-t border-border/80 pt-4">
               <Btn type="submit" size="lg">
-                Submit Inquiry →
+                {submitting ? "Sending…" : "Submit Inquiry →"}
               </Btn>
+              {error && (
+                <p role="alert" className="w-full text-xs text-red-500">
+                  {error}
+                </p>
+              )}
             </div>
           </form>
         </Reveal>
       </div>
-
-      <Dialog open={sent} onOpenChange={setSent}>
-        <DialogContent className="z-[70] w-[calc(100%-2rem)] max-w-md rounded-2xl border-border bg-background/95 p-6 text-center shadow-2xl backdrop-blur-md sm:p-8">
-          <DialogHeader className="space-y-3 text-center">
-            <DialogTitle className="text-center font-display text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl">
-              Thank you for reaching out
-            </DialogTitle>
-            <DialogDescription className="text-center text-sm leading-relaxed text-muted-foreground sm:text-base">
-              We&apos;ve received your enquiry and appreciate you connecting with Cravent. Our team
-              will review the details and get back to you shortly.
-            </DialogDescription>
-          </DialogHeader>
-          <DialogClose className="mx-auto mt-2 inline-flex items-center justify-center rounded-full bg-primary px-7 py-4 font-mono text-xs uppercase tracking-[0.18em] text-primary-foreground transition-all duration-300 hover:bg-primary-bright hover:shadow-[0_0_36px_-6px_var(--primary)]">
-            Close
-          </DialogClose>
-        </DialogContent>
-      </Dialog>
     </Section>
   );
 }

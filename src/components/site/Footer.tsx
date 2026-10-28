@@ -9,6 +9,13 @@ const nav = [
   { label: "Contact", to: "/contact" },
 ];
 
+const specialisms = [
+  { label: "Branding for Startups", to: "/branding-agency-for-startups" },
+  { label: "Construction & Real Estate Branding", to: "/industries/construction-branding-agency" },
+  { label: "Fashion Branding Agency", to: "/industries/fashion-branding-agency" },
+  { label: "Hospitality Branding Agency", to: "/industries/hospitality-branding-agency" },
+];
+
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-border bg-primary">
@@ -37,6 +44,19 @@ export function Footer() {
             <p className="eyebrow text-primary-foreground">Navigate</p>
             <ul className="mt-6 space-y-3">
               {nav.map((n) => (
+                <li key={n.to}>
+                  <Link
+                    to={n.to}
+                    className="text-sm text-muted transition-colors hover:text-muted-links"
+                  >
+                    {n.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="eyebrow mt-8 text-primary-foreground">Specialisms</p>
+            <ul className="mt-4 space-y-3">
+              {specialisms.map((n) => (
                 <li key={n.to}>
                   <Link
                     to={n.to}

@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { canonicalLink } from "@/lib/seo";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal, Section } from "@/components/site/kit";
 import { insights } from "@/content/cravent";
 import { Contact } from "@/components/sections/Contact";
 
-const title = "Insights — Strategy, Marketing & Technology | Cravent";
+const title = "Branding, Marketing & Business Growth Insights | Cravent";
 const description =
   "Editorial thinking on strategy, marketing, technology, branding, business growth, and industry shifts.";
 

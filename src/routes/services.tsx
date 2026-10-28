@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { canonicalLink } from "@/lib/seo";
 import { PageHero } from "@/components/site/PageHero";
 import { Services as ServicesSection } from "@/components/sections/Services";
 import { Contact } from "@/components/sections/Contact";
 import { servicesHeading, services } from "@/content/cravent";
 
-const title = "Services — Branding, Marketing, Strategy, Technology | Cravent";
+const title = "Branding, Digital Marketing & Web Development Services | Cravent";
 const description =
-  "Four connected disciplines: branding and design, marketing and growth, business development and strategy, and technology.";
+  "Branding and design, digital marketing, website and app development, and business strategy from one Puducherry agency. Explore Cravent's services.";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -27,10 +28,10 @@ function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Services"
+        eyebrow="Branding, Digital Marketing & Web Development Services"
         tag={`[ 0${services.length} disciplines ]`}
         title={servicesHeading.title}
-        lead={servicesHeading.lead}
+        lead={`${servicesHeading.lead} Based in Puducherry, we deliver branding, digital marketing, website development and business strategy for clients across India.`}
         primaryCta={{
           label: "Explore Disciplines ↓",
           onClick: () => {

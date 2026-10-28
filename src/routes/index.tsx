@@ -1,13 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { canonicalLink } from "@/lib/seo";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import { Industries } from "@/components/sections/Industries";
 import { Contact } from "@/components/sections/Contact";
 import { Marquee } from "@/components/site/kit";
 
-const title = "Cravent | Branding, Marketing, Strategy & Technology Growth Partner";
+const title = "Branding & Digital Marketing Agency in Puducherry | Cravent";
 const description =
-  "Cravent is a growth partner combining branding, marketing, business strategy, business development, and technology for ambitious organisations.";
+  "Branding, digital marketing and website development agency in Puducherry, India. Cravent helps startups and growing businesses build brands that grow.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

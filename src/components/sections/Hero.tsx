@@ -87,7 +87,7 @@ export function Hero() {
           className="flex items-center gap-3"
         >
           <span className="h-px w-10 bg-primary" />
-          <span className="eyebrow text-[9px] sm:text-[10px]">Design. Marketing. Strategy. Technology.</span>
+          <span className="eyebrow text-[9px] sm:text-[10px]">Branding &amp; Digital Marketing Agency in Puducherry</span>
         </motion.div>
 
         <motion.h1
@@ -108,8 +108,9 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.25 }}
             className="max-w-2xl text-xs leading-relaxed text-muted-foreground sm:text-sm md:text-base"
           >
-            Cravent is a growth partner for ambitious businesses that want their brand, marketing,
-            business development, and technology to work together.
+            Cravent is a branding, digital marketing and web development agency in Puducherry, and a
+            growth partner for ambitious businesses that want their brand, marketing, business
+            development, and technology to work together.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 12 }}

@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { canonicalLink } from "@/lib/seo";
 import { ContactForm } from "@/components/sections/Contact";
 
-const title = "Contact Cravent | Start Your Growth Journey";
+const title = "Contact Cravent | Branding & Marketing Agency in Puducherry";
 const description =
-  "Tell us what you are building, where you are stuck, and what growth would look like for your business.";
+  "Contact Cravent in Puducherry for branding, digital marketing and website development. Tell us what you are building and book a free growth audit.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

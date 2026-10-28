@@ -18,6 +18,7 @@ import { Route as InsightsRouteImport } from './routes/insights'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as IndustriesConstructionBrandingAgencyRouteImport } from './routes/industries_.construction-branding-agency'
 import { Route as IndustriesFashionBrandingAgencyRouteImport } from './routes/industries_.fashion-branding-agency'
@@ -70,6 +71,11 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ThankYouRoute = ThankYouRouteImport.update({
+  id: '/thank-you',
+  path: '/thank-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
@@ -109,6 +115,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/terms': typeof TermsRoute
+  '/thank-you': typeof ThankYouRoute
   '/work': typeof WorkRoute
   '/industries/construction-branding-agency': typeof IndustriesConstructionBrandingAgencyRoute
   '/industries/fashion-branding-agency': typeof IndustriesFashionBrandingAgencyRoute
@@ -125,6 +132,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/terms': typeof TermsRoute
+  '/thank-you': typeof ThankYouRoute
   '/work': typeof WorkRoute
   '/industries/construction-branding-agency': typeof IndustriesConstructionBrandingAgencyRoute
   '/industries/fashion-branding-agency': typeof IndustriesFashionBrandingAgencyRoute
@@ -142,6 +150,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/terms': typeof TermsRoute
+  '/thank-you': typeof ThankYouRoute
   '/work': typeof WorkRoute
   '/industries_/construction-branding-agency': typeof IndustriesConstructionBrandingAgencyRoute
   '/industries_/fashion-branding-agency': typeof IndustriesFashionBrandingAgencyRoute
@@ -160,6 +169,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/services'
     | '/terms'
+    | '/thank-you'
     | '/work'
     | '/industries/construction-branding-agency'
     | '/industries/fashion-branding-agency'
@@ -176,6 +186,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/services'
     | '/terms'
+    | '/thank-you'
     | '/work'
     | '/industries/construction-branding-agency'
     | '/industries/fashion-branding-agency'
@@ -192,6 +203,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/services'
     | '/terms'
+    | '/thank-you'
     | '/work'
     | '/industries_/construction-branding-agency'
     | '/industries_/fashion-branding-agency'
@@ -209,6 +221,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ServicesRoute: typeof ServicesRoute
   TermsRoute: typeof TermsRoute
+  ThankYouRoute: typeof ThankYouRoute
   WorkRoute: typeof WorkRoute
   IndustriesConstructionBrandingAgencyRoute: typeof IndustriesConstructionBrandingAgencyRoute
   IndustriesFashionBrandingAgencyRoute: typeof IndustriesFashionBrandingAgencyRoute
@@ -281,6 +294,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/thank-you': {
+      id: '/thank-you'
+      path: '/thank-you'
+      fullPath: '/thank-you'
+      preLoaderRoute: typeof ThankYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/work': {
       id: '/work'
       path: '/work'
@@ -329,6 +349,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ServicesRoute: ServicesRoute,
   TermsRoute: TermsRoute,
+  ThankYouRoute: ThankYouRoute,
   WorkRoute: WorkRoute,
   IndustriesConstructionBrandingAgencyRoute:
     IndustriesConstructionBrandingAgencyRoute,

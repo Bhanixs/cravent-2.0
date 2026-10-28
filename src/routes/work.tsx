@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { canonicalLink } from "@/lib/seo";
 import { PageHero } from "@/components/site/PageHero";
 import { Work as WorkSection } from "@/components/sections/Work";
 import { Contact } from "@/components/sections/Contact";
 import { work } from "@/content/cravent";
 
-const title = "Cravent Portfolios | Branding, Marketing, Strategy & Technology";
+const title = "Branding & Website Portfolio | Cravent, Puducherry";
 const description =
-  "Explore verified branding identities, growth marketing engines, commercial business development strategies, and engineered technology platforms across diverse global industries.";
+  "Branding, digital marketing and website projects by Cravent, a Puducherry agency: brand identities, growth campaigns and web platforms for businesses across India.";
 
 export const Route = createFileRoute("/work")({
   head: () => ({
@@ -27,7 +28,7 @@ function WorkPage() {
   return (
     <>
       <PageHero
-        eyebrow="Selected Portfolio"
+        eyebrow="Branding & Website Portfolio"
         tag={`[ ${work.length} project showcases ]`}
         title="Work that connects ideas to outcomes."
         lead="Brand systems, performance marketing engines, business development strategies, and robust digital platforms built for organisations leading their markets."

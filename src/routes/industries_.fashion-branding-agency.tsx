@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { canonicalLink } from "@/lib/seo";
 import {
   Accordion,
   AccordionContent,

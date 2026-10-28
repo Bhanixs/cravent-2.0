@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { canonicalLink } from "@/lib/seo";
 import { PageHero } from "@/components/site/PageHero";
 import { Industries as IndustriesSection } from "@/components/sections/Industries";
 import { Contact } from "@/components/sections/Contact";
 
-const title = "Industries — Sectors Cravent Builds In";
+const title = "Industries We Serve | Branding & Marketing Agency | Cravent";
 const description =
-  "Construction and real estate, fashion, hospitality, education, sustainability and wellness, technology, and community initiatives.";
+  "Branding and marketing for construction and real estate, fashion, hospitality, education, sustainability and wellness businesses, from Puducherry, India.";
 
 export const Route = createFileRoute("/industries")({
   head: () => ({

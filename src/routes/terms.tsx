@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { canonicalLink } from "@/lib/seo";
 import { PageHero } from "@/components/site/PageHero";
 import { Section } from "@/components/site/kit";
 

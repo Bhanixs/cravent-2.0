@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { canonicalLink } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { work } from "@/content/cravent";
 import { Section, Reveal } from "@/components/site/kit";

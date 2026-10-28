@@ -11,7 +11,7 @@ export const services = [
   {
     num: "01",
     title: "Branding & Design",
-    body: "We create brands that are clear, memorable, consistent, and built for the market they want to lead.",
+    body: "We create brand identities, logos and visual systems that are clear, memorable, consistent, and built for the market they want to lead.",
     points: [
       "Brand strategy",
       "Brand identity",
@@ -26,7 +26,7 @@ export const services = [
   {
     num: "02",
     title: "Marketing & Growth",
-    body: "We help brands attract attention, generate demand, and build meaningful customer relationships.",
+    body: "Digital marketing, SEO and performance campaigns that help brands attract attention, generate demand, and build meaningful customer relationships.",
     points: [
       "Digital marketing",
       "Social media management",
@@ -43,7 +43,7 @@ export const services = [
   {
     num: "03",
     title: "Business Development & Strategy",
-    body: "We turn ideas and opportunities into practical business plans, partnerships, and growth systems.",
+    body: "Business strategy and development that turns ideas and opportunities into practical business plans, partnerships, and growth systems.",
     points: [
       "Business development",
       "Market research",
@@ -60,7 +60,7 @@ export const services = [
   {
     num: "04",
     title: "Technology Solutions",
-    body: "We build the digital infrastructure that helps businesses operate, sell, and scale.",
+    body: "We build websites, web applications and e-commerce platforms that help businesses operate, sell, and scale.",
     points: [
       "Websites and landing pages",
       "E-commerce platforms",

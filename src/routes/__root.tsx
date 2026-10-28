@@ -16,6 +16,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { organizationJsonLd } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -79,6 +80,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   scripts: () => [
+    {
+      type: "application/ld+json",
+      children: JSON.stringify(organizationJsonLd),
+    },
     {
       src: "https://www.googletagmanager.com/gtag/js?id=G-YHPGG2NR9R",
       async: true,
