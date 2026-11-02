@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 import { canonicalLink } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { work } from "@/content/cravent";
@@ -8,15 +8,69 @@ import { Contact } from "@/components/sections/Contact";
 const PortfolioPdfViewer = lazy(() =>
   import("@/components/sections/PortfolioPdfViewer").then((m) => ({
     default: m.PortfolioPdfViewer,
-  }))
+  })),
 );
+
+function PortfolioPreview({ pdfUrl, projectName }: { pdfUrl: string; projectName: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  if (isOpen) {
+    return (
+      <Suspense
+        fallback={
+          <div className="flex flex-col items-center justify-center py-24 gap-4 w-full">
+            <div className="h-10 w-10 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              Preparing interactive portfolio...
+            </p>
+          </div>
+        }
+      >
+        <PortfolioPdfViewer pdfUrl={pdfUrl} projectName={projectName} />
+      </Suspense>
+    );
+  }
+
+  return (
+    <div className="flex min-h-72 flex-col items-center justify-center rounded-2xl border border-border bg-background/70 px-6 py-16 text-center shadow-xl">
+      <span className="eyebrow">Interactive Portfolio</span>
+      <h2 className="mt-3 max-w-xl text-2xl font-bold uppercase sm:text-3xl">
+        View the full project document
+      </h2>
+      <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
+        Open the interactive portfolio when you are ready. This keeps the project page fast while
+        preserving the full in-browser document experience.
+      </p>
+      <div className="mt-7 flex flex-wrap justify-center gap-3">
+        <button
+          type="button"
+          onClick={() => setIsOpen(true)}
+          className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-primary-foreground transition-colors hover:bg-primary-bright"
+        >
+          Open Interactive PDF
+        </button>
+        <a
+          href={pdfUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          download
+          className="inline-flex items-center justify-center rounded-full border border-border px-6 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground transition-colors hover:border-primary hover:text-primary-bright"
+        >
+          Download PDF
+        </a>
+      </div>
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/work_/$slug")({
   head: ({ params }) => {
     const cleanSlug = params.slug.replace(/-bizdev/, "-business-dev");
     const project =
       work.find((p) => p.slug === cleanSlug) ||
-      work.find((p) => p.slug.startsWith(cleanSlug.replace(/-branding|-tech|-business-dev|-marketing/, "")));
+      work.find((p) =>
+        p.slug.startsWith(cleanSlug.replace(/-branding|-tech|-business-dev|-marketing/, "")),
+      );
     const title = project
       ? `${project.name} (${project.domain}) | Cravent Portfolio`
       : "Project | Cravent Portfolio";
@@ -41,7 +95,9 @@ function ProjectDetailPage() {
   const cleanSlug = slug.replace(/-bizdev/, "-business-dev");
   const project =
     work.find((p) => p.slug === cleanSlug) ||
-    work.find((p) => p.slug.startsWith(cleanSlug.replace(/-branding|-tech|-business-dev|-marketing/, "")));
+    work.find((p) =>
+      p.slug.startsWith(cleanSlug.replace(/-branding|-tech|-business-dev|-marketing/, "")),
+    );
 
   if (!project) {
     return (
@@ -64,7 +120,7 @@ function ProjectDetailPage() {
 
   const projectIndex = work.indexOf(project);
   const otherDomainVersions = work.filter(
-    (p) => p.name.toLowerCase() === project.name.toLowerCase() && p.slug !== project.slug
+    (p) => p.name.toLowerCase() === project.name.toLowerCase() && p.slug !== project.slug,
   );
 
   return (
@@ -221,7 +277,8 @@ function ProjectDetailPage() {
                       Multi-Discipline Project
                     </p>
                     <p className="mt-1 text-sm text-foreground">
-                      Cravent also orchestrated solutions across other disciplines for {project.name}.
+                      Cravent also orchestrated solutions across other disciplines for{" "}
+                      {project.name}.
                     </p>
                     <div className="mt-3 flex flex-wrap gap-3">
                       {otherDomainVersions.map((other) => (
@@ -273,21 +330,10 @@ function ProjectDetailPage() {
             </Reveal>
           </div>
           <div className="mx-auto w-full max-w-[1400px] px-2 sm:px-4 md:px-8 lg:px-12">
-            <Suspense
-              fallback={
-                <div className="flex flex-col items-center justify-center py-24 gap-4 w-full">
-                  <div className="h-10 w-10 animate-spin rounded-full border-2 border-primary border-t-transparent" />
-                  <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                    Loading portfolio showcase...
-                  </p>
-                </div>
-              }
-            >
-              <PortfolioPdfViewer
-                pdfUrl={encodeURI(project.pdf)}
-                projectName={`${project.name} (${project.domain})`}
-              />
-            </Suspense>
+            <PortfolioPreview
+              pdfUrl={encodeURI(project.pdf)}
+              projectName={`${project.name} (${project.domain})`}
+            />
           </div>
         </section>
       ) : (
@@ -299,7 +345,8 @@ function ProjectDetailPage() {
                 Ready to build a similar {project.domain.toLowerCase()} system?
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-                Discover how Cravent architects bespoke {project.domain.toLowerCase()} strategies tailored to your exact industry and operational velocity.
+                Discover how Cravent architects bespoke {project.domain.toLowerCase()} strategies
+                tailored to your exact industry and operational velocity.
               </p>
               <div className="mt-8 flex justify-center gap-4">
                 <Link
