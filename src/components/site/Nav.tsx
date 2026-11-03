@@ -45,8 +45,10 @@ export function Nav() {
         <div className="mx-auto flex w-full max-w-[1400px] items-center justify-between px-6 md:px-10 text-white">
           <Link to="/" className="group flex items-center" onClick={() => setOpen(false)}>
             <img
-              src="/cravent-logo-2.png"
+              src="/cravent-logo-2-312w.png"
               alt="Cravent"
+              width={312}
+              height={80}
               className="h-7 sm:h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
             />
           </Link>
@@ -67,7 +69,11 @@ export function Nav() {
 
           <div className="flex items-center gap-3">
             <div className="hidden md:block">
-              <Btn to="/contact" size="md" className="bg-white text-primary hover:bg-muted hover:shadow-[0_0_18px_-6px_var(--muted-foreground)]">
+              <Btn
+                to="/contact"
+                size="md"
+                className="bg-white text-primary hover:bg-muted hover:shadow-[0_0_18px_-6px_var(--muted-foreground)]"
+              >
                 Book a Growth Audit
               </Btn>
             </div>

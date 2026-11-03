@@ -20,15 +20,27 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-border bg-primary">
       <div className="pointer-events-none absolute -right-16 -top-12 w-80 md:w-96 opacity-10">
-        <img src="/cravent-logo.png" alt="" className="w-full h-auto object-contain" />
+        <img
+          src="/cravent-logo.png"
+          alt=""
+          width={864}
+          height={289}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-auto object-contain"
+        />
       </div>
       <div className="mx-auto w-full max-w-[1400px] px-6 py-20 md:px-10">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <Link to="/" className="inline-block">
               <img
-                src="/cravent-logo-2.png"
+                src="/cravent-logo-2-312w.png"
                 alt="Cravent"
+                width={312}
+                height={80}
+                loading="lazy"
+                decoding="async"
                 className="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 hover:scale-[1.03]"
               />
             </Link>

@@ -78,15 +78,50 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+function GoogleAnalyticsLoader() {
+  useEffect(() => {
+    let idleCallback: number | undefined;
+    let timeout: number | undefined;
+
+    const load = () => {
+      if (document.querySelector('script[data-cravent-analytics="ga"]')) return;
+
+      const script = document.createElement("script");
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-YHPGG2NR9R";
+      script.async = true;
+      script.dataset.craventAnalytics = "ga";
+      document.head.append(script);
+    };
+
+    const schedule = () => {
+      if ("requestIdleCallback" in window) {
+        idleCallback = window.requestIdleCallback(load, { timeout: 5000 });
+      } else {
+        timeout = window.setTimeout(load, 0);
+      }
+    };
+
+    if (document.readyState === "complete") {
+      schedule();
+    } else {
+      window.addEventListener("load", schedule, { once: true });
+    }
+
+    return () => {
+      window.removeEventListener("load", schedule);
+      if (idleCallback !== undefined) window.cancelIdleCallback(idleCallback);
+      if (timeout !== undefined) window.clearTimeout(timeout);
+    };
+  }, []);
+
+  return null;
+}
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   scripts: () => [
     {
       type: "application/ld+json",
       children: JSON.stringify(organizationJsonLd),
-    },
-    {
-      src: "https://www.googletagmanager.com/gtag/js?id=G-YHPGG2NR9R",
-      async: true,
     },
     {
       children: `
@@ -155,6 +190,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <GoogleAnalyticsLoader />
       <Nav />
       {/* Dynamic top progress pulse on page transitions */}
       <motion.div

@@ -3,6 +3,8 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Btn } from "@/components/site/kit";
 const HeroObject = lazy(() => import("./HeroObject").then((m) => ({ default: m.HeroObject })));
 import heroImg from "@/assets/hero-structure.jpg";
+import heroImg832 from "@/assets/hero-structure-832w.jpg";
+import heroImg1152 from "@/assets/hero-structure-1152w.jpg";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -12,11 +14,37 @@ export function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], [0, 160]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  // Defer the three.js bundle until the main thread is idle, and skip it on small screens.
+  // Keep WebGL out of the critical rendering path. Enable it only after a
+  // meaningful desktop interaction, while preserving the static hero fallback.
   useEffect(() => {
-    if (window.matchMedia("(max-width: 767px)").matches) return;
-    const id = window.setTimeout(() => setShow3D(true), 1200);
-    return () => clearTimeout(id);
+    if (
+      window.matchMedia("(max-width: 767px), (hover: none), (pointer: coarse)").matches ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      navigator.connection?.saveData
+    ) {
+      return;
+    }
+
+    let activated = false;
+    const removeListeners = () => {
+      window.removeEventListener("pointerdown", activate);
+      window.removeEventListener("wheel", activate);
+      window.removeEventListener("keydown", activate);
+    };
+    const activate = () => {
+      if (activated) return;
+      activated = true;
+      removeListeners();
+      setShow3D(true);
+    };
+
+    window.addEventListener("pointerdown", activate, { passive: true, once: true });
+    window.addEventListener("wheel", activate, { passive: true, once: true });
+    window.addEventListener("keydown", activate, { once: true });
+
+    return () => {
+      removeListeners();
+    };
   }, []);
 
   // Pointer parallax is written straight to the DOM (no re-render per mousemove), desktop only.
@@ -47,6 +75,8 @@ export function Hero() {
           fetchPriority="high"
           decoding="async"
           src={heroImg}
+          srcSet={`${heroImg832} 832w, ${heroImg1152} 1152w, ${heroImg} 1600w`}
+          sizes="108vw"
           alt="Futuristic architectural structure with an electric blue X motif"
           width={1600}
           height={1200}
@@ -87,7 +117,9 @@ export function Hero() {
           className="flex items-center gap-3"
         >
           <span className="h-px w-10 bg-primary" />
-          <span className="eyebrow text-[9px] sm:text-[10px]">Branding &amp; Digital Marketing Agency in Puducherry</span>
+          <span className="eyebrow text-[9px] sm:text-[10px]">
+            Branding &amp; Digital Marketing Agency in Puducherry
+          </span>
         </motion.div>
 
         <motion.h1

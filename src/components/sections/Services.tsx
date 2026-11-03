@@ -5,11 +5,21 @@ import { Btn, Reveal, Section, SectionHeading } from "@/components/site/kit";
 import { services, servicesHeading, servicesPositioningStatement } from "@/content/cravent";
 import { cn } from "@/lib/utils";
 import imgBranding from "@/assets/showcase/service-branding.jpg";
+import imgBranding832 from "@/assets/showcase/service-branding-832w.jpg";
 import imgMarketing from "@/assets/showcase/service-marketing.jpg";
 import imgStrategy from "@/assets/showcase/service-strategy.jpg";
 import imgTech from "@/assets/showcase/service-technology.jpg";
 
-const serviceImages = [imgBranding, imgMarketing, imgStrategy, imgTech];
+const serviceImages = [
+  {
+    src: imgBranding,
+    srcSet: `${imgBranding832} 832w, ${imgBranding} 1376w`,
+    sizes: "(max-width: 1023px) calc(100vw - 2rem), 58.333vw",
+  },
+  { src: imgMarketing },
+  { src: imgStrategy },
+  { src: imgTech },
+];
 
 export function Services({
   compact = false,
@@ -45,7 +55,7 @@ export function Services({
   };
 
   const current = (services[active] ?? services[0])!;
-  const currentImg = (serviceImages[active] ?? serviceImages[0])!;
+  const currentImage = (serviceImages[active] ?? serviceImages[0])!;
 
   if (compact) {
     const cardCount = services.length;
@@ -68,7 +78,9 @@ export function Services({
                 <Reveal>
                   <div className="flex items-center gap-3">
                     <span className="h-px w-8 bg-primary" />
-                    <span className="eyebrow">{isPage ? "Discipline Navigator" : servicesHeading.eyebrow}</span>
+                    <span className="eyebrow">
+                      {isPage ? "Discipline Navigator" : servicesHeading.eyebrow}
+                    </span>
                     <span className="font-mono text-[10px] text-muted-foreground">
                       [ 04 disciplines ]
                     </span>
@@ -207,8 +219,12 @@ export function Services({
                     {/* Left/Top: Image with gradient blend */}
                     <div className="relative lg:col-span-7 h-48 sm:h-64 lg:h-full w-full overflow-hidden bg-black shrink-0">
                       <img
-                        src={currentImg}
+                        src={currentImage.src}
+                        srcSet={currentImage.srcSet}
+                        sizes={currentImage.sizes}
                         alt={current.title}
+                        width={1376}
+                        height={768}
                         className="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-105"
                         loading="lazy"
                         decoding="async"
