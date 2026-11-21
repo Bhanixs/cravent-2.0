@@ -8,7 +8,7 @@ export const canonicalLink = (path: string) => ({
 /** Organization + local business data shown to search engines on every page. */
 export const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": ["ProfessionalService", "LocalBusiness"],
   name: "Cravent",
   description:
     "Branding, digital marketing, website development and business strategy agency in Puducherry, India.",
@@ -20,9 +20,18 @@ export const organizationJsonLd = {
   address: {
     "@type": "PostalAddress",
     addressLocality: "Puducherry",
+    addressRegion: "Pondicherry",
     addressCountry: "IN",
   },
-  areaServed: { "@type": "Country", name: "India" },
+  areaServed: [
+    { "@type": "City", name: "Pondicherry" },
+    { "@type": "Country", name: "India" },
+    { "@type": "Country", name: "United Kingdom" },
+    { "@type": "Country", name: "United Arab Emirates" },
+    { "@type": "Country", name: "United States" },
+    { "@type": "Country", name: "Australia" },
+    { "@type": "Country", name: "Singapore" },
+  ],
   serviceType: [
     "Branding and design",
     "Digital marketing",

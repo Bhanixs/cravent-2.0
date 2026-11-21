@@ -15,10 +15,18 @@ import { Route as BrandingAgencyForStartupsRouteImport } from './routes/branding
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as MarketingAgencyConstructionArchitectureRouteImport } from './routes/marketing-agency-construction-architecture'
+import { Route as MarketingAgencyFashionRouteImport } from './routes/marketing-agency-fashion'
+import { Route as MarketingAgencyHospitalityRouteImport } from './routes/marketing-agency-hospitality'
+import { Route as MarketingAgencyStartupsRouteImport } from './routes/marketing-agency-startups'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ThankYouRouteImport } from './routes/thank-you'
+import { Route as WebAppDevelopmentConstructionArchitectureRouteImport } from './routes/web-app-development-construction-architecture'
+import { Route as WebAppDevelopmentFashionRouteImport } from './routes/web-app-development-fashion'
+import { Route as WebAppDevelopmentHospitalityRouteImport } from './routes/web-app-development-hospitality'
+import { Route as WebAppDevelopmentStartupsRouteImport } from './routes/web-app-development-startups'
 import { Route as WorkRouteImport } from './routes/work'
 import { Route as IndustriesConstructionBrandingAgencyRouteImport } from './routes/industries_.construction-branding-agency'
 import { Route as IndustriesFashionBrandingAgencyRouteImport } from './routes/industries_.fashion-branding-agency'
@@ -56,6 +64,28 @@ const InsightsRoute = InsightsRouteImport.update({
   path: '/insights',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MarketingAgencyConstructionArchitectureRoute =
+  MarketingAgencyConstructionArchitectureRouteImport.update({
+    id: '/marketing-agency-construction-architecture',
+    path: '/marketing-agency-construction-architecture',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MarketingAgencyFashionRoute = MarketingAgencyFashionRouteImport.update({
+  id: '/marketing-agency-fashion',
+  path: '/marketing-agency-fashion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingAgencyHospitalityRoute =
+  MarketingAgencyHospitalityRouteImport.update({
+    id: '/marketing-agency-hospitality',
+    path: '/marketing-agency-hospitality',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const MarketingAgencyStartupsRoute = MarketingAgencyStartupsRouteImport.update({
+  id: '/marketing-agency-startups',
+  path: '/marketing-agency-startups',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
@@ -76,6 +106,30 @@ const ThankYouRoute = ThankYouRouteImport.update({
   path: '/thank-you',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WebAppDevelopmentConstructionArchitectureRoute =
+  WebAppDevelopmentConstructionArchitectureRouteImport.update({
+    id: '/web-app-development-construction-architecture',
+    path: '/web-app-development-construction-architecture',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const WebAppDevelopmentFashionRoute =
+  WebAppDevelopmentFashionRouteImport.update({
+    id: '/web-app-development-fashion',
+    path: '/web-app-development-fashion',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const WebAppDevelopmentHospitalityRoute =
+  WebAppDevelopmentHospitalityRouteImport.update({
+    id: '/web-app-development-hospitality',
+    path: '/web-app-development-hospitality',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const WebAppDevelopmentStartupsRoute =
+  WebAppDevelopmentStartupsRouteImport.update({
+    id: '/web-app-development-startups',
+    path: '/web-app-development-startups',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
@@ -112,10 +166,18 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/insights': typeof InsightsRoute
+  '/marketing-agency-construction-architecture': typeof MarketingAgencyConstructionArchitectureRoute
+  '/marketing-agency-fashion': typeof MarketingAgencyFashionRoute
+  '/marketing-agency-hospitality': typeof MarketingAgencyHospitalityRoute
+  '/marketing-agency-startups': typeof MarketingAgencyStartupsRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/terms': typeof TermsRoute
   '/thank-you': typeof ThankYouRoute
+  '/web-app-development-construction-architecture': typeof WebAppDevelopmentConstructionArchitectureRoute
+  '/web-app-development-fashion': typeof WebAppDevelopmentFashionRoute
+  '/web-app-development-hospitality': typeof WebAppDevelopmentHospitalityRoute
+  '/web-app-development-startups': typeof WebAppDevelopmentStartupsRoute
   '/work': typeof WorkRoute
   '/industries/construction-branding-agency': typeof IndustriesConstructionBrandingAgencyRoute
   '/industries/fashion-branding-agency': typeof IndustriesFashionBrandingAgencyRoute
@@ -129,10 +191,18 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/insights': typeof InsightsRoute
+  '/marketing-agency-construction-architecture': typeof MarketingAgencyConstructionArchitectureRoute
+  '/marketing-agency-fashion': typeof MarketingAgencyFashionRoute
+  '/marketing-agency-hospitality': typeof MarketingAgencyHospitalityRoute
+  '/marketing-agency-startups': typeof MarketingAgencyStartupsRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/terms': typeof TermsRoute
   '/thank-you': typeof ThankYouRoute
+  '/web-app-development-construction-architecture': typeof WebAppDevelopmentConstructionArchitectureRoute
+  '/web-app-development-fashion': typeof WebAppDevelopmentFashionRoute
+  '/web-app-development-hospitality': typeof WebAppDevelopmentHospitalityRoute
+  '/web-app-development-startups': typeof WebAppDevelopmentStartupsRoute
   '/work': typeof WorkRoute
   '/industries/construction-branding-agency': typeof IndustriesConstructionBrandingAgencyRoute
   '/industries/fashion-branding-agency': typeof IndustriesFashionBrandingAgencyRoute
@@ -147,10 +217,18 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/industries': typeof IndustriesRoute
   '/insights': typeof InsightsRoute
+  '/marketing-agency-construction-architecture': typeof MarketingAgencyConstructionArchitectureRoute
+  '/marketing-agency-fashion': typeof MarketingAgencyFashionRoute
+  '/marketing-agency-hospitality': typeof MarketingAgencyHospitalityRoute
+  '/marketing-agency-startups': typeof MarketingAgencyStartupsRoute
   '/privacy': typeof PrivacyRoute
   '/services': typeof ServicesRoute
   '/terms': typeof TermsRoute
   '/thank-you': typeof ThankYouRoute
+  '/web-app-development-construction-architecture': typeof WebAppDevelopmentConstructionArchitectureRoute
+  '/web-app-development-fashion': typeof WebAppDevelopmentFashionRoute
+  '/web-app-development-hospitality': typeof WebAppDevelopmentHospitalityRoute
+  '/web-app-development-startups': typeof WebAppDevelopmentStartupsRoute
   '/work': typeof WorkRoute
   '/industries_/construction-branding-agency': typeof IndustriesConstructionBrandingAgencyRoute
   '/industries_/fashion-branding-agency': typeof IndustriesFashionBrandingAgencyRoute
@@ -166,10 +244,18 @@ export interface FileRouteTypes {
     | '/contact'
     | '/industries'
     | '/insights'
+    | '/marketing-agency-construction-architecture'
+    | '/marketing-agency-fashion'
+    | '/marketing-agency-hospitality'
+    | '/marketing-agency-startups'
     | '/privacy'
     | '/services'
     | '/terms'
     | '/thank-you'
+    | '/web-app-development-construction-architecture'
+    | '/web-app-development-fashion'
+    | '/web-app-development-hospitality'
+    | '/web-app-development-startups'
     | '/work'
     | '/industries/construction-branding-agency'
     | '/industries/fashion-branding-agency'
@@ -183,10 +269,18 @@ export interface FileRouteTypes {
     | '/contact'
     | '/industries'
     | '/insights'
+    | '/marketing-agency-construction-architecture'
+    | '/marketing-agency-fashion'
+    | '/marketing-agency-hospitality'
+    | '/marketing-agency-startups'
     | '/privacy'
     | '/services'
     | '/terms'
     | '/thank-you'
+    | '/web-app-development-construction-architecture'
+    | '/web-app-development-fashion'
+    | '/web-app-development-hospitality'
+    | '/web-app-development-startups'
     | '/work'
     | '/industries/construction-branding-agency'
     | '/industries/fashion-branding-agency'
@@ -200,10 +294,18 @@ export interface FileRouteTypes {
     | '/contact'
     | '/industries'
     | '/insights'
+    | '/marketing-agency-construction-architecture'
+    | '/marketing-agency-fashion'
+    | '/marketing-agency-hospitality'
+    | '/marketing-agency-startups'
     | '/privacy'
     | '/services'
     | '/terms'
     | '/thank-you'
+    | '/web-app-development-construction-architecture'
+    | '/web-app-development-fashion'
+    | '/web-app-development-hospitality'
+    | '/web-app-development-startups'
     | '/work'
     | '/industries_/construction-branding-agency'
     | '/industries_/fashion-branding-agency'
@@ -218,10 +320,18 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   IndustriesRoute: typeof IndustriesRoute
   InsightsRoute: typeof InsightsRoute
+  MarketingAgencyConstructionArchitectureRoute: typeof MarketingAgencyConstructionArchitectureRoute
+  MarketingAgencyFashionRoute: typeof MarketingAgencyFashionRoute
+  MarketingAgencyHospitalityRoute: typeof MarketingAgencyHospitalityRoute
+  MarketingAgencyStartupsRoute: typeof MarketingAgencyStartupsRoute
   PrivacyRoute: typeof PrivacyRoute
   ServicesRoute: typeof ServicesRoute
   TermsRoute: typeof TermsRoute
   ThankYouRoute: typeof ThankYouRoute
+  WebAppDevelopmentConstructionArchitectureRoute: typeof WebAppDevelopmentConstructionArchitectureRoute
+  WebAppDevelopmentFashionRoute: typeof WebAppDevelopmentFashionRoute
+  WebAppDevelopmentHospitalityRoute: typeof WebAppDevelopmentHospitalityRoute
+  WebAppDevelopmentStartupsRoute: typeof WebAppDevelopmentStartupsRoute
   WorkRoute: typeof WorkRoute
   IndustriesConstructionBrandingAgencyRoute: typeof IndustriesConstructionBrandingAgencyRoute
   IndustriesFashionBrandingAgencyRoute: typeof IndustriesFashionBrandingAgencyRoute
@@ -273,6 +383,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/marketing-agency-construction-architecture': {
+      id: '/marketing-agency-construction-architecture'
+      path: '/marketing-agency-construction-architecture'
+      fullPath: '/marketing-agency-construction-architecture'
+      preLoaderRoute: typeof MarketingAgencyConstructionArchitectureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing-agency-fashion': {
+      id: '/marketing-agency-fashion'
+      path: '/marketing-agency-fashion'
+      fullPath: '/marketing-agency-fashion'
+      preLoaderRoute: typeof MarketingAgencyFashionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing-agency-hospitality': {
+      id: '/marketing-agency-hospitality'
+      path: '/marketing-agency-hospitality'
+      fullPath: '/marketing-agency-hospitality'
+      preLoaderRoute: typeof MarketingAgencyHospitalityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing-agency-startups': {
+      id: '/marketing-agency-startups'
+      path: '/marketing-agency-startups'
+      fullPath: '/marketing-agency-startups'
+      preLoaderRoute: typeof MarketingAgencyStartupsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacy': {
       id: '/privacy'
       path: '/privacy'
@@ -299,6 +437,34 @@ declare module '@tanstack/react-router' {
       path: '/thank-you'
       fullPath: '/thank-you'
       preLoaderRoute: typeof ThankYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/web-app-development-construction-architecture': {
+      id: '/web-app-development-construction-architecture'
+      path: '/web-app-development-construction-architecture'
+      fullPath: '/web-app-development-construction-architecture'
+      preLoaderRoute: typeof WebAppDevelopmentConstructionArchitectureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/web-app-development-fashion': {
+      id: '/web-app-development-fashion'
+      path: '/web-app-development-fashion'
+      fullPath: '/web-app-development-fashion'
+      preLoaderRoute: typeof WebAppDevelopmentFashionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/web-app-development-hospitality': {
+      id: '/web-app-development-hospitality'
+      path: '/web-app-development-hospitality'
+      fullPath: '/web-app-development-hospitality'
+      preLoaderRoute: typeof WebAppDevelopmentHospitalityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/web-app-development-startups': {
+      id: '/web-app-development-startups'
+      path: '/web-app-development-startups'
+      fullPath: '/web-app-development-startups'
+      preLoaderRoute: typeof WebAppDevelopmentStartupsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/work': {
@@ -346,10 +512,20 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   IndustriesRoute: IndustriesRoute,
   InsightsRoute: InsightsRoute,
+  MarketingAgencyConstructionArchitectureRoute:
+    MarketingAgencyConstructionArchitectureRoute,
+  MarketingAgencyFashionRoute: MarketingAgencyFashionRoute,
+  MarketingAgencyHospitalityRoute: MarketingAgencyHospitalityRoute,
+  MarketingAgencyStartupsRoute: MarketingAgencyStartupsRoute,
   PrivacyRoute: PrivacyRoute,
   ServicesRoute: ServicesRoute,
   TermsRoute: TermsRoute,
   ThankYouRoute: ThankYouRoute,
+  WebAppDevelopmentConstructionArchitectureRoute:
+    WebAppDevelopmentConstructionArchitectureRoute,
+  WebAppDevelopmentFashionRoute: WebAppDevelopmentFashionRoute,
+  WebAppDevelopmentHospitalityRoute: WebAppDevelopmentHospitalityRoute,
+  WebAppDevelopmentStartupsRoute: WebAppDevelopmentStartupsRoute,
   WorkRoute: WorkRoute,
   IndustriesConstructionBrandingAgencyRoute:
     IndustriesConstructionBrandingAgencyRoute,

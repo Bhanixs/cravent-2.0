@@ -14,6 +14,14 @@ const specialisms = [
   { label: "Construction & Real Estate Branding", to: "/industries/construction-branding-agency" },
   { label: "Fashion Branding Agency", to: "/industries/fashion-branding-agency" },
   { label: "Hospitality Branding Agency", to: "/industries/hospitality-branding-agency" },
+  { label: "Hospitality Web & App Dev", to: "/web-app-development-hospitality" },
+  { label: "Startup Web & App Dev", to: "/web-app-development-startups" },
+  { label: "Construction Web & App Dev", to: "/web-app-development-construction-architecture" },
+  { label: "Fashion Ecommerce & App Dev", to: "/web-app-development-fashion" },
+  { label: "Hospitality Marketing Agency", to: "/marketing-agency-hospitality" },
+  { label: "Startup Marketing Agency", to: "/marketing-agency-startups" },
+  { label: "Construction Marketing Agency", to: "/marketing-agency-construction-architecture" },
+  { label: "Fashion Marketing Agency", to: "/marketing-agency-fashion" },
 ];
 
 export function Footer() {
